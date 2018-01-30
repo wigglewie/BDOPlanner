@@ -10,7 +10,10 @@
     <color name="colorTitlesLine">#56402c</color>
     <color name="colorBackground">#1b2337</color>
     <color name="colorMenuBackground">#1e273d</color>
-    <color name="colorText">#ffffff</color>
+    <color name="colorText">#ffffff</color>\
+
+    <color name="colorBackgroundItemChoose">#1b2337</color>
+    <color name="colorBackgroundItem">#131826</color>
 
     <color name="colorOutline">#c7c7c7</color>
     <color name="colorEpic">#f6c232</color>
