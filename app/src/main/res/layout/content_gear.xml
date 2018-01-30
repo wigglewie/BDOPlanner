@@ -1,0 +1,627 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorBackground"
+    android:orientation="vertical"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:id="@+id/gear_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/view_class_icon"
+                android:layout_width="match_parent"
+                android:layout_height="400dp"
+                android:layout_centerHorizontal="true"
+                android:alpha=".3"
+                android:padding="60dp"
+                android:src="@drawable/sorceress_class_icon" />
+
+            <RelativeLayout
+                android:id="@+id/relativeLayout"
+                android:layout_width="match_parent"
+                android:layout_height="400dp"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp">
+
+                <ImageView
+                    android:id="@+id/view_outfit"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:layout_above="@id/view_alchemy_stone"
+                    android:layout_marginBottom="30dp"
+                    android:layout_toRightOf="@id/view_main_weapon"
+                    android:background="@drawable/outline_default"
+                    android:scaleType="center"
+                    android:src="@drawable/outfit_costume_placeholder" />
+
+                <ImageView
+                    android:id="@+id/view_alchemy_stone"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:layout_alignBottom="@+id/view_shoes"
+                    android:layout_marginBottom="30dp"
+                    android:layout_toRightOf="@+id/view_main_weapon"
+                    android:background="@drawable/outline_default"
+                    android:scaleType="center"
+                    android:src="@drawable/alchemy_stone_placeholder" />
+
+                <ImageView
+                    android:id="@+id/view_costume_secondary"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:layout_below="@+id/view_ring2"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_toLeftOf="@+id/view_gloves"
+                    android:layout_toStartOf="@+id/view_gloves"
+                    android:background="@drawable/outline_default"
+                    android:scaleType="center"
+                    android:src="@drawable/outfit_secondary_weapon_placeholder" />
+
+                <ImageView
+                    android:id="@+id/view_costume_underwear"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:layout_below="@+id/view_costume_secondary"
+                    android:layout_marginRight="25dp"
+                    android:layout_marginTop="7dp"
+                    android:layout_toLeftOf="@+id/view_necklace"
+                    android:layout_toStartOf="@id/view_necklace"
+                    android:background="@drawable/outline_default"
+                    android:scaleType="center"
+                    android:src="@drawable/outfit_underwear_placeholder" />
+
+                <ImageView
+                    android:id="@+id/view_costume_awakening_weapon"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:layout_below="@+id/view_costume_secondary"
+                    android:layout_marginLeft="25dp"
+                    android:layout_marginTop="7dp"
+                    android:layout_toEndOf="@id/view_belt"
+                    android:layout_toRightOf="@id/view_belt"
+                    android:background="@drawable/outline_default"
+                    android:scaleType="center"
+                    android:src="@drawable/outfit_awakening_placeholder" />
+
+                <ImageView
+                    android:id="@+id/view_costume_main_weapon"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:layout_below="@+id/view_earring2"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_toEndOf="@id/view_shoes"
+                    android:layout_toRightOf="@id/view_shoes"
+                    android:background="@drawable/outline_default"
+                    android:scaleType="center"
+                    android:src="@drawable/outfit_main_weapon_placeholder" />
+
+
+                <ImageView
+                    android:id="@+id/view_awakening_weapon"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:layout_alignParentBottom="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginBottom="20dp"
+                    android:background="@drawable/outline_default"
+                    android:scaleType="center"
+                    android:src="@drawable/awakening_weapon_placeholder" />
+
+                <ImageView
+                    android:id="@+id/view_main_weapon"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:layout_alignBottom="@+id/view_awakening_weapon"
+                    android:layout_marginBottom="20dp"
+                    android:layout_marginRight="15dp"
+                    android:layout_toLeftOf="@+id/view_awakening_weapon"
+                    android:layout_toStartOf="@+id/view_awakening_weapon"
+                    android:background="@drawable/outline_default"
+                    android:scaleType="center"
+                    android:src="@drawable/main_weapon_placeholder" />
+
+                <ImageView
+                    android:id="@+id/view_belt"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:layout_above="@+id/view_main_weapon"
+                    android:layout_marginBottom="5dp"
+                    android:layout_marginEnd="9dp"
+                    android:layout_marginRight="9dp"
+                    android:layout_toLeftOf="@+id/view_main_weapon"
+                    android:layout_toStartOf="@+id/view_main_weapon"
+                    android:background="@drawable/outline_default"
+                    android:scaleType="center"
+                    android:src="@drawable/belt_placeholder" />
+
+                <ImageView
+                    android:id="@+id/view_necklace1"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:layout_above="@+id/view_secondary_weapon"
+                    android:layout_marginBottom="5dp"
+                    android:layout_marginLeft="9dp"
+                    android:layout_marginStart="9dp"
+                    android:layout_toEndOf="@+id/view_secondary_weapon"
+                    android:layout_toRightOf="@+id/view_secondary_weapon"
+                    android:background="@drawable/outline_default"
+                    android:scaleType="center"
+                    android:src="@drawable/necklace_placeholder" />
+
+                <ImageView
+                    android:id="@+id/view_shoes"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:layout_above="@+id/view_belt"
+                    android:layout_marginBottom="15dp"
+                    android:background="@drawable/outline_default"
+                    android:scaleType="center"
+                    android:src="@drawable/shoes_placeholder" />
+
+                <ImageView
+                    android:id="@+id/view_gloves1"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_below="@+id/view_ring2"
+                    android:background="@drawable/outline_default"
+                    android:scaleType="center"
+                    android:src="@drawable/gloves_placeholder" />
+
+                <ImageView
+                    android:id="@+id/view_earring2"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:layout_above="@+id/view_shoes"
+                    android:layout_alignLeft="@+id/view_shoes"
+                    android:layout_alignStart="@+id/view_shoes"
+                    android:layout_marginBottom="15dp"
+                    android:layout_marginLeft="5dp"
+                    android:background="@drawable/outline_default"
+                    android:scaleType="center"
+                    android:src="@drawable/earring_placeholder" />
+
+                <ImageView
+                    android:id="@+id/view_earring2_enchLvl"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:layout_above="@+id/view_shoes"
+                    android:layout_alignLeft="@+id/view_shoes"
+                    android:layout_alignStart="@+id/view_shoes"
+                    android:layout_marginBottom="15dp"
+                    android:layout_marginLeft="5dp" />
+
+                <ImageView
+                    android:id="@+id/view_earring1"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:layout_above="@+id/view_earring2"
+                    android:layout_alignLeft="@+id/view_earring2"
+                    android:layout_alignStart="@+id/view_earring2"
+                    android:layout_marginBottom="15dp"
+                    android:layout_marginLeft="28dp"
+                    android:background="@drawable/outline_default"
+                    android:scaleType="center"
+                    android:src="@drawable/earring_placeholder" />
+
+                <ImageView
+                    android:id="@+id/view_earring1_enchLvl"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:layout_above="@+id/view_earring2"
+                    android:layout_alignLeft="@+id/view_earring2"
+                    android:layout_alignStart="@+id/view_earring2"
+                    android:layout_marginBottom="15dp"
+                    android:layout_marginLeft="28dp" />
+
+                <ImageView
+                    android:id="@+id/view_helmet"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:layout_alignBottom="@+id/view_earring1"
+                    android:layout_alignLeft="@+id/view_earring1"
+                    android:layout_alignStart="@+id/view_earring1"
+                    android:layout_marginBottom="40dp"
+                    android:layout_marginLeft="60dp"
+                    android:background="@drawable/outline_default"
+                    android:scaleType="center"
+                    android:src="@drawable/helmet_placeholder" />
+
+                <ImageView
+                    android:id="@+id/view_armor"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:layout_alignBottom="@+id/view_ring1"
+                    android:layout_alignEnd="@+id/view_ring1"
+                    android:layout_alignRight="@+id/view_ring1"
+                    android:layout_marginBottom="40dp"
+                    android:layout_marginRight="60dp"
+                    android:background="@drawable/outline_default"
+                    android:scaleType="center"
+                    android:src="@drawable/armor_placeholder" />
+
+                <ImageView
+                    android:id="@+id/view_ring2"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:layout_above="@+id/view_shoes"
+                    android:layout_alignEnd="@+id/view_gloves"
+                    android:layout_alignRight="@+id/view_gloves"
+                    android:layout_marginBottom="15dp"
+                    android:layout_marginRight="5dp"
+                    android:background="@drawable/outline_default"
+                    android:scaleType="center"
+                    android:src="@drawable/ring_placeholder" />
+
+                <ImageView
+                    android:id="@+id/view_ring2_enchLvl"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:layout_above="@+id/view_shoes"
+                    android:layout_alignEnd="@+id/view_gloves"
+                    android:layout_alignRight="@+id/view_gloves"
+                    android:layout_marginBottom="15dp"
+                    android:layout_marginRight="5dp"
+                    android:src="@drawable/ring_placeholder" />
+
+                <ImageView
+                    android:id="@+id/view_ring1"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:layout_above="@+id/view_ring2"
+                    android:layout_alignEnd="@+id/view_ring2"
+                    android:layout_alignRight="@+id/view_ring2"
+                    android:layout_marginBottom="15dp"
+                    android:layout_marginRight="28dp"
+                    android:background="@drawable/outline_default"
+                    android:scaleType="center"
+                    android:src="@drawable/ring_placeholder" />
+
+                <ImageView
+                    android:id="@+id/view_ring1_enchLvl"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:layout_above="@+id/view_ring2"
+                    android:layout_alignEnd="@+id/view_ring2"
+                    android:layout_alignRight="@+id/view_ring2"
+                    android:layout_marginBottom="15dp"
+                    android:layout_marginRight="28dp" />
+
+                <ImageView
+                    android:id="@+id/view_gloves"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_below="@+id/view_ring2"
+                    android:background="@drawable/outline_default"
+                    android:scaleType="center"
+                    android:src="@drawable/gloves_placeholder" />
+
+                <ImageView
+                    android:id="@+id/view_necklace"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:layout_above="@+id/view_secondary_weapon"
+                    android:layout_marginBottom="5dp"
+                    android:layout_marginLeft="9dp"
+                    android:layout_marginStart="9dp"
+                    android:layout_toEndOf="@+id/view_secondary_weapon"
+                    android:layout_toRightOf="@+id/view_secondary_weapon"
+                    android:background="@drawable/outline_default"
+                    android:scaleType="center"
+                    android:src="@drawable/necklace_placeholder" />
+
+
+                <ImageView
+                    android:id="@+id/view_secondary_weapon"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:layout_alignBottom="@+id/view_awakening_weapon"
+                    android:layout_marginBottom="20dp"
+                    android:layout_marginLeft="15dp"
+                    android:layout_toEndOf="@+id/view_awakening_weapon"
+                    android:layout_toRightOf="@+id/view_awakening_weapon"
+                    android:background="@drawable/outline_default"
+                    android:scaleType="center"
+                    android:src="@drawable/secondary_weapon_placeholder" />
+
+
+            </RelativeLayout>
+
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="40dp"
+                android:layout_marginTop="5dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:text="AP"
+                    android:textColor="@color/colorItemBackground"
+                    android:textSize="17dp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/textView_AP"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="0"
+                    android:textColor="@color/colorAPDP"
+                    android:textSize="40dp" />
+
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:layout_centerHorizontal="true"
+                android:layout_marginRight="15dp"
+                android:background="@color/colorItemBackground" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:text="Awakening AP"
+                    android:textColor="@color/colorItemBackground"
+                    android:textSize="17dp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/textView_awakening_AP"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="0"
+                    android:textColor="@color/colorAPDP"
+                    android:textSize="40dp" />
+
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:layout_centerHorizontal="true"
+                android:layout_marginLeft="15dp"
+                android:background="@color/colorItemBackground" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="40dp"
+                android:layout_marginTop="5dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:text="DP"
+                    android:textColor="@color/colorItemBackground"
+                    android:textSize="17dp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/textView_DP"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="0"
+                    android:textColor="@color/colorAPDP"
+                    android:textSize="40dp" />
+
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp">
+
+            <View
+                android:layout_width="1dp"
+                android:layout_height="35dp"
+                android:layout_gravity="center"
+                android:background="@color/colorItemBackground" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <CheckBox
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="left"
+                    android:layout_marginLeft="10dp"
+                    android:layout_weight="0"
+                    android:gravity="left|center"
+                    android:text="Activate Alc. Stone"
+                    android:theme="@style/ThemeOverlay.AppCompat.Dark"
+                    android:textColor="@android:color/white"
+                    android:textSize="15sp" />
+
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="right"
+                    android:layout_marginRight="10dp"
+                    android:layout_weight="1"
+                    android:gravity="right|center"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="end"
+                        android:text="Current Gear Score: "
+                        android:textColor="@android:color/white"
+                        android:textSize="15sp" />
+
+                    <TextView
+                        android:id="@+id/textView_GS"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="end"
+                        android:text="0"
+                        android:textColor="@color/colorAPDP"
+                        android:textSize="18sp" />
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+        </FrameLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="10dp"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Enhancement"
+                    android:textColor="@color/colorTitles"
+                    android:textSize="20dp"
+                    android:textStyle="" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/colorTitlesLine" />
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Extra Damage"
+                    android:textColor="@color/colorTitles"
+                    android:textSize="20dp"
+                    android:textStyle="" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/colorTitlesLine" />
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Offensive"
+                    android:textColor="@color/colorTitles"
+                    android:textSize="20dp"
+                    android:textStyle="" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/colorTitlesLine" />
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Defensive"
+                    android:textColor="@color/colorTitles"
+                    android:textSize="20dp"
+                    android:textStyle="" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/colorTitlesLine" />
+
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+</android.support.v4.widget.NestedScrollView>

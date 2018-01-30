@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#435e9b</color>
+    <color name="colorPrimaryDark">#0f131e</color>
+    <color name="colorAccent">#ffffff</color>
+
+    <color name="colorItemBackground">#e5e5e5</color>
+    <color name="colorAPDP">#dfc15a</color>
+    <color name="colorTitles">#c4a68a</color>
+    <color name="colorTitlesLine">#56402c</color>
+    <color name="colorBackground">#1b2337</color>
+    <color name="colorMenuBackground">#1e273d</color>
+    <color name="colorText">#ffffff</color>
+
+    <color name="colorOutline">#c7c7c7</color>
+    <color name="colorEpic">#f6c232</color>
+    <color name="colorRare">#0391c4</color>
+    <color name="colorUncommon">#5ff369</color>
+</resources>

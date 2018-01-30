@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.Toolbar xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/toolbar"
+    android:layout_width="match_parent"
+    android:layout_height="?android:actionBarSize"
+    android:background="@color/colorBackground"
+    android:gravity="bottom"
+    app:layout_scrollFlags="scroll|enterAlways"
+    app:theme="@style/ThemeOverlay.AppCompat.ActionBar">
+
+    <TextView
+        android:id="@+id/toolbar_text"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:text="BDO"
+        android:gravity="start|center"
+        android:textSize="23dp"
+        android:textStyle="bold"
+        android:layout_gravity="center"
+        android:textColor="@android:color/white"/>
+
+    <TextView
+        android:id="@+id/toolbar_text2"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text="Planner"
+        android:layout_marginTop="4dp"
+        android:gravity="start|center"
+        android:textSize="18dp"
+        android:layout_gravity="center"
+        android:textColor="@android:color/white"/>
+
+</android.support.v7.widget.Toolbar>
+
