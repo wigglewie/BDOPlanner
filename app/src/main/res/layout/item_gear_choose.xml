@@ -12,8 +12,8 @@
         <ImageView
             android:id="@+id/item_icon_test"
             android:layout_width="wrap_content"
-            android:foregroundGravity="center"
             android:layout_height="wrap_content"
+            android:foregroundGravity="center"
             android:padding="12dp"
             android:src="@drawable/earring_rare_blue_coral" />
 
@@ -37,6 +37,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Blue Coral Earring"
+                    android:textColor="@color/colorText"
                     android:textSize="13dp" />
 
                 <LinearLayout
@@ -50,6 +51,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="AP: "
+                        android:textColor="@color/colorText"
                         android:textSize="13dp" />
 
                     <TextView
@@ -57,6 +59,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="4"
+                        android:textColor="@color/colorText"
                         android:textSize="16dp" />
 
                     <TextView
@@ -64,6 +67,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="15dp"
                         android:text="DP: "
+                        android:textColor="@color/colorText"
                         android:textSize="13dp" />
 
                     <TextView
@@ -71,6 +75,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="0"
+                        android:textColor="@color/colorText"
                         android:textSize="16dp" />
 
                 </LinearLayout>
@@ -78,10 +83,10 @@
             </LinearLayout>
 
             <View
-                android:layout_width="2px"
+                android:layout_width="1dp"
                 android:layout_height="match_parent"
                 android:layout_margin="10dp"
-                android:background="@color/colorItemBackground"/>
+                android:background="@color/colorText" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -94,6 +99,7 @@
                     android:layout_height="wrap_content"
                     android:paddingLeft="10dp"
                     android:text="Enhancement Level: "
+                    android:textColor="@color/colorText"
                     android:textSize="11dp" />
 
                 <SeekBar
@@ -110,11 +116,11 @@
 
         <View
             android:layout_width="match_parent"
+            android:layout_height="1dp"
             android:layout_alignBottom="@id/item_gear_choose_ll"
             android:layout_alignLeft="@id/item_gear_choose_ll"
-            android:layout_height="2px"
             android:layout_marginRight="5dp"
-            android:background="@color/colorItemBackground" />
+            android:background="@color/colorText" />
 
     </RelativeLayout>
 
