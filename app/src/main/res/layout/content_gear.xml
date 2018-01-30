@@ -519,9 +519,7 @@
 
         </FrameLayout>
 
-
         <include layout="@layout/content_stats" />
-
 
     </LinearLayout>
 

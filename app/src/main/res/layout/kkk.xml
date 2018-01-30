@@ -141,12 +141,12 @@
                 android:gravity="left|center"
                 android:shadowColor="@android:color/white"
                 android:text="Activate Alc. Stone"
+                android:theme="@style/ThemeOverlay.AppCompat.Dark"
                 android:textColor="@android:color/white"
                 android:textColorHighlight="@android:color/white"
                 android:textColorHint="@android:color/white"
                 android:textColorLink="@android:color/white"
-                android:textSize="15dp"
-                android:theme="@style/ThemeOverlay.AppCompat.Dark" />
+                android:textSize="15dp" />
 
 
             <LinearLayout
@@ -223,7 +223,7 @@
                     android:textSize="13dp" />
 
                 <TextView
-                    android:id="@+id/text_stats_attack_speed"
+                    android:id="@+id/text_attack_speed"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:text="0"
@@ -245,7 +245,7 @@
                     android:textSize="13dp" />
 
                 <TextView
-                    android:id="@+id/text_stats_casting_speed"
+                    android:id="@+id/text_casting_speed"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:text="0"
@@ -267,7 +267,7 @@
                     android:textSize="13dp" />
 
                 <TextView
-                    android:id="@+id/text_stats_movement_speed"
+                    android:id="@+id/text_movement_speed"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:text="0"
@@ -289,7 +289,7 @@
                     android:textSize="13dp" />
 
                 <TextView
-                    android:id="@+id/text_stats_critical"
+                    android:id="@+id/text_critical"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:text="0"
@@ -311,7 +311,7 @@
                     android:textSize="13dp" />
 
                 <TextView
-                    android:id="@+id/text_stats_luck"
+                    android:id="@+id/text_luck"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:text="0"
@@ -344,117 +344,6 @@
                 android:layout_height="1dp"
                 android:background="@color/colorTitlesLine" />
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:text="Additional Critical Hit Damage: "
-                    android:textColor="@color/colorText"
-                    android:textSize="13dp" />
-
-                <TextView
-                    android:id="@+id/text_stats_extra_critical_hit"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:text="0"
-                    android:textColor="@color/colorAPDP"
-                    android:textSize="13dp" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:text="Additional Special Attack Damage: "
-                    android:textColor="@color/colorText"
-                    android:textSize="13dp" />
-
-                <TextView
-                    android:id="@+id/text_stats_extra_special_attack_dmg"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:text="0"
-                    android:textColor="@color/colorAPDP"
-                    android:textSize="13dp" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:text="Additional Damage to Humans: "
-                    android:textColor="@color/colorText"
-                    android:textSize="13dp" />
-
-                <TextView
-                    android:id="@+id/text_extra_dmg_humans"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:text="0"
-                    android:textColor="@color/colorAPDP"
-                    android:textSize="13dp" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:text="Extra Damage to All Species: "
-                    android:textColor="@color/colorText"
-                    android:textSize="13dp" />
-
-                <TextView
-                    android:id="@+id/text_stats_extra_dmg_all"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:text="0"
-                    android:textColor="@color/colorAPDP"
-                    android:textSize="13dp" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:text="Extra AP Against Monsters: "
-                    android:textColor="@color/colorText"
-                    android:textSize="13dp" />
-
-                <TextView
-                    android:id="@+id/text_stats_extra_ap_monsters"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:text="0"
-                    android:textColor="@color/colorAPDP"
-                    android:textSize="13dp" />
-
-            </LinearLayout>
-
 
         </LinearLayout>
 
@@ -478,51 +367,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
                 android:background="@color/colorTitlesLine" />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:text="Hidden AP: "
-                    android:textColor="@color/colorText"
-                    android:textSize="13dp" />
-
-                <TextView
-                    android:id="@+id/text_stats_hidden_ap"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:text="0"
-                    android:textColor="@color/colorAPDP"
-                    android:textSize="13dp" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:text="Accuracy: "
-                    android:textColor="@color/colorText"
-                    android:textSize="13dp" />
-
-                <TextView
-                    android:id="@+id/text_stats_accuracy"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:text="0"
-                    android:textColor="@color/colorAPDP"
-                    android:textSize="13dp" />
-
-            </LinearLayout>
 
 
         </LinearLayout>
@@ -573,9 +417,9 @@
                 android:background="@color/colorTitlesLine" />
 
             <LinearLayout
+                android:layout_marginTop="5dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
                 android:orientation="horizontal">
 
                 <TextView
@@ -586,7 +430,7 @@
                     android:textSize="13dp" />
 
                 <TextView
-                    android:id="@+id/text_stats_grapple"
+                    android:id="@+id/text_grapple"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:text="20"
@@ -615,7 +459,7 @@
                     android:textSize="13dp" />
 
                 <TextView
-                    android:id="@+id/text_stats_knockback"
+                    android:id="@+id/text_knockback"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:text="20"
@@ -644,7 +488,7 @@
                     android:textSize="13dp" />
 
                 <TextView
-                    android:id="@+id/text_stats_knockdown"
+                    android:id="@+id/text_knockdown"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:text="20"
@@ -673,7 +517,7 @@
                     android:textSize="13dp" />
 
                 <TextView
-                    android:id="@+id/text_stats_stun"
+                    android:id="@+id/text_stun"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:text="20"
