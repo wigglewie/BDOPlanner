@@ -481,9 +481,9 @@
                     android:layout_weight="0"
                     android:gravity="left|center"
                     android:text="Activate Alc. Stone"
-                    android:theme="@style/ThemeOverlay.AppCompat.Dark"
                     android:textColor="@android:color/white"
-                    android:textSize="15sp" />
+                    android:textSize="15sp"
+                    android:theme="@style/ThemeOverlay.AppCompat.Dark" />
 
 
                 <LinearLayout
@@ -520,106 +520,7 @@
         </FrameLayout>
 
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginTop="10dp"
-            android:orientation="vertical">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
-                android:orientation="vertical">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Enhancement"
-                    android:textColor="@color/colorTitles"
-                    android:textSize="20dp"
-                    android:textStyle="" />
-
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:background="@color/colorTitlesLine" />
-
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
-                android:orientation="vertical">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Extra Damage"
-                    android:textColor="@color/colorTitles"
-                    android:textSize="20dp"
-                    android:textStyle="" />
-
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:background="@color/colorTitlesLine" />
-
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
-                android:orientation="vertical">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Offensive"
-                    android:textColor="@color/colorTitles"
-                    android:textSize="20dp"
-                    android:textStyle="" />
-
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:background="@color/colorTitlesLine" />
-
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
-                android:orientation="vertical">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Defensive"
-                    android:textColor="@color/colorTitles"
-                    android:textSize="20dp"
-                    android:textStyle="" />
-
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:background="@color/colorTitlesLine" />
-
-
-            </LinearLayout>
-
-
-        </LinearLayout>
+        <include layout="@layout/content_stats" />
 
 
     </LinearLayout>
