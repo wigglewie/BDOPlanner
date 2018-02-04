@@ -354,10 +354,10 @@
             android:orientation="horizontal">
 
             <LinearLayout
-                android:layout_weight="1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
+                android:layout_weight="1"
                 android:orientation="vertical">
 
                 <TextView
@@ -384,16 +384,16 @@
 
             <View
                 android:layout_width="1dp"
-                android:layout_marginRight="10dp"
                 android:layout_height="match_parent"
                 android:layout_centerHorizontal="true"
+                android:layout_marginRight="10dp"
                 android:background="@color/colorItemBackground" />
 
             <LinearLayout
-                android:layout_weight="1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
+                android:layout_weight="1"
                 android:orientation="vertical">
 
                 <TextView
@@ -420,16 +420,16 @@
 
             <View
                 android:layout_width="1dp"
-                android:layout_marginLeft="10dp"
                 android:layout_height="match_parent"
                 android:layout_centerHorizontal="true"
+                android:layout_marginLeft="10dp"
                 android:background="@color/colorItemBackground" />
 
             <LinearLayout
-                android:layout_weight="1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
+                android:layout_weight="1"
                 android:orientation="vertical">
 
                 <TextView
@@ -458,10 +458,21 @@
         </LinearLayout>
 
 
-        <FrameLayout
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp">
+            android:layout_height="40dp"
+            android:layout_marginTop="20dp"
+            android:orientation="horizontal">
+
+            <CheckBox
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="Activate Alc. Stone"
+                android:textColor="@android:color/white"
+                android:textSize="15sp"
+                android:theme="@style/ThemeOverlay.AppCompat.Dark" />
 
             <View
                 android:layout_width="1dp"
@@ -469,56 +480,34 @@
                 android:layout_gravity="center"
                 android:background="@color/colorItemBackground" />
 
+
             <LinearLayout
+                android:gravity="center"
+                android:layout_weight="1"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:orientation="horizontal">
 
-                <CheckBox
+                <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="left"
-                    android:layout_marginLeft="10dp"
-                    android:layout_weight="0"
-                    android:gravity="left|center"
-                    android:text="Activate Alc. Stone"
+                    android:text="Current Gear Score: "
                     android:textColor="@android:color/white"
-                    android:textSize="15sp"
-                    android:theme="@style/ThemeOverlay.AppCompat.Dark" />
+                    android:textSize="15sp" />
 
-
-                <LinearLayout
+                <TextView
+                    android:id="@+id/textView_GS"
                     android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_gravity="right"
-                    android:layout_marginRight="10dp"
-                    android:layout_weight="1"
-                    android:gravity="end|center"
-                    android:orientation="horizontal">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:gravity="end"
-                        android:text="Current Gear Score: "
-                        android:textColor="@android:color/white"
-                        android:textSize="15sp" />
-
-                    <TextView
-                        android:id="@+id/textView_GS"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:gravity="end"
-                        android:text="0"
-                        android:textColor="@color/colorAPDP"
-                        android:textSize="18sp" />
-
-                </LinearLayout>
-
+                    android:layout_height="wrap_content"
+                    android:text="0"
+                    android:textColor="@color/colorAPDP"
+                    android:textSize="18sp" />
 
             </LinearLayout>
 
-        </FrameLayout>
+
+        </LinearLayout>
+
 
         <include layout="@layout/content_stats" />
 
