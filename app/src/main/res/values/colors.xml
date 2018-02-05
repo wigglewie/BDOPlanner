@@ -19,6 +19,7 @@
     <color name="colorItemEpic">#f6c232</color>
     <color name="colorItemRare">#0391c4</color>
     <color name="colorItemUncommon">#5ff369</color>
+    <color name="colorItemCommon">#ffffff</color>
 
     <color name="colorEmpty">#00ffffff</color>
 </resources>

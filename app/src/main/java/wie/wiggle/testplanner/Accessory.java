@@ -14,37 +14,37 @@ public class Accessory implements Serializable {
     int icon;
     int ap;
     int dp;
-    int enchLVL;
-    int enchStepAP;
-    int enchStepDP;
+    int enhLVL;
+    int enhStepAP;
+    int enhStepDP;
 
-    Accessory(String type, String name, String rarity, int icon, int ap, int dp, int enchLVL, int enchStepAP, int enchStepDP) {
+    Accessory(String type, String name, String rarity, int icon, int ap, int dp, int enhLVL, int enhStepAP, int enhStepDP) {
         this.type = type;
         this.name = name;
         this.rarity = rarity;
         this.icon = icon;
         this.ap = ap;
         this.dp = dp;
-        this.enchLVL = enchLVL;
-        this.enchStepAP = enchStepAP;
-        this.enchStepDP = enchStepDP;
+        this.enhLVL = enhLVL;
+        this.enhStepAP = enhStepAP;
+        this.enhStepDP = enhStepDP;
     }
 
-    public void setEnchStepDP(int enchStepDP) {
-        this.enchStepDP = enchStepDP;
+    public void setEnhStepDP(int enhStepDP) {
+        this.enhStepDP = enhStepDP;
     }
 
-    public int getEnchStepDP() {
+    public int getEnhStepDP() {
 
-        return enchStepDP;
+        return enhStepDP;
     }
 
-    public void setEnchLVL(int enchLVL) {
-        this.enchLVL = enchLVL;
+    public void setEnhLVL(int enhLVL) {
+        this.enhLVL = enhLVL;
     }
 
-    public void setEnchStepAP(int enchStepAP) {
-        this.enchStepAP = enchStepAP;
+    public void setEnhStepAP(int enhStepAP) {
+        this.enhStepAP = enhStepAP;
     }
 
     public void setType(String type) {
@@ -95,12 +95,12 @@ public class Accessory implements Serializable {
         return type;
     }
 
-    public int getEnchLVL() {
-        return enchLVL;
+    public int getEnhLVL() {
+        return enhLVL;
     }
 
-    public int getEnchStepAP() {
-        return enchStepAP;
+    public int getEnhStepAP() {
+        return enhStepAP;
     }
 
 }

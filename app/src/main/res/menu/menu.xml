@@ -4,8 +4,16 @@
     xmlns:src="http://schemas.android.com/tools">
 
     <item
-        android:id="@+id/menu_clear"
-        android:title="clear"
-        android:icon="@drawable/ic_cancel500"
+        android:id="@+id/menu_search"
+        android:title="Search"
+        app:actionViewClass="android.support.v7.widget.SearchView"
         app:showAsAction="always" />
+
+    <item
+        android:id="@+id/menu_clear"
+        android:icon="@drawable/ic_cancel_white_24dp"
+        android:title="Clear"
+        app:showAsAction="always" />
+
+
 </menu>

@@ -18,7 +18,7 @@
             android:orientation="horizontal">
 
             <ImageView
-                android:id="@+id/item_icon_test"
+                android:id="@+id/item_gear_icon"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:foregroundGravity="center"
@@ -26,10 +26,10 @@
                 android:src="@drawable/earring_rare_blue_coral" />
 
             <LinearLayout
-                android:id="@+id/item_gear_choose_ll"
+                android:id="@+id/item_gear_choose"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_toRightOf="@id/item_icon_test"
+                android:layout_toRightOf="@id/item_gear_icon"
                 android:orientation="vertical">
 
                 <LinearLayout
@@ -41,7 +41,7 @@
 
 
                     <TextView
-                        android:id="@+id/item_name_test"
+                        android:id="@+id/item_gear_name"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Blue Coral Earring"
@@ -62,7 +62,7 @@
                             android:textSize="13dp" />
 
                         <TextView
-                            android:id="@+id/item_ap_test"
+                            android:id="@+id/item_gear_ap"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="4"
@@ -78,7 +78,7 @@
                             android:textSize="13dp" />
 
                         <TextView
-                            android:id="@+id/item_dp_test"
+                            android:id="@+id/item_gearp_dp"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="0"
@@ -121,7 +121,7 @@
                     android:textSize="11dp" />
 
                 <SeekBar
-                    android:id="@+id/seekBar"
+                    android:id="@+id/item_gear_seekbar"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="5dp"

@@ -20,13 +20,17 @@ public class GearActivity extends AppCompatActivity implements View.OnClickListe
     private ArrayList<Accessory> belts;
     private ArrayList<Accessory> necklaces;
 
+    private ArrayList<AlchemyStone> alchemyStones;
+
     private static final int REQUEST_CODE_RING1 = 1;
     private static final int REQUEST_CODE_RING2 = 2;
     private static final int REQUEST_CODE_EARRING1 = 3;
     private static final int REQUEST_CODE_EARRING2 = 4;
     private static final int REQUEST_CODE_BELT = 5;
     private static final int REQUEST_CODE_NECKLACE = 6;
+    private static final int REQUEST_CODE_ALCHEMY_STONE = 7;
     private ImageView classIcon;
+    private ImageView viewAlchemyStone;
     private ImageView viewRing1;
     private ImageView viewRing2;
     private ImageView viewEarring1;
@@ -45,16 +49,28 @@ public class GearActivity extends AppCompatActivity implements View.OnClickListe
     private TextView viewAwaAP;
     private TextView viewGS;
 
-    private ImageView viewEarring1enchLvl;
-    private ImageView viewEarring2enchLv1;
-    private ImageView viewRing1enchLvl;
-    private ImageView viewRing2enchLvl;
+    private ImageView viewEarring1enhLvl;
+    private ImageView viewEarring2enhLv1;
+    private ImageView viewRing1enhLvl;
+    private ImageView viewRing2enhLvl;
 
     private int apSum;
     private int dpSum;
     private int gs;
 
     private int rarityValue;
+
+    private int icon;
+    private String rarity;
+
+    private int rarityResource;
+
+    private int ap;
+    private int dp;
+    private int enhLvl;
+
+    Accessory accessory;
+    AlchemyStone alchemyStone;
 
     private int[] apArray = new int[13];
     private int[] dpArray = new int[13];
@@ -74,6 +90,7 @@ public class GearActivity extends AppCompatActivity implements View.OnClickListe
         getSupportActionBar().setDisplayShowHomeEnabled(true);
 
         classIcon = (ImageView) findViewById(R.id.view_class_icon);
+        viewAlchemyStone = (ImageView) findViewById(R.id.view_alchemy_stone);
         viewRing1 = (ImageView) findViewById(R.id.view_ring1);
         viewRing2 = (ImageView) findViewById(R.id.view_ring2);
         viewEarring1 = (ImageView) findViewById(R.id.view_earring1);
@@ -92,12 +109,12 @@ public class GearActivity extends AppCompatActivity implements View.OnClickListe
         viewAwaAP = (TextView) findViewById(R.id.textView_awakening_AP);
         viewGS = (TextView) findViewById(R.id.textView_GS);
 
-        viewEarring1enchLvl = (ImageView) findViewById(R.id.view_earring1_enchLvl);
-        viewEarring2enchLv1 = (ImageView) findViewById(R.id.view_earring2_enchLvl);
-        viewRing1enchLvl = (ImageView) findViewById(R.id.view_ring1_enchLvl);
-        viewRing2enchLvl = (ImageView) findViewById(R.id.view_ring2_enchLvl);
+        viewEarring1enhLvl = (ImageView) findViewById(R.id.view_earring1_enchLvl);
+        viewEarring2enhLv1 = (ImageView) findViewById(R.id.view_earring2_enchLvl);
+        viewRing1enhLvl = (ImageView) findViewById(R.id.view_ring1_enchLvl);
+        viewRing2enhLvl = (ImageView) findViewById(R.id.view_ring2_enchLvl);
 
-
+        viewAlchemyStone.setOnClickListener(this);
         viewRing1.setOnClickListener(this);
         viewRing2.setOnClickListener(this);
         viewEarring1.setOnClickListener(this);
@@ -116,6 +133,7 @@ public class GearActivity extends AppCompatActivity implements View.OnClickListe
 
         classIcon.setImageResource(person.icon);
 
+        //earrings
         earrings = new ArrayList<>();
         earrings.add(new Accessory("earring", "Yuria Earring", "uncommon", R.drawable.earring_uncommon_yuria, 0, 0, 0, 0, 0));
         earrings.add(new Accessory("earring", "Bares Earring", "uncommon", R.drawable.earring_uncommon_bares, 2, 0, 0, 1, 0));
@@ -127,6 +145,7 @@ public class GearActivity extends AppCompatActivity implements View.OnClickListe
         earrings.add(new Accessory("earring", "Tungrad Earring", "epic", R.drawable.earring_epic_tungrad, 7, 0, 0, 2, 0));
         earrings.add(new Accessory("earring", "Dark Blood Ruby Earring", "rare", R.drawable.earring_rare_dark_blood_ruby, 4, 0, 0, 0, 0));
 
+        //rings
         rings = new ArrayList<>();
         rings.add(new Accessory("ring", "Yuria Ring", "uncommon", R.drawable.ring_uncommon_yuria, 0, 0, 0, 0, 0));
         rings.add(new Accessory("ring", "Bares Ring", "uncommon", R.drawable.ring_uncommon_bares, 2, 0, 0, 1, 0));
@@ -136,11 +155,77 @@ public class GearActivity extends AppCompatActivity implements View.OnClickListe
         rings.add(new Accessory("ring", "Topaz Ring of Regeneration", "epic", R.drawable.ring_epic_topaz_of_regeneration, 0, 0, 0, 0, 0));
         rings.add(new Accessory("ring", "Emerald Ring of Tranquility", "epic", R.drawable.ring_epic_emerald_of_tranquility, 0, 0, 0, 0, 0));
 
-
+        //belts
         belts = new ArrayList<>();
 
+        //necklaces
         necklaces = new ArrayList<>();
 
+        //alchemy stones
+        alchemyStones = new ArrayList<>();
+        //sturdy
+        alchemyStones.add(new AlchemyStone("destruction", "Sturdy Alchemy Stone of Destruction", "common", R.drawable.alchemy_destuction_sturdy));
+        alchemyStones.add(new AlchemyStone("destruction", "Sturdy Alchemy Stone of Destruction", "uncommon", R.drawable.alchemy_destuction_sturdy));
+        alchemyStones.add(new AlchemyStone("destruction", "Sturdy Alchemy Stone of Destruction", "rare", R.drawable.alchemy_destuction_sturdy));
+        alchemyStones.add(new AlchemyStone("destruction", "Sturdy Alchemy Stone of Destruction", "epic", R.drawable.alchemy_destuction_sturdy));
+
+        alchemyStones.add(new AlchemyStone("protection", "Sturdy Alchemy Stone of Protection", "common", R.drawable.alchemy_protection_sturdy));
+        alchemyStones.add(new AlchemyStone("protection", "Sturdy Alchemy Stone of Protection", "uncommon", R.drawable.alchemy_protection_sturdy));
+        alchemyStones.add(new AlchemyStone("protection", "Sturdy Alchemy Stone of Protection", "rare", R.drawable.alchemy_protection_sturdy));
+        alchemyStones.add(new AlchemyStone("protection", "Sturdy Alchemy Stone of Protection", "epic", R.drawable.alchemy_protection_sturdy));
+
+        alchemyStones.add(new AlchemyStone("life", "Sturdy Alchemy Stone of Life", "common", R.drawable.alchemy_life_sturdy));
+        alchemyStones.add(new AlchemyStone("life", "Sturdy Alchemy Stone of Life", "uncommon", R.drawable.alchemy_life_sturdy));
+        alchemyStones.add(new AlchemyStone("life", "Sturdy Alchemy Stone of Life", "rare", R.drawable.alchemy_life_sturdy));
+        alchemyStones.add(new AlchemyStone("life", "Sturdy Alchemy Stone of Life", "epic", R.drawable.alchemy_life_sturdy));
+
+        //sharp
+        alchemyStones.add(new AlchemyStone("destruction", "Sharp Alchemy Stone of Destruction", "common", R.drawable.alchemy_destuction_sharp));
+        alchemyStones.add(new AlchemyStone("destruction", "Sharp Alchemy Stone of Destruction", "uncommon", R.drawable.alchemy_destuction_sharp));
+        alchemyStones.add(new AlchemyStone("destruction", "Sharp Alchemy Stone of Destruction", "rare", R.drawable.alchemy_destuction_sharp));
+        alchemyStones.add(new AlchemyStone("destruction", "Sharp Alchemy Stone of Destruction", "epic", R.drawable.alchemy_destuction_sharp));
+
+        alchemyStones.add(new AlchemyStone("protection", "Sharp Alchemy Stone of Protection", "common", R.drawable.alchemy_protection_sharp));
+        alchemyStones.add(new AlchemyStone("protection", "Sharp Alchemy Stone of Protection", "uncommon", R.drawable.alchemy_protection_sharp));
+        alchemyStones.add(new AlchemyStone("protection", "Sharp Alchemy Stone of Protection", "rare", R.drawable.alchemy_protection_sharp));
+        alchemyStones.add(new AlchemyStone("protection", "Sharp Alchemy Stone of Protection", "epic", R.drawable.alchemy_protection_sharp));
+
+        alchemyStones.add(new AlchemyStone("life", "Sharp Alchemy Stone of Life", "common", R.drawable.alchemy_life_sharp));
+        alchemyStones.add(new AlchemyStone("life", "Sharp Alchemy Stone of Life", "uncommon", R.drawable.alchemy_life_sharp));
+        alchemyStones.add(new AlchemyStone("life", "Sharp Alchemy Stone of Life", "rare", R.drawable.alchemy_life_sharp));
+        alchemyStones.add(new AlchemyStone("life", "Sharp Alchemy Stone of Life", "epic", R.drawable.alchemy_life_sharp));
+
+        //resplendent
+        alchemyStones.add(new AlchemyStone("destruction", "Resplendent Alchemy Stone of Destruction", "common", R.drawable.alchemy_destuction_resplendent));
+        alchemyStones.add(new AlchemyStone("destruction", "Resplendent Alchemy Stone of Destruction", "uncommon", R.drawable.alchemy_destuction_resplendent));
+        alchemyStones.add(new AlchemyStone("destruction", "Resplendent Alchemy Stone of Destruction", "rare", R.drawable.alchemy_destuction_resplendent));
+        alchemyStones.add(new AlchemyStone("destruction", "Resplendent Alchemy Stone of Destruction", "epic", R.drawable.alchemy_destuction_resplendent));
+
+        alchemyStones.add(new AlchemyStone("protection", "Resplendent Alchemy Stone of Protection", "common", R.drawable.alchemy_protection_resplendent));
+        alchemyStones.add(new AlchemyStone("protection", "Resplendent Alchemy Stone of Protection", "uncommon", R.drawable.alchemy_protection_resplendent));
+        alchemyStones.add(new AlchemyStone("protection", "Resplendent Alchemy Stone of Protection", "rare", R.drawable.alchemy_protection_resplendent));
+        alchemyStones.add(new AlchemyStone("protection", "Resplendent Alchemy Stone of Protection", "epic", R.drawable.alchemy_protection_resplendent));
+
+        alchemyStones.add(new AlchemyStone("life", "Resplendent Alchemy Stone of Life", "common", R.drawable.alchemy_life_resplendent));
+        alchemyStones.add(new AlchemyStone("life", "Resplendent Alchemy Stone of Life", "uncommon", R.drawable.alchemy_life_resplendent));
+        alchemyStones.add(new AlchemyStone("life", "Resplendent Alchemy Stone of Life", "rare", R.drawable.alchemy_life_resplendent));
+        alchemyStones.add(new AlchemyStone("life", "Resplendent Alchemy Stone of Life", "epic", R.drawable.alchemy_life_resplendent));
+
+        //splendid
+        alchemyStones.add(new AlchemyStone("destruction", "Splendid Alchemy Stone of Destruction", "common", R.drawable.alchemy_destuction_splendid));
+        alchemyStones.add(new AlchemyStone("destruction", "Resplendent Alchemy Stone of Destruction", "uncommon", R.drawable.alchemy_destuction_splendid));
+        alchemyStones.add(new AlchemyStone("destruction", "Resplendent Alchemy Stone of Destruction", "rare", R.drawable.alchemy_destuction_splendid));
+        alchemyStones.add(new AlchemyStone("destruction", "Resplendent Alchemy Stone of Destruction", "epic", R.drawable.alchemy_destuction_splendid));
+
+        alchemyStones.add(new AlchemyStone("protection", "Splendid Alchemy Stone of Protection", "common", R.drawable.alchemy_protection_splendid));
+        alchemyStones.add(new AlchemyStone("protection", "Splendid Alchemy Stone of Protection", "uncommon", R.drawable.alchemy_protection_splendid));
+        alchemyStones.add(new AlchemyStone("protection", "Splendid Alchemy Stone of Protection", "rare", R.drawable.alchemy_protection_splendid));
+        alchemyStones.add(new AlchemyStone("protection", "Splendid Alchemy Stone of Protection", "epic", R.drawable.alchemy_protection_splendid));
+
+        alchemyStones.add(new AlchemyStone("life", "Splendid Alchemy Stone of Life", "common", R.drawable.alchemy_life_splendid));
+        alchemyStones.add(new AlchemyStone("life", "Splendid Alchemy Stone of Life", "uncommon", R.drawable.alchemy_life_splendid));
+        alchemyStones.add(new AlchemyStone("life", "Splendid Alchemy Stone of Life", "rare", R.drawable.alchemy_life_splendid));
+        alchemyStones.add(new AlchemyStone("life", "Splendid Alchemy Stone of Life", "epic", R.drawable.alchemy_life_splendid));
 
     }
 
@@ -157,8 +242,10 @@ public class GearActivity extends AppCompatActivity implements View.OnClickListe
 
         switch (id) {
             case R.id.menu_settings:
+                Toast.makeText(this, "Settings", Toast.LENGTH_SHORT).show();
                 return true;
             case R.id.menu_about:
+                Toast.makeText(this, "About", Toast.LENGTH_SHORT).show();
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
@@ -175,32 +262,37 @@ public class GearActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     public void onClick(View view) {
 
-        Intent intent = new Intent(this, ItemGearChooseActivity.class);
+        Intent intentAccessoryChoose = new Intent(this, ItemAccessoryChooseActivity.class);
+        Intent intentAlchemyStoneChoose = new Intent(this, ItemAlchemyStoneChooseActivity.class);
 
         switch (view.getId()) {
+            case R.id.view_alchemy_stone:
+                intentAlchemyStoneChoose.putExtra("alchemyStones", alchemyStones);
+                startActivityForResult(intentAlchemyStoneChoose, REQUEST_CODE_ALCHEMY_STONE);
+                break;
             case R.id.view_earring1:
-                intent.putExtra("accessoryArray", earrings);
-                startActivityForResult(intent, REQUEST_CODE_EARRING1);
+                intentAccessoryChoose.putExtra("accessoryArray", earrings);
+                startActivityForResult(intentAccessoryChoose, REQUEST_CODE_EARRING1);
                 break;
             case R.id.view_earring2:
-                intent.putExtra("accessoryArray", earrings);
-                startActivityForResult(intent, REQUEST_CODE_EARRING2);
+                intentAccessoryChoose.putExtra("accessoryArray", earrings);
+                startActivityForResult(intentAccessoryChoose, REQUEST_CODE_EARRING2);
                 break;
             case R.id.view_ring1:
-                intent.putExtra("accessoryArray", rings);
-                startActivityForResult(intent, REQUEST_CODE_RING1);
+                intentAccessoryChoose.putExtra("accessoryArray", rings);
+                startActivityForResult(intentAccessoryChoose, REQUEST_CODE_RING1);
                 break;
             case R.id.view_ring2:
-                intent.putExtra("accessoryArray", rings);
-                startActivityForResult(intent, REQUEST_CODE_RING2);
+                intentAccessoryChoose.putExtra("accessoryArray", rings);
+                startActivityForResult(intentAccessoryChoose, REQUEST_CODE_RING2);
                 break;
             case R.id.view_belt:
-                intent.putExtra("accessoryArray", belts);
-                startActivityForResult(intent, REQUEST_CODE_BELT);
+                intentAccessoryChoose.putExtra("accessoryArray", belts);
+                startActivityForResult(intentAccessoryChoose, REQUEST_CODE_BELT);
                 break;
             case R.id.view_necklace:
-                intent.putExtra("accessoryArray", necklaces);
-                startActivityForResult(intent, REQUEST_CODE_NECKLACE);
+                intentAccessoryChoose.putExtra("accessoryArray", necklaces);
+                startActivityForResult(intentAccessoryChoose, REQUEST_CODE_NECKLACE);
                 break;
         }
 
@@ -213,138 +305,168 @@ public class GearActivity extends AppCompatActivity implements View.OnClickListe
             return;
         }
 
-        int icon;
-        int ap;
-        int dp;
-        int enchLvl;
-        String rarity;
-
-        int rarityResource;
-
         if (resultCode == RESULT_OK) {
 
-            Accessory accessory = (Accessory) data.getSerializableExtra("accessoryName");
-            icon = accessory.icon;
-            ap = accessory.ap;
-            dp = accessory.dp;
-            enchLvl = accessory.enchLVL;
-            rarity = accessory.rarity;
-            switch (enchLvl) {
-                case 0:
-                    break;
-                case 1:
-                    enchLvl = R.drawable.image_pri;
-                    break;
-                case 2:
-                    enchLvl = R.drawable.image_duo;
-                    break;
-                case 3:
-                    enchLvl = R.drawable.image_tri;
-                    break;
-                case 4:
-                    enchLvl = R.drawable.image_tet;
-                    break;
-                case 5:
-                    enchLvl = R.drawable.image_pen;
-                    break;
-            }
-
             switch (requestCode) {
+                case REQUEST_CODE_ALCHEMY_STONE:
+                    alchemyInit(data);
+                    rarityResource = rarityCheck(rarity);
+                    viewAlchemyStone.setBackgroundResource(rarityResource);
+                    viewAlchemyStone.setImageResource(icon);
+                    break;
                 case REQUEST_CODE_EARRING1:
+                    accessoryInit(data);
+                    rarityResource = rarityCheck(rarity);
+                    viewEarring1.setBackgroundResource(rarityResource);
                     viewEarring1.setImageResource(icon);
-                    viewEarring1enchLvl.setImageResource(enchLvl);
+                    viewEarring1enhLvl.setImageResource(enhLvl);
                     apArray[11] = ap;
                     dpArray[11] = dp;
                     break;
                 case REQUEST_CODE_EARRING2:
+                    accessoryInit(data);
+                    rarityResource = rarityCheck(rarity);
+                    viewEarring2.setBackgroundResource(rarityResource);
                     viewEarring2.setImageResource(icon);
-                    viewEarring2enchLv1.setImageResource(enchLvl);
+                    viewEarring2enhLv1.setImageResource(enhLvl);
                     apArray[10] = ap;
                     dpArray[10] = dp;
                     break;
                 case REQUEST_CODE_RING1:
+                    accessoryInit(data);
                     rarityResource = rarityCheck(rarity);
                     viewRing1.setBackgroundResource(rarityResource);
                     viewRing1.setImageResource(icon);
-                    viewRing1enchLvl.setImageResource(enchLvl);
+                    viewRing1enhLvl.setImageResource(enhLvl);
                     apArray[1] = ap;
                     dpArray[1] = dp;
                     break;
                 case REQUEST_CODE_RING2:
+                    accessoryInit(data);
                     rarityResource = rarityCheck(rarity);
                     viewRing2.setBackgroundResource(rarityResource);
                     viewRing2.setImageResource(icon);
-                    viewRing2enchLvl.setImageResource(enchLvl);
+                    viewRing2enhLvl.setImageResource(enhLvl);
                     apArray[2] = ap;
                     dpArray[2] = dp;
                     break;
                 case REQUEST_CODE_BELT:
+                    accessoryInit(data);
                     viewBelt.setImageResource(icon);
                     apArray[8] = ap;
                     dpArray[8] = dp;
                     break;
                 case REQUEST_CODE_NECKLACE:
+                    accessoryInit(data);
                     viewNecklace.setImageResource(icon);
                     apArray[4] = ap;
                     dpArray[4] = dp;
                     break;
             }
-
         } else {
+
             Toast.makeText(this, "Clear", Toast.LENGTH_SHORT).show();
+
             switch (requestCode) {
+                case REQUEST_CODE_ALCHEMY_STONE:
+                    viewAlchemyStone.setImageResource(R.drawable.alchemy_placeholder);
+                    viewAlchemyStone.setBackgroundResource(R.drawable.outline_default);
+                    break;
                 case REQUEST_CODE_EARRING1:
                     viewEarring1.setImageResource(R.drawable.earring_placeholder);
                     viewEarring1.setBackgroundResource(R.drawable.outline_default);
-                    viewEarring1enchLvl.setImageResource(0);
+                    viewEarring1enhLvl.setImageResource(0);
                     apArray[11] = 0;
                     dpArray[11] = 0;
                     break;
                 case REQUEST_CODE_EARRING2:
                     viewEarring2.setImageResource(R.drawable.earring_placeholder);
                     viewEarring2.setBackgroundResource(R.drawable.outline_default);
-                    viewEarring2enchLv1.setImageResource(0);
+                    viewEarring2enhLv1.setImageResource(0);
                     apArray[10] = 0;
                     dpArray[10] = 0;
                     break;
                 case REQUEST_CODE_RING1:
                     viewRing1.setImageResource(R.drawable.ring_placeholder);
                     viewRing1.setBackgroundResource(R.drawable.outline_default);
-                    viewRing1enchLvl.setImageResource(0);
+                    viewRing1enhLvl.setImageResource(0);
                     apArray[1] = 0;
                     dpArray[1] = 0;
                     break;
                 case REQUEST_CODE_RING2:
                     viewRing2.setImageResource(R.drawable.ring_placeholder);
                     viewRing2.setBackgroundResource(R.drawable.outline_default);
-                    viewRing2enchLvl.setImageResource(0);
+                    viewRing2enhLvl.setImageResource(0);
                     apArray[2] = 0;
                     dpArray[2] = 0;
                     break;
             }
         }
+        gearScore();
+    }
 
-        sumApDp();
+    private void accessoryInit(Intent data) {
 
+        accessory = (Accessory) data.getSerializableExtra("accessoryName");
+        icon = accessory.icon;
+        ap = accessory.ap;
+        dp = accessory.dp;
+        enhLvl = enhLvl(accessory.enhLVL);
+        rarity = accessory.rarity;
+    }
+
+    private void alchemyInit(Intent data) {
+
+        alchemyStone = (AlchemyStone) data.getSerializableExtra("alchemyName");
+        icon = alchemyStone.icon;
+        rarity = alchemyStone.rarity;
+    }
+
+    private int enhLvl(int enhLvl) {
+
+        switch (enhLvl) {
+            case 0:
+                break;
+            case 1:
+                enhLvl = R.drawable.image_pri;
+                break;
+            case 2:
+                enhLvl = R.drawable.image_duo;
+                break;
+            case 3:
+                enhLvl = R.drawable.image_tri;
+                break;
+            case 4:
+                enhLvl = R.drawable.image_tet;
+                break;
+            case 5:
+                enhLvl = R.drawable.image_pen;
+                break;
+        }
+
+        return enhLvl;
     }
 
     private int rarityCheck(String rarity) {
 
         switch (rarity) {
-            case "epic":
-                rarityValue = R.drawable.outline_epic;
+            case "common":
+                rarityValue = R.drawable.outline_common;
+                break;
+            case "uncommon":
+                rarityValue = R.drawable.outline_uncommon;
                 break;
             case "rare":
                 rarityValue = R.drawable.outline_rare;
                 break;
-            case "uncommon":
-                rarityValue = R.drawable.outline_uncommon;
+            case "epic":
+                rarityValue = R.drawable.outline_epic;
                 break;
         }
         return rarityValue;
     }
 
-    private void sumApDp() {
+    private void gearScore() {
 
         apSum = 0;
         for (int i = 0; i < 13; i++) {
@@ -368,65 +490,4 @@ public class GearActivity extends AppCompatActivity implements View.OnClickListe
 
     }
 
-//    public void ringChoose(String ringName, int ap, int dp, ImageView ringView, int index) {
-//
-//        switch (ringName) {
-//            case "ringRedCoral":
-//                ringView.setImageResource(R.drawable.ring_red_coral);
-//                apArray[index] = ap;
-//                dpArray[index] = dp;
-//                break;
-//            case "ringBlueCoral":
-//                ringView.setImageResource(R.drawable.ring_blue_coral);
-//                apArray[index] = ap;
-//                dpArray[index] = dp;
-//                break;
-//            case "ringCrescent":
-//                ringView.setImageResource(R.drawable.ring_crescent);
-//                apArray[index] = ap;
-//                dpArray[index] = dp;
-//                break;
-//            case "ringPlaceholder":
-//                ringView.setImageResource(R.drawable.ring_placeholder);
-//                apArray[index] = ap;
-//                dpArray[index] = dp;
-//                break;
-//        }
-//
-//    }
-
-//    public void earringChoose(String earringName, int ap, int dp, ImageView earringView, int index) {
-//
-//        switch (earringName) {
-//            case "earringTungrad":
-//                earringView.setImageResource(R.drawable.earring_epic_tungrad);
-//                apArray[index] = ap;
-//                dpArray[index] = dp;
-//                break;
-//            case "earringBlueCoral":
-//                earringView.setImageResource(R.drawable.earring_rare_blue_coral);
-//                apArray[index] = ap;
-//                dpArray[index] = dp;
-//                break;
-//            case "earringRedCoral":
-//                earringView.setImageResource(R.drawable.earring_rare_red_coral);
-//                apArray[index] = ap;
-//                dpArray[index] = dp;
-//                break;
-//            case "earringWitch":
-//                earringView.setImageResource(R.drawable.earring_rare_witch);
-//                apArray[index] = ap;
-//                dpArray[index] = dp;
-//                break;
-//            case "earringPlaceholder":
-//                earringView.setImageResource(R.drawable.earring_placeholder);
-//                apArray[index] = ap;
-//                dpArray[index] = dp;
-//                break;
-//        }
-//    }
-
-    public void earringChoose(ImageView earringView, int icon) {
-        earringView.setImageResource(icon);
-    }
 }

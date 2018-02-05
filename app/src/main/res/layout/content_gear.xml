@@ -63,7 +63,7 @@
                     android:layout_toRightOf="@+id/view_main_weapon"
                     android:background="@drawable/outline_default"
                     android:scaleType="center"
-                    android:src="@drawable/alchemy_stone_placeholder" />
+                    android:src="@drawable/alchemy_placeholder" />
 
                 <ImageView
                     android:id="@+id/view_costume_secondary"

@@ -1,17 +1,12 @@
 package wie.wiggle.testplanner;
 
-import android.app.ActionBar;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
-import android.widget.ImageView;
 import android.widget.Toast;
-import android.widget.Toolbar;
 
 import com.rohit.recycleritemclicksupport.RecyclerItemClickSupport;
 
@@ -22,7 +17,7 @@ import java.util.List;
  * Created by timox on 24/08/2017.
  */
 
-public class TestStart extends AppCompatActivity implements RecyclerItemClickSupport.OnItemClickListener {
+public class MainActivity extends AppCompatActivity implements RecyclerItemClickSupport.OnItemClickListener {
 
 
     private List<Character> characters;
@@ -34,7 +29,7 @@ public class TestStart extends AppCompatActivity implements RecyclerItemClickSup
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_start);
+        setContentView(R.layout.activity_main);
 
         rv = (RecyclerView) findViewById(R.id.recyclerView_classes);
 

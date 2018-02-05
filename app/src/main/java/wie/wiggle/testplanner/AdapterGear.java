@@ -45,32 +45,32 @@ public class AdapterGear extends RecyclerView.Adapter<AdapterGear.MyViewHolder> 
         holder.seekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int i, boolean b) {
-                valueAP = item.ap + i * item.enchStepAP;
-                valueDP = item.dp + i * item.enchStepDP;
+                valueAP = item.ap + i * item.enhStepAP;
+                valueDP = item.dp + i * item.enhStepDP;
                 switch (i) {
                     case 0:
                         holder.name.setText(item.name);
-                        item.setEnchLVL(0);
+                        item.setEnhLVL(0);
                         break;
                     case 1:
                         holder.name.setText("I PRI: " + item.name);
-                        item.setEnchLVL(1);
+                        item.setEnhLVL(1);
                         break;
                     case 2:
                         holder.name.setText("II DUO: " + item.name);
-                        item.setEnchLVL(2);
+                        item.setEnhLVL(2);
                         break;
                     case 3:
                         holder.name.setText("III TRI: " + item.name);
-                        item.setEnchLVL(3);
+                        item.setEnhLVL(3);
                         break;
                     case 4:
                         holder.name.setText("IV TET: " + item.name);
-                        item.setEnchLVL(4);
+                        item.setEnhLVL(4);
                         break;
                     case 5:
                         holder.name.setText("V PEN: " + item.name);
-                        item.setEnchLVL(5);
+                        item.setEnhLVL(5);
                         break;
                 }
                 stringAP = String.valueOf(valueAP);
@@ -108,11 +108,11 @@ public class AdapterGear extends RecyclerView.Adapter<AdapterGear.MyViewHolder> 
 
         public MyViewHolder(View itemView) {
             super(itemView);
-            name = (TextView) itemView.findViewById(R.id.item_name_test);
-            icon = (ImageView) itemView.findViewById(R.id.item_icon_test);
-            ap = (TextView) itemView.findViewById(R.id.item_ap_test);
-            dp = (TextView) itemView.findViewById(R.id.item_dp_test);
-            seekBar = (SeekBar) itemView.findViewById(R.id.seekBar);
+            name = (TextView) itemView.findViewById(R.id.item_gear_name);
+            icon = (ImageView) itemView.findViewById(R.id.item_gear_icon);
+            ap = (TextView) itemView.findViewById(R.id.item_gear_ap);
+            dp = (TextView) itemView.findViewById(R.id.item_gearp_dp);
+            seekBar = (SeekBar) itemView.findViewById(R.id.item_gear_seekbar);
         }
     }
 }
