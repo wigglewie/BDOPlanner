@@ -70,6 +70,9 @@ public class GearActivity extends AppCompatActivity implements View.OnClickListe
         toolbar = (android.support.v7.widget.Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+
         classIcon = (ImageView) findViewById(R.id.view_class_icon);
         viewRing1 = (ImageView) findViewById(R.id.view_ring1);
         viewRing2 = (ImageView) findViewById(R.id.view_ring2);

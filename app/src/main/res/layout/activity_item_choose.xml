@@ -3,7 +3,6 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/activity_item_choose"
-    android:background="@color/colorBackgroundItemChoose"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
@@ -20,10 +19,14 @@
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/recyclerView_gear_items"
-        android:layout_marginTop="55dp"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
+        android:clipToPadding="false"
+        android:background="@color/colorBackgroundItemChoose"
         android:layoutAnimation="@anim/layout_animation_fall_down"
-        android:scrollbars="vertical" />
+        android:scrollbars="vertical"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior" />
+
+    <!--<include layout="@layout/content_gear" />-->
 
 </android.support.design.widget.CoordinatorLayout>

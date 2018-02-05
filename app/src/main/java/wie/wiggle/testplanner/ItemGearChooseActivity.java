@@ -3,11 +3,13 @@ package wie.wiggle.testplanner;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.LinearLayout;
 import android.widget.SeekBar;
 import android.widget.TextView;
 
@@ -23,9 +25,6 @@ import java.util.List;
 public class ItemGearChooseActivity extends AppCompatActivity implements RecyclerItemClickSupport.OnItemClickListener {
 
     private List<Accessory> accessoryArray;
-    private List<Accessory> rings;
-    private List<Accessory> belts;
-    private List<Accessory> necklaces;
     private RecyclerView rv;
     private AdapterGear mAdapter;
     private RecyclerView.LayoutManager mLayoutManager;
@@ -36,33 +35,18 @@ public class ItemGearChooseActivity extends AppCompatActivity implements Recycle
     int valueDP;
     int sb;
 
+    private android.support.v7.widget.Toolbar toolbar;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_item_choose);
 
-//        getSupportActionBar().setTitle("Gear");
+        toolbar = (android.support.v7.widget.Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
 
-//        SeekBar seekBar = (SeekBar) findViewById(R.id.seekBar);
-//        seekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
-//            @Override
-//            public void onProgressChanged(SeekBar seekBar, int i, boolean b) {
-//                Toast.makeText(ItemGearChooseActivity.this, "seekBar", Toast.LENGTH_SHORT).show();
-//            }
-//
-//            @Override
-//            public void onStartTrackingTouch(SeekBar seekBar) {
-//
-//            }
-//
-//            @Override
-//            public void onStopTrackingTouch(SeekBar seekBar) {
-//
-//            }
-//        });
-
-//        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-//        getSupportActionBar().setDisplayShowHomeEnabled(true);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
 
         rv = (RecyclerView) findViewById(R.id.recyclerView_gear_items);
         RecyclerItemClickSupport.addTo(rv).setOnItemClickListener(this);
@@ -71,6 +55,9 @@ public class ItemGearChooseActivity extends AppCompatActivity implements Recycle
 
         mAdapter = new AdapterGear(accessoryArray);
         mLayoutManager = new LinearLayoutManager(this);
+
+        rv.addItemDecoration(new EqualSpacingItemDecoration(30));
+
         rv.setHasFixedSize(true);
         rv.setLayoutManager(mLayoutManager);
         rv.setAdapter(mAdapter);

@@ -36,8 +36,6 @@ public class TestStart extends AppCompatActivity implements RecyclerItemClickSup
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_start);
 
-
-
         rv = (RecyclerView) findViewById(R.id.recyclerView_classes);
 
         RecyclerItemClickSupport.addTo(rv).setOnItemClickListener(this);
