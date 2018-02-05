@@ -45,7 +45,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:text="0"
-                android:textColor="@color/colorAPDP"
+                android:textColor="@color/colorStatsValue"
                 android:textSize="13dp" />
 
         </LinearLayout>
@@ -67,7 +67,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:text="0"
-                android:textColor="@color/colorAPDP"
+                android:textColor="@color/colorStatsValue"
                 android:textSize="13dp" />
 
         </LinearLayout>
@@ -89,7 +89,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:text="0"
-                android:textColor="@color/colorAPDP"
+                android:textColor="@color/colorStatsValue"
                 android:textSize="13dp" />
 
         </LinearLayout>
@@ -111,7 +111,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:text="0"
-                android:textColor="@color/colorAPDP"
+                android:textColor="@color/colorStatsValue"
                 android:textSize="13dp" />
 
         </LinearLayout>
@@ -133,7 +133,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:text="0"
-                android:textColor="@color/colorAPDP"
+                android:textColor="@color/colorStatsValue"
                 android:textSize="13dp" />
 
         </LinearLayout>
@@ -180,7 +180,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:text="0"
-                android:textColor="@color/colorAPDP"
+                android:textColor="@color/colorStatsValue"
                 android:textSize="13dp" />
 
         </LinearLayout>
@@ -202,7 +202,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:text="0"
-                android:textColor="@color/colorAPDP"
+                android:textColor="@color/colorStatsValue"
                 android:textSize="13dp" />
 
         </LinearLayout>
@@ -224,7 +224,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:text="0"
-                android:textColor="@color/colorAPDP"
+                android:textColor="@color/colorStatsValue"
                 android:textSize="13dp" />
 
         </LinearLayout>
@@ -246,7 +246,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:text="0"
-                android:textColor="@color/colorAPDP"
+                android:textColor="@color/colorStatsValue"
                 android:textSize="13dp" />
 
         </LinearLayout>
@@ -268,7 +268,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:text="0"
-                android:textColor="@color/colorAPDP"
+                android:textColor="@color/colorStatsValue"
                 android:textSize="13dp" />
 
         </LinearLayout>
@@ -315,7 +315,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:text="0"
-                android:textColor="@color/colorAPDP"
+                android:textColor="@color/colorStatsValue"
                 android:textSize="13dp" />
 
         </LinearLayout>
@@ -337,7 +337,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:text="0"
-                android:textColor="@color/colorAPDP"
+                android:textColor="@color/colorStatsValue"
                 android:textSize="13dp" />
 
         </LinearLayout>
@@ -409,14 +409,14 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:text="20"
-                android:textColor="@color/colorAPDP"
+                android:textColor="@color/colorStatsValue"
                 android:textSize="13dp" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:text="%"
-                android:textColor="@color/colorAPDP"
+                android:textColor="@color/colorStatsValue"
                 android:textSize="13dp" />
 
         </LinearLayout>
@@ -438,14 +438,14 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:text="20"
-                android:textColor="@color/colorAPDP"
+                android:textColor="@color/colorStatsValue"
                 android:textSize="13dp" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:text="%"
-                android:textColor="@color/colorAPDP"
+                android:textColor="@color/colorStatsValue"
                 android:textSize="13dp" />
 
         </LinearLayout>
@@ -467,14 +467,14 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:text="20"
-                android:textColor="@color/colorAPDP"
+                android:textColor="@color/colorStatsValue"
                 android:textSize="13dp" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:text="%"
-                android:textColor="@color/colorAPDP"
+                android:textColor="@color/colorStatsValue"
                 android:textSize="13dp" />
 
         </LinearLayout>
@@ -496,14 +496,14 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:text="20"
-                android:textColor="@color/colorAPDP"
+                android:textColor="@color/colorStatsValue"
                 android:textSize="13dp" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:text="%"
-                android:textColor="@color/colorAPDP"
+                android:textColor="@color/colorStatsValue"
                 android:textSize="13dp" />
 
         </LinearLayout>

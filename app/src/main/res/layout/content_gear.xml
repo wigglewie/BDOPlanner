@@ -19,12 +19,19 @@
 
             <ImageView
                 android:id="@+id/view_class_icon"
-                android:layout_width="match_parent"
+                android:layout_width="400dp"
                 android:layout_height="400dp"
                 android:layout_centerHorizontal="true"
-                android:alpha=".3"
+                android:alpha=".2"
                 android:padding="60dp"
                 android:src="@drawable/sorceress_class_icon" />
+
+            <ImageView
+                android:layout_width="400dp"
+                android:layout_height="400dp"
+                android:layout_centerHorizontal="true"
+                android:padding="20dp"
+                android:src="@drawable/circle"/>
 
             <RelativeLayout
                 android:id="@+id/relativeLayout"
@@ -366,7 +373,7 @@
                     android:layout_gravity="center"
                     android:gravity="center"
                     android:text="AP"
-                    android:textColor="@color/colorItemBackground"
+                    android:textColor="@color/colorText"
                     android:textSize="17dp"
                     android:textStyle="bold" />
 
@@ -376,7 +383,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:text="0"
-                    android:textColor="@color/colorAPDP"
+                    android:textColor="@color/colorStatsValue"
                     android:textSize="40dp" />
 
 
@@ -387,7 +394,7 @@
                 android:layout_height="match_parent"
                 android:layout_centerHorizontal="true"
                 android:layout_marginRight="10dp"
-                android:background="@color/colorItemBackground" />
+                android:background="@color/colorText" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -402,7 +409,7 @@
                     android:layout_gravity="center"
                     android:gravity="center"
                     android:text="Awakening AP"
-                    android:textColor="@color/colorItemBackground"
+                    android:textColor="@color/colorText"
                     android:textSize="17dp"
                     android:textStyle="bold" />
 
@@ -412,7 +419,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:text="0"
-                    android:textColor="@color/colorAPDP"
+                    android:textColor="@color/colorStatsValue"
                     android:textSize="40dp" />
 
 
@@ -423,7 +430,7 @@
                 android:layout_height="match_parent"
                 android:layout_centerHorizontal="true"
                 android:layout_marginLeft="10dp"
-                android:background="@color/colorItemBackground" />
+                android:background="@color/colorText" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -438,7 +445,7 @@
                     android:layout_gravity="center"
                     android:gravity="center"
                     android:text="DP"
-                    android:textColor="@color/colorItemBackground"
+                    android:textColor="@color/colorText"
                     android:textSize="17dp"
                     android:textStyle="bold" />
 
@@ -448,7 +455,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:text="0"
-                    android:textColor="@color/colorAPDP"
+                    android:textColor="@color/colorStatsValue"
                     android:textSize="40dp" />
 
 
@@ -465,12 +472,12 @@
             android:orientation="horizontal">
 
             <CheckBox
-                android:layout_gravity="center"
-                android:layout_weight="1"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:layout_weight="1"
                 android:text="Activate Alc. Stone"
-                android:textColor="@android:color/white"
+                android:textColor="@color/colorText"
                 android:textSize="15sp"
                 android:theme="@style/ThemeOverlay.AppCompat.Dark" />
 
@@ -478,21 +485,21 @@
                 android:layout_width="1dp"
                 android:layout_height="35dp"
                 android:layout_gravity="center"
-                android:background="@color/colorItemBackground" />
+                android:background="@color/colorText" />
 
 
             <LinearLayout
-                android:gravity="center"
-                android:layout_weight="1"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
                 android:orientation="horizontal">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Current Gear Score: "
-                    android:textColor="@android:color/white"
+                    android:textColor="@color/colorText"
                     android:textSize="15sp" />
 
                 <TextView
@@ -500,7 +507,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="0"
-                    android:textColor="@color/colorAPDP"
+                    android:textColor="@color/colorStatsValue"
                     android:textSize="18sp" />
 
             </LinearLayout>

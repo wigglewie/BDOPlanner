@@ -16,7 +16,7 @@
         android:layout_gravity="center"
         android:gravity="start|center"
         android:text="BDO"
-        android:textColor="@android:color/white"
+        android:textColor="@color/colorText"
         android:textSize="23dp"
         android:textStyle="bold" />
 
@@ -28,7 +28,7 @@
         android:gravity="start|center"
         android:paddingTop="4dp"
         android:text="Planner"
-        android:textColor="@android:color/white"
+        android:textColor="@color/colorText"
         android:textSize="18dp" />
 
 </android.support.v7.widget.Toolbar>

@@ -62,23 +62,6 @@ public class ItemGearChooseActivity extends AppCompatActivity implements Recycle
         rv.setLayoutManager(mLayoutManager);
         rv.setAdapter(mAdapter);
 
-//        rv.addOnItemTouchListener(new RecyclerView.OnItemTouchListener() {
-//            @Override
-//            public boolean onInterceptTouchEvent(RecyclerView rv, MotionEvent e) {
-//                return false;
-//            }
-//
-//            @Override
-//            public void onTouchEvent(RecyclerView rv, MotionEvent e) {
-//
-//            }
-//
-//            @Override
-//            public void onRequestDisallowInterceptTouchEvent(boolean disallowIntercept) {
-//
-//            }
-//        });
-
     }
 
     @Override

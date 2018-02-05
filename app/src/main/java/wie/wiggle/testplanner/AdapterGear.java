@@ -28,7 +28,7 @@ public class AdapterGear extends RecyclerView.Adapter<AdapterGear.MyViewHolder> 
 
     @Override
     public MyViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
-        View earring = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.item_gear_choose_test, viewGroup, false);
+        View earring = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.item_gear_choose, viewGroup, false);
         return new MyViewHolder(earring);
     }
 

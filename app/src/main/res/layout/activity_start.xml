@@ -1,11 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.v7.widget.RecyclerView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/recyclerView_classes"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:clipToPadding="false"
+    android:layout_height="match_parent"
     android:background="@color/colorBackground"
-    android:paddingBottom="3dp"
+    android:clipToPadding="false"
     android:layoutAnimation="@anim/layout_animation_fall_down"
-    android:scrollbars="vertical" />
+    android:orientation="vertical"
+    android:paddingBottom="3dp">
+
+
+    <android.support.v7.widget.RecyclerView xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/recyclerView_classes"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorBackground"
+        android:clipToPadding="false"
+        android:layoutAnimation="@anim/layout_animation_fall_down"
+        android:paddingBottom="3dp"
+        android:scrollbars="vertical" />
+
+</LinearLayout>
+
+
 

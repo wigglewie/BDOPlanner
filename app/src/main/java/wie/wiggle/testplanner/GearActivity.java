@@ -167,6 +167,12 @@ public class GearActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     @Override
+    public boolean onSupportNavigateUp() {
+        onBackPressed();
+        return true;
+    }
+
+    @Override
     public void onClick(View view) {
 
         Intent intent = new Intent(this, ItemGearChooseActivity.class);
@@ -216,7 +222,6 @@ public class GearActivity extends AppCompatActivity implements View.OnClickListe
         int rarityResource;
 
         if (resultCode == RESULT_OK) {
-
 
             Accessory accessory = (Accessory) data.getSerializableExtra("accessoryName");
             icon = accessory.icon;
@@ -290,24 +295,28 @@ public class GearActivity extends AppCompatActivity implements View.OnClickListe
             switch (requestCode) {
                 case REQUEST_CODE_EARRING1:
                     viewEarring1.setImageResource(R.drawable.earring_placeholder);
+                    viewEarring1.setBackgroundResource(R.drawable.outline_default);
                     viewEarring1enchLvl.setImageResource(0);
                     apArray[11] = 0;
                     dpArray[11] = 0;
                     break;
                 case REQUEST_CODE_EARRING2:
                     viewEarring2.setImageResource(R.drawable.earring_placeholder);
+                    viewEarring2.setBackgroundResource(R.drawable.outline_default);
                     viewEarring2enchLv1.setImageResource(0);
                     apArray[10] = 0;
                     dpArray[10] = 0;
                     break;
                 case REQUEST_CODE_RING1:
                     viewRing1.setImageResource(R.drawable.ring_placeholder);
+                    viewRing1.setBackgroundResource(R.drawable.outline_default);
                     viewRing1enchLvl.setImageResource(0);
                     apArray[1] = 0;
                     dpArray[1] = 0;
                     break;
                 case REQUEST_CODE_RING2:
                     viewRing2.setImageResource(R.drawable.ring_placeholder);
+                    viewRing2.setBackgroundResource(R.drawable.outline_default);
                     viewRing2enchLvl.setImageResource(0);
                     apArray[2] = 0;
                     dpArray[2] = 0;
