@@ -24,13 +24,12 @@
         <View
             android:layout_width="match_parent"
             android:layout_height="1dp"
+            android:layout_marginBottom="5dp"
             android:background="@color/colorTitlesLine" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
-            android:gravity=""
             android:orientation="horizontal">
 
             <TextView
@@ -58,6 +57,36 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
+                android:text="Attack Speed: "
+                android:textColor="@color/colorText"
+                android:textSize="13dp" />
+
+            <TextView
+                android:id="@+id/text_stats_attack_speed_percentage"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="0"
+                android:textColor="@color/colorStatsValue"
+                android:textSize="13dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="%"
+                android:textColor="@color/colorStatsValue"
+                android:textSize="13dp" />
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
                 android:text="Casting Speed: "
                 android:textColor="@color/colorText"
                 android:textSize="13dp" />
@@ -67,6 +96,35 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:text="0"
+                android:textColor="@color/colorStatsValue"
+                android:textSize="13dp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="Casting Speed: "
+                android:textColor="@color/colorText"
+                android:textSize="13dp" />
+
+            <TextView
+                android:id="@+id/text_stats_casting_speed_percentage"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="0"
+                android:textColor="@color/colorStatsValue"
+                android:textSize="13dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="%"
                 android:textColor="@color/colorStatsValue"
                 android:textSize="13dp" />
 

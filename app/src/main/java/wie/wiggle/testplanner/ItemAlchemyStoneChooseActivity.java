@@ -1,16 +1,21 @@
 package wie.wiggle.testplanner;
 
+import android.annotation.SuppressLint;
 import android.app.SearchManager;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.SearchView;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.MotionEvent;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
+import android.widget.TextView;
 
 import com.rohit.recycleritemclicksupport.RecyclerItemClickSupport;
 
@@ -30,8 +35,6 @@ public class ItemAlchemyStoneChooseActivity extends AppCompatActivity implements
 
     private android.support.v7.widget.Toolbar toolbar;
 
-    private SearchView searchView;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,6 +45,7 @@ public class ItemAlchemyStoneChooseActivity extends AppCompatActivity implements
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
+        getSupportActionBar().setDisplayShowTitleEnabled(false);
 
         rv = (RecyclerView) findViewById(R.id.recyclerView_gear_items);
         RecyclerItemClickSupport.addTo(rv).setOnItemClickListener(this);
@@ -56,31 +60,41 @@ public class ItemAlchemyStoneChooseActivity extends AppCompatActivity implements
         rv.setHasFixedSize(true);
         rv.setLayoutManager(mLayoutManager);
         rv.setAdapter(mAdapter);
-
-        searchView = (SearchView) findViewById(R.id.menu_search);
-
     }
 
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu, menu);
+        getMenuInflater().inflate(R.menu.menu_items, menu);
 
         SearchManager searchManager = (SearchManager) getSystemService(Context.SEARCH_SERVICE);
-        SearchView sv = (SearchView) menu.findItem(R.id.menu_search).getActionView();
-        sv.setSearchableInfo(searchManager.getSearchableInfo(getComponentName()));
+        final SearchView searchView = (SearchView) menu.findItem(R.id.menu_items_search).getActionView();
+        searchView.setSearchableInfo(searchManager.getSearchableInfo(getComponentName()));
+        searchView.setIconifiedByDefault(true);
 
-        sv.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String query) {
                 mAdapter.filter(query);
-                return true;
+                searchView.clearFocus();
+                return false;
             }
 
             @Override
             public boolean onQueryTextChange(String newText) {
                 mAdapter.filter(newText);
-                return true;
+                return false;
+            }
+        });
+
+        rv.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View view, MotionEvent motionEvent) {
+
+                InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+                imm.hideSoftInputFromWindow(searchView.getWindowToken(), 0);
+
+                return false;
             }
         });
 
@@ -91,7 +105,7 @@ public class ItemAlchemyStoneChooseActivity extends AppCompatActivity implements
     public boolean onOptionsItemSelected(MenuItem item) {
 
         switch (item.getItemId()) {
-            case R.id.menu_clear:
+            case R.id.menu_items_clear:
                 Intent intent = new Intent();
                 setResult(RESULT_CANCELED, intent);
                 finish();

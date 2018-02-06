@@ -8,6 +8,7 @@ import android.widget.ImageView;
 import android.widget.SeekBar;
 import android.widget.TextView;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -17,6 +18,7 @@ import java.util.List;
 public class AdapterGear extends RecyclerView.Adapter<AdapterGear.MyViewHolder> {
 
     private List<Accessory> accessories;
+    private List<Accessory> itemsCopy = new ArrayList<>();
     int valueAP;
     int valueDP;
     String stringAP;
@@ -24,6 +26,7 @@ public class AdapterGear extends RecyclerView.Adapter<AdapterGear.MyViewHolder> 
 
     public AdapterGear(List accessories) {
         this.accessories = accessories;
+        itemsCopy.addAll(accessories);
     }
 
     @Override
@@ -41,6 +44,22 @@ public class AdapterGear extends RecyclerView.Adapter<AdapterGear.MyViewHolder> 
         holder.icon.setImageResource(item.icon);
         holder.ap.setText(ap);
         holder.dp.setText(dp);
+
+        switch (item.rarity) {
+
+            case "common":
+                holder.name.setTextColor(holder.name.getResources().getColor(R.color.colorItemCommon));
+                break;
+            case "uncommon":
+                holder.name.setTextColor(holder.name.getResources().getColor(R.color.colorItemUncommon));
+                break;
+            case "rare":
+                holder.name.setTextColor(holder.name.getResources().getColor(R.color.colorItemRare));
+                break;
+            case "epic":
+                holder.name.setTextColor(holder.name.getResources().getColor(R.color.colorItemEpic));
+                break;
+        }
 
         holder.seekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
@@ -90,6 +109,21 @@ public class AdapterGear extends RecyclerView.Adapter<AdapterGear.MyViewHolder> 
             }
         });
 
+    }
+
+    public void filter(String text) {
+        accessories.clear();
+        if (text.isEmpty()) {
+            accessories.addAll(itemsCopy);
+        } else {
+            text = text.toLowerCase();
+            for (Accessory item : itemsCopy) {
+                if (item.name.toLowerCase().contains(text)) {
+                    accessories.add(item);
+                }
+            }
+        }
+        notifyDataSetChanged();
     }
 
     @Override

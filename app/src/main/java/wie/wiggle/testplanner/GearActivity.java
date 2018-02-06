@@ -11,6 +11,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
 
 
 public class GearActivity extends AppCompatActivity implements View.OnClickListener {
@@ -19,8 +21,9 @@ public class GearActivity extends AppCompatActivity implements View.OnClickListe
     private ArrayList<Accessory> rings;
     private ArrayList<Accessory> belts;
     private ArrayList<Accessory> necklaces;
-
     private ArrayList<AlchemyStone> alchemyStones;
+    private ArrayList<StatsAlchemyDestruction> statsAlchemyDestruction;
+    private ArrayList<StatsAlchemyProtection> statsAlchemyProtection;
 
     private static final int REQUEST_CODE_RING1 = 1;
     private static final int REQUEST_CODE_RING2 = 2;
@@ -77,6 +80,7 @@ public class GearActivity extends AppCompatActivity implements View.OnClickListe
 
     private android.support.v7.widget.Toolbar toolbar;
 
+    private TextView className;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -88,8 +92,11 @@ public class GearActivity extends AppCompatActivity implements View.OnClickListe
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
+        getSupportActionBar().setDisplayShowTitleEnabled(false);
 
         classIcon = (ImageView) findViewById(R.id.view_class_icon);
+        className = (TextView) findViewById(R.id.toolbar_label);
+
         viewAlchemyStone = (ImageView) findViewById(R.id.view_alchemy_stone);
         viewRing1 = (ImageView) findViewById(R.id.view_ring1);
         viewRing2 = (ImageView) findViewById(R.id.view_ring2);
@@ -129,11 +136,202 @@ public class GearActivity extends AppCompatActivity implements View.OnClickListe
         viewSecondaryWeapon.setOnClickListener(this);
         viewAwakeningWeapon.setOnClickListener(this);
 
-        Character person = getIntent().getParcelableExtra("class");
+        Character character = getIntent().getParcelableExtra("class");
 
-        classIcon.setImageResource(person.icon);
+        classIcon.setImageResource(character.icon);
+//        className.setText(character.name);
 
-        //earrings
+        initEarrings();
+        initRings();
+        initAlchemyStones();
+
+        //belts
+        belts = new ArrayList<>();
+
+        //necklaces
+        necklaces = new ArrayList<>();
+
+    }
+
+    private void initAlchemyStones() {
+
+        //init stats
+        //stats destruction
+        statsAlchemyDestruction = new ArrayList<>();
+        statsAlchemyDestruction.add(new StatsAlchemyDestruction("common", "sturdy", 6, 0, 0, 0, 0));
+        statsAlchemyDestruction.add(new StatsAlchemyDestruction("uncommon", "sturdy", 6, 8, 0, 0, 0));
+        statsAlchemyDestruction.add(new StatsAlchemyDestruction("rare", "sturdy", 6, 8, 4, 0, 0));
+        statsAlchemyDestruction.add(new StatsAlchemyDestruction("epic", "sturdy", 6, 8, 4, 4, 4));
+
+        statsAlchemyDestruction.add(new StatsAlchemyDestruction("common", "sharp", 8, 0, 0, 0, 0));
+        statsAlchemyDestruction.add(new StatsAlchemyDestruction("uncommon", "sharp", 8, 10, 0, 0, 0));
+        statsAlchemyDestruction.add(new StatsAlchemyDestruction("rare", "sharp", 8, 10, 5, 0, 0));
+        statsAlchemyDestruction.add(new StatsAlchemyDestruction("epic", "sharp", 8, 10, 5, 5, 5));
+
+        statsAlchemyDestruction.add(new StatsAlchemyDestruction("common", "resplendent", 10, 0, 0, 0, 0));
+        statsAlchemyDestruction.add(new StatsAlchemyDestruction("uncommon", "resplendent", 10, 12, 0, 0, 0));
+        statsAlchemyDestruction.add(new StatsAlchemyDestruction("rare", "resplendent", 10, 12, 6, 0, 0));
+        statsAlchemyDestruction.add(new StatsAlchemyDestruction("epic", "resplendent", 10, 0, 6, 6, 6));
+
+        statsAlchemyDestruction.add(new StatsAlchemyDestruction("common", "splendid", 13, 0, 0, 0, 0));
+        statsAlchemyDestruction.add(new StatsAlchemyDestruction("uncommon", "splendid", 13, 14, 0, 0, 0));
+        statsAlchemyDestruction.add(new StatsAlchemyDestruction("rare", "splendid", 13, 14, 8, 0, 0));
+        statsAlchemyDestruction.add(new StatsAlchemyDestruction("epic", "splendid", 13, 14, 8, 8, 8));
+
+        //stats protection
+        statsAlchemyProtection = new ArrayList<>();
+        statsAlchemyProtection.add(new StatsAlchemyProtection("common", "sturdy", 6, 0, 0, 0));
+        statsAlchemyProtection.add(new StatsAlchemyProtection("uncommon", "sturdy", 6, 8, 0, 0));
+        statsAlchemyProtection.add(new StatsAlchemyProtection("rare", "sturdy", 6, 8, 110, 0));
+        statsAlchemyProtection.add(new StatsAlchemyProtection("epic", "sturdy", 6, 8, 110, 4));
+
+        statsAlchemyProtection.add(new StatsAlchemyProtection("common", "sharp", 8, 0, 0, 0));
+        statsAlchemyProtection.add(new StatsAlchemyProtection("uncommon", "sharp", 8, 10, 0, 0));
+        statsAlchemyProtection.add(new StatsAlchemyProtection("rare", "sharp", 8, 10, 140, 0));
+        statsAlchemyProtection.add(new StatsAlchemyProtection("epic", "sharp", 8, 10, 140, 5));
+
+        statsAlchemyProtection.add(new StatsAlchemyProtection("common", "resplendent", 10, 0, 0, 0));
+        statsAlchemyProtection.add(new StatsAlchemyProtection("uncommon", "resplendent", 10, 12, 0, 0));
+        statsAlchemyProtection.add(new StatsAlchemyProtection("rare", "resplendent", 10, 12, 170, 0));
+        statsAlchemyProtection.add(new StatsAlchemyProtection("epic", "resplendent", 10, 12, 170, 6));
+
+        statsAlchemyProtection.add(new StatsAlchemyProtection("common", "splendid", 13, 0, 0, 0));
+        statsAlchemyProtection.add(new StatsAlchemyProtection("uncommon", "splendid", 13, 14, 0, 0));
+        statsAlchemyProtection.add(new StatsAlchemyProtection("rare", "splendid", 13, 14, 210, 0));
+        statsAlchemyProtection.add(new StatsAlchemyProtection("epic", "splendid", 13, 14, 210, 7));
+
+
+        ArrayList<List> list = new ArrayList<>();
+
+        list.add(new ArrayList(statsAlchemyDestruction));
+        list.add(new ArrayList(statsAlchemyProtection));
+//        list.add(new ArrayList(statsAlchemyLife));
+
+        ArrayList statsArrayDestruction = (ArrayList) list.get(0);
+        ArrayList statsArrayProtection = (ArrayList) list.get(1);
+//        ArrayList statsArrayLife = (ArrayList) list.get(2);
+
+        //stats destruction
+        Object destructionCommonSturdy = statsArrayDestruction.get(0);
+        Object destructionUncommonSturdy = statsArrayDestruction.get(1);
+        Object destructionRareSturdy = statsArrayDestruction.get(2);
+        Object destructionEpicSturdy = statsArrayDestruction.get(3);
+
+        Object destructionCommonSharp = statsArrayDestruction.get(4);
+        Object destructionUncommonSharp = statsArrayDestruction.get(5);
+        Object destructionRareSharp = statsArrayDestruction.get(6);
+        Object destructionEpicSharp = statsArrayDestruction.get(7);
+
+        Object destructionCommonResplendent = statsArrayDestruction.get(8);
+        Object destructionUncommonResplendent = statsArrayDestruction.get(9);
+        Object destructionRareResplendent = statsArrayDestruction.get(10);
+        Object destructionEpicResplendent = statsArrayDestruction.get(11);
+
+        Object destructionCommonSplendid = statsArrayDestruction.get(12);
+        Object destructionUncommonSplendid = statsArrayDestruction.get(13);
+        Object destructionRareSplendid = statsArrayDestruction.get(14);
+        Object destructionEpicSplendid = statsArrayDestruction.get(15);
+
+        //stats protection
+        Object protectionCommonSturdy = statsArrayProtection.get(0);
+        Object protectionUncommonSturdy = statsArrayProtection.get(1);
+        Object protectionRareSturdy = statsArrayProtection.get(2);
+        Object protectionEpicSturdy = statsArrayProtection.get(3);
+
+        Object protectionCommonSharp = statsArrayProtection.get(4);
+        Object protectionUncommonSharp = statsArrayProtection.get(5);
+        Object protectionRareSharp = statsArrayProtection.get(6);
+        Object protectionEpicSharp = statsArrayProtection.get(7);
+
+        Object protectionCommonResplendent = statsArrayProtection.get(8);
+        Object protectionUncommonResplendent = statsArrayProtection.get(9);
+        Object protectionRareResplendent = statsArrayProtection.get(10);
+        Object protectionEpicResplendent = statsArrayProtection.get(11);
+
+        Object protectionCommonSplendid = statsArrayProtection.get(12);
+        Object protectionUncommonSplendid = statsArrayProtection.get(13);
+        Object protectionRareSplendid = statsArrayProtection.get(14);
+        Object protectionEpicSplendid = statsArrayProtection.get(15);
+
+        //init alchemy stones
+        alchemyStones = new ArrayList<>();
+        //sturdy
+        alchemyStones.add(new AlchemyStone("destruction", "Sturdy Alchemy Stone of Destruction", "common", R.drawable.alchemy_destuction_sturdy, destructionCommonSturdy));
+        alchemyStones.add(new AlchemyStone("destruction", "Sturdy Alchemy Stone of Destruction", "uncommon", R.drawable.alchemy_destuction_sturdy, destructionUncommonSturdy));
+        alchemyStones.add(new AlchemyStone("destruction", "Sturdy Alchemy Stone of Destruction", "rare", R.drawable.alchemy_destuction_sturdy, destructionRareSturdy));
+        alchemyStones.add(new AlchemyStone("destruction", "Sturdy Alchemy Stone of Destruction", "epic", R.drawable.alchemy_destuction_sturdy, destructionEpicSturdy));
+
+        alchemyStones.add(new AlchemyStone("protection", "Sturdy Alchemy Stone of Protection", "common", R.drawable.alchemy_protection_sturdy, protectionCommonSturdy));
+        alchemyStones.add(new AlchemyStone("protection", "Sturdy Alchemy Stone of Protection", "uncommon", R.drawable.alchemy_protection_sturdy, protectionUncommonSturdy));
+        alchemyStones.add(new AlchemyStone("protection", "Sturdy Alchemy Stone of Protection", "rare", R.drawable.alchemy_protection_sturdy, protectionRareSturdy));
+        alchemyStones.add(new AlchemyStone("protection", "Sturdy Alchemy Stone of Protection", "epic", R.drawable.alchemy_protection_sturdy, protectionEpicSturdy));
+
+//        alchemyStones.add(new AlchemyStone("life", "Sturdy Alchemy Stone of Life", "common", R.drawable.alchemy_life_sturdy));
+//        alchemyStones.add(new AlchemyStone("life", "Sturdy Alchemy Stone of Life", "uncommon", R.drawable.alchemy_life_sturdy));
+//        alchemyStones.add(new AlchemyStone("life", "Sturdy Alchemy Stone of Life", "rare", R.drawable.alchemy_life_sturdy));
+//        alchemyStones.add(new AlchemyStone("life", "Sturdy Alchemy Stone of Life", "epic", R.drawable.alchemy_life_sturdy));
+
+        //sharp
+        alchemyStones.add(new AlchemyStone("destruction", "Sharp Alchemy Stone of Destruction", "common", R.drawable.alchemy_destuction_sharp, destructionCommonSharp));
+        alchemyStones.add(new AlchemyStone("destruction", "Sharp Alchemy Stone of Destruction", "uncommon", R.drawable.alchemy_destuction_sharp, destructionUncommonSharp));
+        alchemyStones.add(new AlchemyStone("destruction", "Sharp Alchemy Stone of Destruction", "rare", R.drawable.alchemy_destuction_sharp, destructionRareSharp));
+        alchemyStones.add(new AlchemyStone("destruction", "Sharp Alchemy Stone of Destruction", "epic", R.drawable.alchemy_destuction_sharp, destructionEpicSharp));
+
+        alchemyStones.add(new AlchemyStone("protection", "Sharp Alchemy Stone of Protection", "common", R.drawable.alchemy_protection_sharp, protectionCommonSharp));
+        alchemyStones.add(new AlchemyStone("protection", "Sharp Alchemy Stone of Protection", "uncommon", R.drawable.alchemy_protection_sharp, protectionUncommonSharp));
+        alchemyStones.add(new AlchemyStone("protection", "Sharp Alchemy Stone of Protection", "rare", R.drawable.alchemy_protection_sharp, protectionRareSharp));
+        alchemyStones.add(new AlchemyStone("protection", "Sharp Alchemy Stone of Protection", "epic", R.drawable.alchemy_protection_sharp, protectionEpicSharp));
+
+//        alchemyStones.add(new AlchemyStone("life", "Sharp Alchemy Stone of Life", "common", R.drawable.alchemy_life_sharp));
+//        alchemyStones.add(new AlchemyStone("life", "Sharp Alchemy Stone of Life", "uncommon", R.drawable.alchemy_life_sharp));
+//        alchemyStones.add(new AlchemyStone("life", "Sharp Alchemy Stone of Life", "rare", R.drawable.alchemy_life_sharp));
+//        alchemyStones.add(new AlchemyStone("life", "Sharp Alchemy Stone of Life", "epic", R.drawable.alchemy_life_sharp));
+
+        //resplendent
+        alchemyStones.add(new AlchemyStone("destruction", "Resplendent Alchemy Stone of Destruction", "common", R.drawable.alchemy_destuction_resplendent, destructionCommonResplendent));
+        alchemyStones.add(new AlchemyStone("destruction", "Resplendent Alchemy Stone of Destruction", "uncommon", R.drawable.alchemy_destuction_resplendent, destructionUncommonResplendent));
+        alchemyStones.add(new AlchemyStone("destruction", "Resplendent Alchemy Stone of Destruction", "rare", R.drawable.alchemy_destuction_resplendent, destructionRareResplendent));
+        alchemyStones.add(new AlchemyStone("destruction", "Resplendent Alchemy Stone of Destruction", "epic", R.drawable.alchemy_destuction_resplendent, destructionEpicResplendent));
+
+        alchemyStones.add(new AlchemyStone("protection", "Resplendent Alchemy Stone of Protection", "common", R.drawable.alchemy_protection_resplendent, protectionCommonResplendent));
+        alchemyStones.add(new AlchemyStone("protection", "Resplendent Alchemy Stone of Protection", "uncommon", R.drawable.alchemy_protection_resplendent, protectionUncommonResplendent));
+        alchemyStones.add(new AlchemyStone("protection", "Resplendent Alchemy Stone of Protection", "rare", R.drawable.alchemy_protection_resplendent, protectionRareResplendent));
+        alchemyStones.add(new AlchemyStone("protection", "Resplendent Alchemy Stone of Protection", "epic", R.drawable.alchemy_protection_resplendent, protectionEpicResplendent));
+
+//        alchemyStones.add(new AlchemyStone("life", "Resplendent Alchemy Stone of Life", "common", R.drawable.alchemy_life_resplendent));
+//        alchemyStones.add(new AlchemyStone("life", "Resplendent Alchemy Stone of Life", "uncommon", R.drawable.alchemy_life_resplendent));
+//        alchemyStones.add(new AlchemyStone("life", "Resplendent Alchemy Stone of Life", "rare", R.drawable.alchemy_life_resplendent));
+//        alchemyStones.add(new AlchemyStone("life", "Resplendent Alchemy Stone of Life", "epic", R.drawable.alchemy_life_resplendent));
+
+        //splendid
+        alchemyStones.add(new AlchemyStone("destruction", "Splendid Alchemy Stone of Destruction", "common", R.drawable.alchemy_destuction_splendid, destructionCommonSplendid));
+        alchemyStones.add(new AlchemyStone("destruction", "Splendid Alchemy Stone of Destruction", "uncommon", R.drawable.alchemy_destuction_splendid, destructionUncommonSplendid));
+        alchemyStones.add(new AlchemyStone("destruction", "Splendid Alchemy Stone of Destruction", "rare", R.drawable.alchemy_destuction_splendid, destructionRareSplendid));
+        alchemyStones.add(new AlchemyStone("destruction", "Splendid Alchemy Stone of Destruction", "epic", R.drawable.alchemy_destuction_splendid, destructionEpicSplendid));
+
+        alchemyStones.add(new AlchemyStone("protection", "Splendid Alchemy Stone of Protection", "common", R.drawable.alchemy_protection_splendid, protectionCommonSplendid));
+        alchemyStones.add(new AlchemyStone("protection", "Splendid Alchemy Stone of Protection", "uncommon", R.drawable.alchemy_protection_splendid, protectionUncommonSplendid));
+        alchemyStones.add(new AlchemyStone("protection", "Splendid Alchemy Stone of Protection", "rare", R.drawable.alchemy_protection_splendid, protectionRareSplendid));
+        alchemyStones.add(new AlchemyStone("protection", "Splendid Alchemy Stone of Protection", "epic", R.drawable.alchemy_protection_splendid, protectionEpicSplendid));
+
+//        alchemyStones.add(new AlchemyStone("life", "Splendid Alchemy Stone of Life", "common", R.drawable.alchemy_life_splendid));
+//        alchemyStones.add(new AlchemyStone("life", "Splendid Alchemy Stone of Life", "uncommon", R.drawable.alchemy_life_splendid));
+//        alchemyStones.add(new AlchemyStone("life", "Splendid Alchemy Stone of Life", "rare", R.drawable.alchemy_life_splendid));
+//        alchemyStones.add(new AlchemyStone("life", "Splendid Alchemy Stone of Life", "epic", R.drawable.alchemy_life_splendid));
+    }
+
+    private void initRings() {
+        rings = new ArrayList<>();
+        rings.add(new Accessory("ring", "Yuria Ring", "uncommon", R.drawable.ring_uncommon_yuria, 0, 0, 0, 0, 0));
+        rings.add(new Accessory("ring", "Bares Ring", "uncommon", R.drawable.ring_uncommon_bares, 2, 0, 0, 1, 0));
+        rings.add(new Accessory("ring", "Hesus Ring", "uncommon", R.drawable.ring_uncommon_hesus, 0, 1, 0, 0, 1));
+        rings.add(new Accessory("ring", "Ring of Crescent Guardian", "epic", R.drawable.ring_epic_crescent_guardian, 5, 0, 0, 3, 0));
+        rings.add(new Accessory("ring", "Ring of Cadry Guardian", "epic", R.drawable.ring_epic_cadry_guardian, 0, 5, 0, 0, 3));
+        rings.add(new Accessory("ring", "Topaz Ring of Regeneration", "epic", R.drawable.ring_epic_topaz_of_regeneration, 0, 0, 0, 0, 0));
+        rings.add(new Accessory("ring", "Emerald Ring of Tranquility", "epic", R.drawable.ring_epic_emerald_of_tranquility, 0, 0, 0, 0, 0));
+    }
+
+    private void initEarrings() {
         earrings = new ArrayList<>();
         earrings.add(new Accessory("earring", "Yuria Earring", "uncommon", R.drawable.earring_uncommon_yuria, 0, 0, 0, 0, 0));
         earrings.add(new Accessory("earring", "Bares Earring", "uncommon", R.drawable.earring_uncommon_bares, 2, 0, 0, 1, 0));
@@ -144,94 +342,11 @@ public class GearActivity extends AppCompatActivity implements View.OnClickListe
         earrings.add(new Accessory("earring", "Red Coral Earring", "rare", R.drawable.earring_rare_red_coral, 2, 0, 0, 2, 0));
         earrings.add(new Accessory("earring", "Tungrad Earring", "epic", R.drawable.earring_epic_tungrad, 7, 0, 0, 2, 0));
         earrings.add(new Accessory("earring", "Dark Blood Ruby Earring", "rare", R.drawable.earring_rare_dark_blood_ruby, 4, 0, 0, 0, 0));
-
-        //rings
-        rings = new ArrayList<>();
-        rings.add(new Accessory("ring", "Yuria Ring", "uncommon", R.drawable.ring_uncommon_yuria, 0, 0, 0, 0, 0));
-        rings.add(new Accessory("ring", "Bares Ring", "uncommon", R.drawable.ring_uncommon_bares, 2, 0, 0, 1, 0));
-        rings.add(new Accessory("ring", "Hesus Ring", "uncommon", R.drawable.ring_uncommon_hesus, 0, 1, 0, 0, 1));
-        rings.add(new Accessory("ring", "Ring of Crescent Guardian", "epic", R.drawable.ring_epic_crescent_guardian, 5, 0, 0, 3, 0));
-        rings.add(new Accessory("ring", "Ring of Cadry Guardian", "epic", R.drawable.ring_epic_cadry_guardian, 0, 5, 0, 0, 3));
-        rings.add(new Accessory("ring", "Topaz Ring of Regeneration", "epic", R.drawable.ring_epic_topaz_of_regeneration, 0, 0, 0, 0, 0));
-        rings.add(new Accessory("ring", "Emerald Ring of Tranquility", "epic", R.drawable.ring_epic_emerald_of_tranquility, 0, 0, 0, 0, 0));
-
-        //belts
-        belts = new ArrayList<>();
-
-        //necklaces
-        necklaces = new ArrayList<>();
-
-        //alchemy stones
-        alchemyStones = new ArrayList<>();
-        //sturdy
-        alchemyStones.add(new AlchemyStone("destruction", "Sturdy Alchemy Stone of Destruction", "common", R.drawable.alchemy_destuction_sturdy));
-        alchemyStones.add(new AlchemyStone("destruction", "Sturdy Alchemy Stone of Destruction", "uncommon", R.drawable.alchemy_destuction_sturdy));
-        alchemyStones.add(new AlchemyStone("destruction", "Sturdy Alchemy Stone of Destruction", "rare", R.drawable.alchemy_destuction_sturdy));
-        alchemyStones.add(new AlchemyStone("destruction", "Sturdy Alchemy Stone of Destruction", "epic", R.drawable.alchemy_destuction_sturdy));
-
-        alchemyStones.add(new AlchemyStone("protection", "Sturdy Alchemy Stone of Protection", "common", R.drawable.alchemy_protection_sturdy));
-        alchemyStones.add(new AlchemyStone("protection", "Sturdy Alchemy Stone of Protection", "uncommon", R.drawable.alchemy_protection_sturdy));
-        alchemyStones.add(new AlchemyStone("protection", "Sturdy Alchemy Stone of Protection", "rare", R.drawable.alchemy_protection_sturdy));
-        alchemyStones.add(new AlchemyStone("protection", "Sturdy Alchemy Stone of Protection", "epic", R.drawable.alchemy_protection_sturdy));
-
-        alchemyStones.add(new AlchemyStone("life", "Sturdy Alchemy Stone of Life", "common", R.drawable.alchemy_life_sturdy));
-        alchemyStones.add(new AlchemyStone("life", "Sturdy Alchemy Stone of Life", "uncommon", R.drawable.alchemy_life_sturdy));
-        alchemyStones.add(new AlchemyStone("life", "Sturdy Alchemy Stone of Life", "rare", R.drawable.alchemy_life_sturdy));
-        alchemyStones.add(new AlchemyStone("life", "Sturdy Alchemy Stone of Life", "epic", R.drawable.alchemy_life_sturdy));
-
-        //sharp
-        alchemyStones.add(new AlchemyStone("destruction", "Sharp Alchemy Stone of Destruction", "common", R.drawable.alchemy_destuction_sharp));
-        alchemyStones.add(new AlchemyStone("destruction", "Sharp Alchemy Stone of Destruction", "uncommon", R.drawable.alchemy_destuction_sharp));
-        alchemyStones.add(new AlchemyStone("destruction", "Sharp Alchemy Stone of Destruction", "rare", R.drawable.alchemy_destuction_sharp));
-        alchemyStones.add(new AlchemyStone("destruction", "Sharp Alchemy Stone of Destruction", "epic", R.drawable.alchemy_destuction_sharp));
-
-        alchemyStones.add(new AlchemyStone("protection", "Sharp Alchemy Stone of Protection", "common", R.drawable.alchemy_protection_sharp));
-        alchemyStones.add(new AlchemyStone("protection", "Sharp Alchemy Stone of Protection", "uncommon", R.drawable.alchemy_protection_sharp));
-        alchemyStones.add(new AlchemyStone("protection", "Sharp Alchemy Stone of Protection", "rare", R.drawable.alchemy_protection_sharp));
-        alchemyStones.add(new AlchemyStone("protection", "Sharp Alchemy Stone of Protection", "epic", R.drawable.alchemy_protection_sharp));
-
-        alchemyStones.add(new AlchemyStone("life", "Sharp Alchemy Stone of Life", "common", R.drawable.alchemy_life_sharp));
-        alchemyStones.add(new AlchemyStone("life", "Sharp Alchemy Stone of Life", "uncommon", R.drawable.alchemy_life_sharp));
-        alchemyStones.add(new AlchemyStone("life", "Sharp Alchemy Stone of Life", "rare", R.drawable.alchemy_life_sharp));
-        alchemyStones.add(new AlchemyStone("life", "Sharp Alchemy Stone of Life", "epic", R.drawable.alchemy_life_sharp));
-
-        //resplendent
-        alchemyStones.add(new AlchemyStone("destruction", "Resplendent Alchemy Stone of Destruction", "common", R.drawable.alchemy_destuction_resplendent));
-        alchemyStones.add(new AlchemyStone("destruction", "Resplendent Alchemy Stone of Destruction", "uncommon", R.drawable.alchemy_destuction_resplendent));
-        alchemyStones.add(new AlchemyStone("destruction", "Resplendent Alchemy Stone of Destruction", "rare", R.drawable.alchemy_destuction_resplendent));
-        alchemyStones.add(new AlchemyStone("destruction", "Resplendent Alchemy Stone of Destruction", "epic", R.drawable.alchemy_destuction_resplendent));
-
-        alchemyStones.add(new AlchemyStone("protection", "Resplendent Alchemy Stone of Protection", "common", R.drawable.alchemy_protection_resplendent));
-        alchemyStones.add(new AlchemyStone("protection", "Resplendent Alchemy Stone of Protection", "uncommon", R.drawable.alchemy_protection_resplendent));
-        alchemyStones.add(new AlchemyStone("protection", "Resplendent Alchemy Stone of Protection", "rare", R.drawable.alchemy_protection_resplendent));
-        alchemyStones.add(new AlchemyStone("protection", "Resplendent Alchemy Stone of Protection", "epic", R.drawable.alchemy_protection_resplendent));
-
-        alchemyStones.add(new AlchemyStone("life", "Resplendent Alchemy Stone of Life", "common", R.drawable.alchemy_life_resplendent));
-        alchemyStones.add(new AlchemyStone("life", "Resplendent Alchemy Stone of Life", "uncommon", R.drawable.alchemy_life_resplendent));
-        alchemyStones.add(new AlchemyStone("life", "Resplendent Alchemy Stone of Life", "rare", R.drawable.alchemy_life_resplendent));
-        alchemyStones.add(new AlchemyStone("life", "Resplendent Alchemy Stone of Life", "epic", R.drawable.alchemy_life_resplendent));
-
-        //splendid
-        alchemyStones.add(new AlchemyStone("destruction", "Splendid Alchemy Stone of Destruction", "common", R.drawable.alchemy_destuction_splendid));
-        alchemyStones.add(new AlchemyStone("destruction", "Resplendent Alchemy Stone of Destruction", "uncommon", R.drawable.alchemy_destuction_splendid));
-        alchemyStones.add(new AlchemyStone("destruction", "Resplendent Alchemy Stone of Destruction", "rare", R.drawable.alchemy_destuction_splendid));
-        alchemyStones.add(new AlchemyStone("destruction", "Resplendent Alchemy Stone of Destruction", "epic", R.drawable.alchemy_destuction_splendid));
-
-        alchemyStones.add(new AlchemyStone("protection", "Splendid Alchemy Stone of Protection", "common", R.drawable.alchemy_protection_splendid));
-        alchemyStones.add(new AlchemyStone("protection", "Splendid Alchemy Stone of Protection", "uncommon", R.drawable.alchemy_protection_splendid));
-        alchemyStones.add(new AlchemyStone("protection", "Splendid Alchemy Stone of Protection", "rare", R.drawable.alchemy_protection_splendid));
-        alchemyStones.add(new AlchemyStone("protection", "Splendid Alchemy Stone of Protection", "epic", R.drawable.alchemy_protection_splendid));
-
-        alchemyStones.add(new AlchemyStone("life", "Splendid Alchemy Stone of Life", "common", R.drawable.alchemy_life_splendid));
-        alchemyStones.add(new AlchemyStone("life", "Splendid Alchemy Stone of Life", "uncommon", R.drawable.alchemy_life_splendid));
-        alchemyStones.add(new AlchemyStone("life", "Splendid Alchemy Stone of Life", "rare", R.drawable.alchemy_life_splendid));
-        alchemyStones.add(new AlchemyStone("life", "Splendid Alchemy Stone of Life", "epic", R.drawable.alchemy_life_splendid));
-
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu_test, menu);
+        getMenuInflater().inflate(R.menu.menu_gear, menu);
         return true;
     }
 
@@ -241,10 +356,10 @@ public class GearActivity extends AppCompatActivity implements View.OnClickListe
         int id = item.getItemId();
 
         switch (id) {
-            case R.id.menu_settings:
+            case R.id.menu_gear_settings:
                 Toast.makeText(this, "Settings", Toast.LENGTH_SHORT).show();
                 return true;
-            case R.id.menu_about:
+            case R.id.menu_gear_about:
                 Toast.makeText(this, "About", Toast.LENGTH_SHORT).show();
                 return true;
             default:

@@ -1,6 +1,8 @@
 package wie.wiggle.testplanner;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by timox on 05-Feb-18.
@@ -12,12 +14,14 @@ public class AlchemyStone implements Serializable {
     String name;
     String rarity;
     int icon;
+    Object stats;
 
-    AlchemyStone(String type, String name, String rarity, int icon) {
+    public AlchemyStone(String type, String name, String rarity, int icon, Object stats) {
         this.type = type;
         this.name = name;
         this.rarity = rarity;
         this.icon = icon;
+        this.stats = stats;
     }
 
     public String getType() {
@@ -50,5 +54,13 @@ public class AlchemyStone implements Serializable {
 
     public void setIcon(int icon) {
         this.icon = icon;
+    }
+
+    public Object getStats() {
+        return stats;
+    }
+
+    public void setStats(Object stats) {
+        this.stats = stats;
     }
 }

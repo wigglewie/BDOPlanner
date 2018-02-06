@@ -9,27 +9,35 @@
     app:layout_scrollFlags="scroll|enterAlways|snap"
     app:theme="@style/ThemeOverlay.AppCompat.ActionBar">
 
+    <!--<TextView-->
+    <!--android:id="@+id/toolbar_label"-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="match_parent"-->
+    <!--android:gravity="|center"-->
+    <!--android:text="Choose Item"-->
+    <!--android:textColor="@color/colorText"-->
+    <!--android:textSize="23dp"-->
+    <!--android:textStyle="bold" />-->
+
     <TextView
-        android:id="@+id/toolbar_text"
+        android:id="@+id/toolbar_label"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
-        android:layout_gravity="center"
         android:gravity="start|center"
         android:text="BDO"
         android:textColor="@color/colorText"
-        android:textSize="23dp"
-        android:textStyle="bold" />
+        android:textSize="23dp" />
 
     <TextView
-        android:id="@+id/toolbar_text2"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_gravity="center"
-        android:gravity="start|center"
-        android:paddingTop="4dp"
-        android:text="Planner"
-        android:textColor="@color/colorText"
-        android:textSize="18dp" />
+    android:id="@+id/toolbar_text2"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="center"
+    android:gravity="start|center"
+    android:paddingTop="4dp"
+    android:text="Planner"
+    android:textColor="@color/colorText"
+    android:textSize="18dp" />
 
 </android.support.v7.widget.Toolbar>
 
