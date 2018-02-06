@@ -15,7 +15,8 @@
     <color name="colorBackgroundItemChoose">#1b2337</color>
     <color name="colorBackgroundItem">#131826</color>
 
-    <color name="colorItemOutlineDefault">#424753</color>
+    <color name="colorItemOutlineBackground">#32262626</color>
+    <color name="colorItemOutlineDefault">#5f6163</color>
     <color name="colorItemEpic">#f6c232</color>
     <color name="colorItemRare">#0391c4</color>
     <color name="colorItemUncommon">#5ff369</color>

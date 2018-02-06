@@ -6,7 +6,7 @@
     android:orientation="vertical">
 
     <LinearLayout
-        android:id="@+id/stats_alchemy_destruction"
+        android:id="@+id/stats_alchemy_life"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="10dp"
@@ -14,7 +14,7 @@
         android:paddingBottom="10dp">
 
         <LinearLayout
-            android:id="@+id/item_alchemy_view_hiddenAP"
+            android:id="@+id/item_alchemy_view_cookingTime"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="center"
@@ -29,22 +29,29 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Hidden AP "
+                android:text="Alchemy/Cooking time -"
                 android:textColor="@color/colorStatsValue"
                 android:textSize="10dp" />
 
             <TextView
-                android:id="@+id/item_alchemy_value_hiddenAP"
+                android:id="@+id/item_alchemy_value_cookingTime"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="0"
                 android:textColor="@color/colorStatsValue"
                 android:textSize="10dp" />
 
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="s"
+                android:textColor="@color/colorStatsValue"
+                android:textSize="10dp" />
+
         </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/item_alchemy_view_accuracy"
+            android:id="@+id/item_alchemy_view_processingSuccessRate"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="center"
@@ -59,42 +66,12 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Accuracy "
+                android:text="Processing Success Rate "
                 android:textColor="@color/colorStatsValue"
                 android:textSize="10dp" />
 
             <TextView
-                android:id="@+id/item_alchemy_value_accuracy"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="0"
-                android:textColor="@color/colorStatsValue"
-                android:textSize="10dp" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/item_alchemy_view_ignoreAllResistance"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:orientation="horizontal">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text=" - "
-                android:textColor="@color/colorText" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Ignore All Resistance "
-                android:textColor="@color/colorStatsValue"
-                android:textSize="10dp" />
-
-            <TextView
-                android:id="@+id/item_alchemy_value_ignoreAllResistance"
+                android:id="@+id/item_alchemy_value_processingSuccessRate"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="0"
@@ -111,7 +88,7 @@
         </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/item_alchemy_view_attackSpeed"
+            android:id="@+id/item_alchemy_view_weightLimit"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="center"
@@ -126,12 +103,12 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Attack Speed "
+                android:text="Weight Limit "
                 android:textColor="@color/colorStatsValue"
                 android:textSize="10dp" />
 
             <TextView
-                android:id="@+id/item_alchemy_value_attackSpeed"
+                android:id="@+id/item_alchemy_value_weightLimit"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="0"
@@ -141,14 +118,14 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="%"
+                android:text="LT"
                 android:textColor="@color/colorStatsValue"
                 android:textSize="10dp" />
 
         </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/item_alchemy_view_castingSpeed"
+            android:id="@+id/item_alchemy_view_gatheringFishingLvl"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="center"
@@ -163,12 +140,43 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Casting Speed "
+                android:text="Gathering/Fishing "
                 android:textColor="@color/colorStatsValue"
                 android:textSize="10dp" />
 
             <TextView
-                android:id="@+id/item_alchemy_value_castingSpeed"
+                android:id="@+id/item_alchemy_value_gatheringFishingLvl"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0"
+                android:textColor="@color/colorStatsValue"
+                android:textSize="10dp" />
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/item_alchemy_view_gatheringDropRate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=" - "
+                android:textColor="@color/colorText" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Gathering Drop Rate "
+                android:textColor="@color/colorStatsValue"
+                android:textSize="10dp" />
+
+            <TextView
+                android:id="@+id/item_alchemy_value_gatheringDropRate"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="0"

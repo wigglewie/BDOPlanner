@@ -1,6 +1,5 @@
 package wie.wiggle.testplanner;
 
-import android.os.Parcelable;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -33,6 +32,12 @@ public class AdapterAlchemyStones extends RecyclerView.Adapter<AdapterAlchemySto
     int valueMaxHP;
     int valueResistanceAll;
 
+    float valueCookingTime;
+    int valueProcessingSuccessRate;
+    int valueWeightLimit;
+    int valueGatheringFishingLvl;
+    int valueGatheringDropRate;
+
 
     public AdapterAlchemyStones(List alchemyStones) {
         this.alchemyStones = alchemyStones;
@@ -54,6 +59,7 @@ public class AdapterAlchemyStones extends RecyclerView.Adapter<AdapterAlchemySto
 
             holder.statsDestruction.setVisibility(View.VISIBLE);
             holder.statsProtection.setVisibility(View.GONE);
+            holder.statsLife.setVisibility(View.GONE);
 
             holder.viewHiddenAP.setVisibility(View.GONE);
             holder.viewAccuracy.setVisibility(View.GONE);
@@ -62,6 +68,7 @@ public class AdapterAlchemyStones extends RecyclerView.Adapter<AdapterAlchemySto
             holder.viewCastingSpeed.setVisibility(View.GONE);
 
             final StatsAlchemyDestruction statsDestruction = (StatsAlchemyDestruction) item.stats;
+
             valueHiddenAP = statsDestruction.hiddenAP;
             valueAccuracy = statsDestruction.accuracy;
             valueIgnoreResistance = statsDestruction.ignoreAllResistance;
@@ -95,8 +102,9 @@ public class AdapterAlchemyStones extends RecyclerView.Adapter<AdapterAlchemySto
 
         } else if (type.equals("protection")) {
 
-            holder.statsProtection.setVisibility(View.VISIBLE);
             holder.statsDestruction.setVisibility(View.GONE);
+            holder.statsProtection.setVisibility(View.VISIBLE);
+            holder.statsLife.setVisibility(View.GONE);
 
             holder.viewDR.setVisibility(View.GONE);
             holder.viewEvasion.setVisibility(View.GONE);
@@ -107,6 +115,7 @@ public class AdapterAlchemyStones extends RecyclerView.Adapter<AdapterAlchemySto
             holder.viewGrapple.setVisibility(View.GONE);
 
             final StatsAlchemyProtection statsProtection = (StatsAlchemyProtection) item.stats;
+
             valueDR = statsProtection.damageReduction;
             valueEvasion = statsProtection.evasion;
             valueMaxHP = statsProtection.maxHP;
@@ -139,42 +148,51 @@ public class AdapterAlchemyStones extends RecyclerView.Adapter<AdapterAlchemySto
                 holder.viewGrapple.setVisibility(View.VISIBLE);
             }
 
+        } else if (type.equals("life")) {
+
+            holder.statsDestruction.setVisibility(View.GONE);
+            holder.statsProtection.setVisibility(View.GONE);
+            holder.statsLife.setVisibility(View.VISIBLE);
+
+            holder.viewCookingTime.setVisibility(View.GONE);
+            holder.viewProcessingSuccessRate.setVisibility(View.GONE);
+            holder.viewWeightLimit.setVisibility(View.GONE);
+            holder.viewGatheringFishingLvl.setVisibility(View.GONE);
+            holder.viewGatheringDropRate.setVisibility(View.GONE);
+
+            final StatsAlchemyLife statsLife = (StatsAlchemyLife) item.stats;
+
+            valueCookingTime = statsLife.cookingTime;
+            valueProcessingSuccessRate = statsLife.processingSuccessRate;
+            valueWeightLimit = statsLife.weightLimit;
+            valueGatheringFishingLvl = statsLife.gatheringFishingLvl;
+            valueGatheringDropRate = statsLife.gatheringDropRate;
+
+            holder.name.setText(item.name);
+            holder.icon.setImageResource(item.icon);
+
+            holder.valueCookingTime.setText(Float.toString(valueCookingTime));
+            holder.valueProcessingSuccessRate.setText(Integer.toString(valueProcessingSuccessRate));
+            holder.valueWeightLimit.setText(Integer.toString(valueWeightLimit));
+            holder.valueGatheringFishingLvl.setText(Integer.toString(valueGatheringFishingLvl));
+            holder.valueGatheringDropRate.setText(Integer.toString(valueGatheringDropRate));
+
+            if (valueCookingTime > 0) {
+                holder.viewCookingTime.setVisibility(View.VISIBLE);
+            }
+            if (valueProcessingSuccessRate > 0) {
+                holder.viewProcessingSuccessRate.setVisibility(View.VISIBLE);
+            }
+            if (valueWeightLimit > 0) {
+                holder.viewWeightLimit.setVisibility(View.VISIBLE);
+            }
+            if (valueGatheringFishingLvl > 0) {
+                holder.viewGatheringFishingLvl.setVisibility(View.VISIBLE);
+            }
+            if (valueGatheringDropRate > 0) {
+                holder.viewGatheringDropRate.setVisibility(View.VISIBLE);
+            }
         }
-
-
-//        switch (type) {
-//            case "destruction":
-//                holder.statsProtection.setVisibility(View.GONE);
-//
-//                holder.viewHiddenAP.setVisibility(View.VISIBLE);
-//                holder.viewAccuracy.setVisibility(View.VISIBLE);
-//                holder.viewIgnoreResistance.setVisibility(View.VISIBLE);
-//                holder.viewAttackSpeed.setVisibility(View.VISIBLE);
-//                holder.viewCastingSpeed.setVisibility(View.VISIBLE);
-//
-//
-//                break;
-//
-//            case "protection":
-//                holder.statsDestruction.setVisibility(View.GONE);
-//
-//                holder.viewDR.setVisibility(View.VISIBLE);
-//                holder.viewEvasion.setVisibility(View.VISIBLE);
-//                holder.viewMaxHP.setVisibility(View.VISIBLE);
-//                holder.viewKnockback.setVisibility(View.VISIBLE);
-//                holder.viewKnockdown.setVisibility(View.VISIBLE);
-//                holder.viewStun.setVisibility(View.VISIBLE);
-//                holder.viewGrapple.setVisibility(View.VISIBLE);
-//
-//
-//                break;
-//
-//            case "life":
-//
-//                break;
-//
-//        }
-
 
         switch (item.rarity) {
 
@@ -249,13 +267,25 @@ public class AdapterAlchemyStones extends RecyclerView.Adapter<AdapterAlchemySto
         View viewStun;
         View viewGrapple;
 
+        TextView valueCookingTime;
+        TextView valueProcessingSuccessRate;
+        TextView valueWeightLimit;
+        TextView valueGatheringFishingLvl;
+        TextView valueGatheringDropRate;
+        View viewCookingTime;
+        View viewProcessingSuccessRate;
+        View viewWeightLimit;
+        View viewGatheringFishingLvl;
+        View viewGatheringDropRate;
+
         public MyViewHolder(View itemView) {
             super(itemView);
             name = (TextView) itemView.findViewById(R.id.item_alchemy_name);
             icon = (ImageView) itemView.findViewById(R.id.item_alchemy_icon);
 
-            statsDestruction = itemView.findViewById(R.id.stats_destruction);
-            statsProtection = itemView.findViewById(R.id.stats_protection);
+            statsDestruction = itemView.findViewById(R.id.stats_alchemy_destruction);
+            statsProtection = itemView.findViewById(R.id.stats_alchemy_protection);
+            statsLife = itemView.findViewById(R.id.stats_alchemy_life);
 
             valueHiddenAP = (TextView) itemView.findViewById(R.id.item_alchemy_value_hiddenAP);
             valueAccuracy = (TextView) itemView.findViewById(R.id.item_alchemy_value_accuracy);
@@ -282,6 +312,18 @@ public class AdapterAlchemyStones extends RecyclerView.Adapter<AdapterAlchemySto
             viewKnockback = itemView.findViewById(R.id.item_alchemy_view_knockbackResistance);
             viewStun = itemView.findViewById(R.id.item_alchemy_view_stunResistance);
             viewGrapple = itemView.findViewById(R.id.item_alchemy_view_grappleResistance);
+
+            valueCookingTime = (TextView) itemView.findViewById(R.id.item_alchemy_value_cookingTime);
+            valueProcessingSuccessRate = (TextView) itemView.findViewById(R.id.item_alchemy_value_processingSuccessRate);
+            valueWeightLimit = (TextView) itemView.findViewById(R.id.item_alchemy_value_weightLimit);
+            valueGatheringFishingLvl = (TextView) itemView.findViewById(R.id.item_alchemy_value_gatheringFishingLvl);
+            valueGatheringDropRate = (TextView) itemView.findViewById(R.id.item_alchemy_value_gatheringDropRate);
+
+            viewCookingTime = itemView.findViewById(R.id.item_alchemy_view_cookingTime);
+            viewProcessingSuccessRate = itemView.findViewById(R.id.item_alchemy_view_processingSuccessRate);
+            viewWeightLimit = itemView.findViewById(R.id.item_alchemy_view_weightLimit);
+            viewGatheringFishingLvl = itemView.findViewById(R.id.item_alchemy_view_gatheringFishingLvl);
+            viewGatheringDropRate = itemView.findViewById(R.id.item_alchemy_view_gatheringDropRate);
         }
     }
 }

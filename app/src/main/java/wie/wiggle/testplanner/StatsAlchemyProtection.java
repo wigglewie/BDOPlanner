@@ -6,7 +6,7 @@ import java.io.Serializable;
  * Created by timox on 06-Feb-18.
  */
 
-class StatsAlchemyProtection implements Serializable {
+public class StatsAlchemyProtection implements Serializable {
 
     String rarity;
     String name;

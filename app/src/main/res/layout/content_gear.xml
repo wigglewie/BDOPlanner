@@ -472,9 +472,10 @@
             android:orientation="horizontal">
 
             <CheckBox
+                android:id="@+id/checkAlchemy"
+                android:layout_marginLeft="10dp"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_gravity="center"
                 android:layout_weight="1"
                 android:text="Activate Alc. Stone"
                 android:textColor="@color/colorText"

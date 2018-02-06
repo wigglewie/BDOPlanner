@@ -7,7 +7,7 @@ import java.sql.Struct;
  * Created by timox on 06-Feb-18.
  */
 
-class StatsAlchemyDestruction implements Serializable {
+public class StatsAlchemyDestruction implements Serializable {
 
     String rarity;
     String name;

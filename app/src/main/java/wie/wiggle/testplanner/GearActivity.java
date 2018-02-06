@@ -6,12 +6,13 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
 
 
@@ -24,6 +25,7 @@ public class GearActivity extends AppCompatActivity implements View.OnClickListe
     private ArrayList<AlchemyStone> alchemyStones;
     private ArrayList<StatsAlchemyDestruction> statsAlchemyDestruction;
     private ArrayList<StatsAlchemyProtection> statsAlchemyProtection;
+    private ArrayList<StatsAlchemyLife> statsAlchemyLife;
 
     private static final int REQUEST_CODE_RING1 = 1;
     private static final int REQUEST_CODE_RING2 = 2;
@@ -57,6 +59,9 @@ public class GearActivity extends AppCompatActivity implements View.OnClickListe
     private ImageView viewRing1enhLvl;
     private ImageView viewRing2enhLvl;
 
+    private CheckBox checkAlchemy;
+
+    private int awaSum;
     private int apSum;
     private int dpSum;
     private int gs;
@@ -72,15 +77,49 @@ public class GearActivity extends AppCompatActivity implements View.OnClickListe
     private int dp;
     private int enhLvl;
 
+    private int valueHiddenAP;
+    private int valueAccuracy;
+    private int valueIgnoreAllResistance;
+    private int valueAttackSpeedPercentage;
+    private int valueCastingSpeedPercentage;
+
+    private TextView viewHiddenAP;
+    private TextView viewAccuracy;
+    private TextView viewIgnoreAllResistance;
+    private TextView viewAttackSpeedPercentage;
+    private TextView viewCastingSpeedPercentage;
+
     Accessory accessory;
     AlchemyStone alchemyStone;
+
+    ArrayList<Object> gear;
+    // index:
+    // 0 - alchemy stone
+    // 1 - awakening weapon
+    // 2 - main weapon
+    // 3 - belt
+    // 4 - shoes
+    // 5 - earring2
+    // 6 - earring1
+    // 7 - helmet
+    // 8 - chest (armor)
+    // 9 - ring1
+    // 10 - ring2
+    // 11 - gloves
+    // 12 - necklace
+    // 13 - secondary weapon
+    // 14 - secondary weapon costume
+    // 15 - underwear
+    // 16 - awakening weapon costume
+    // 17 - main weapon costume
+    // 18 - costume
 
     private int[] apArray = new int[13];
     private int[] dpArray = new int[13];
 
     private android.support.v7.widget.Toolbar toolbar;
 
-    private TextView className;
+//    private TextView className;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -95,7 +134,7 @@ public class GearActivity extends AppCompatActivity implements View.OnClickListe
         getSupportActionBar().setDisplayShowTitleEnabled(false);
 
         classIcon = (ImageView) findViewById(R.id.view_class_icon);
-        className = (TextView) findViewById(R.id.toolbar_label);
+//        className = (TextView) findViewById(R.id.toolbar_label);
 
         viewAlchemyStone = (ImageView) findViewById(R.id.view_alchemy_stone);
         viewRing1 = (ImageView) findViewById(R.id.view_ring1);
@@ -120,6 +159,52 @@ public class GearActivity extends AppCompatActivity implements View.OnClickListe
         viewEarring2enhLv1 = (ImageView) findViewById(R.id.view_earring2_enchLvl);
         viewRing1enhLvl = (ImageView) findViewById(R.id.view_ring1_enchLvl);
         viewRing2enhLvl = (ImageView) findViewById(R.id.view_ring2_enchLvl);
+
+        checkAlchemy = (CheckBox) findViewById(R.id.checkAlchemy);
+
+        viewHiddenAP = (TextView) findViewById(R.id.text_stats_offensive_hidden_ap);
+        viewAccuracy = (TextView) findViewById(R.id.text_stats_offensive_accuracy);
+        viewIgnoreAllResistance = (TextView) findViewById(R.id.text_stats_offensive_ignoreAllResistance);
+        viewAttackSpeedPercentage = (TextView) findViewById(R.id.text_stats_attack_speed_percentage);
+        viewCastingSpeedPercentage = (TextView) findViewById(R.id.text_stats_casting_speed_percentage);
+
+        checkAlchemy.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                if (checkAlchemy.isChecked()) {
+                    if (alchemyStone != null) {
+                        String type = alchemyStone.type;
+                        if (type.equals("destruction")) {
+                            StatsAlchemyDestruction stats = (StatsAlchemyDestruction) alchemyStone.stats;
+                            valueHiddenAP = stats.hiddenAP;
+                            valueAccuracy = stats.accuracy;
+                            valueIgnoreAllResistance = stats.ignoreAllResistance;
+                            valueAttackSpeedPercentage = stats.attackSpeed;
+                            valueCastingSpeedPercentage = stats.castingSpeed;
+
+                            viewHiddenAP.setText(Integer.toString(stats.hiddenAP));
+                            viewAccuracy.setText(Integer.toString(stats.accuracy));
+                            viewIgnoreAllResistance.setText(Integer.toString(stats.ignoreAllResistance));
+                            viewAttackSpeedPercentage.setText(Integer.toString(stats.attackSpeed));
+                            viewCastingSpeedPercentage.setText(Integer.toString(stats.castingSpeed));
+
+                        } else if (type.equals("protection")) {
+
+                        } else if (type.equals("life")) {
+
+                        }
+
+                    }
+                } else {
+                    viewHiddenAP.setText("0");
+                    viewAccuracy.setText("0");
+                    viewIgnoreAllResistance.setText("0");
+                    viewAttackSpeedPercentage.setText("0");
+                    viewCastingSpeedPercentage.setText("0");
+                }
+            }
+        });
+
 
         viewAlchemyStone.setOnClickListener(this);
         viewRing1.setOnClickListener(this);
@@ -151,6 +236,27 @@ public class GearActivity extends AppCompatActivity implements View.OnClickListe
         //necklaces
         necklaces = new ArrayList<>();
 
+        gear = new ArrayList<>(19);
+        gear.add(0, alchemyStone);
+        gear.add(1, accessory);
+        gear.add(2);
+        gear.add(3);
+        gear.add(4);
+        gear.add(5, accessory);
+        gear.add(6, accessory);
+        gear.add(7);
+        gear.add(8);
+        gear.add(9, accessory);
+        gear.add(10, accessory);
+        gear.add(11);
+        gear.add(12, accessory);
+        gear.add(13);
+        gear.add(14);
+        gear.add(15);
+        gear.add(16);
+        gear.add(17);
+        gear.add(18);
+
     }
 
     private void initAlchemyStones() {
@@ -158,6 +264,21 @@ public class GearActivity extends AppCompatActivity implements View.OnClickListe
         //init stats
         //stats destruction
         statsAlchemyDestruction = new ArrayList<>();
+        statsAlchemyDestruction.add(new StatsAlchemyDestruction("common", "imperfect", 2, 0, 0, 0, 0));
+        statsAlchemyDestruction.add(new StatsAlchemyDestruction("uncommon", "imperfect", 2, 2, 0, 0, 0));
+        statsAlchemyDestruction.add(new StatsAlchemyDestruction("rare", "imperfect", 2, 2, 1, 0, 0));
+        statsAlchemyDestruction.add(new StatsAlchemyDestruction("epic", "imperfect", 2, 2, 1, 1, 1));
+
+        statsAlchemyDestruction.add(new StatsAlchemyDestruction("common", "rough", 3, 0, 0, 0, 0));
+        statsAlchemyDestruction.add(new StatsAlchemyDestruction("uncommon", "rough", 3, 4, 0, 0, 0));
+        statsAlchemyDestruction.add(new StatsAlchemyDestruction("rare", "rough", 3, 4, 2, 0, 0));
+        statsAlchemyDestruction.add(new StatsAlchemyDestruction("epic", "rough", 3, 4, 2, 2, 2));
+
+        statsAlchemyDestruction.add(new StatsAlchemyDestruction("common", "polished", 4, 0, 0, 0, 0));
+        statsAlchemyDestruction.add(new StatsAlchemyDestruction("uncommon", "polished", 4, 8, 0, 0, 0));
+        statsAlchemyDestruction.add(new StatsAlchemyDestruction("rare", "polished", 4, 6, 3, 0, 0));
+        statsAlchemyDestruction.add(new StatsAlchemyDestruction("epic", "polished", 4, 6, 3, 3, 3));
+
         statsAlchemyDestruction.add(new StatsAlchemyDestruction("common", "sturdy", 6, 0, 0, 0, 0));
         statsAlchemyDestruction.add(new StatsAlchemyDestruction("uncommon", "sturdy", 6, 8, 0, 0, 0));
         statsAlchemyDestruction.add(new StatsAlchemyDestruction("rare", "sturdy", 6, 8, 4, 0, 0));
@@ -180,6 +301,21 @@ public class GearActivity extends AppCompatActivity implements View.OnClickListe
 
         //stats protection
         statsAlchemyProtection = new ArrayList<>();
+        statsAlchemyProtection.add(new StatsAlchemyProtection("common", "imperfect", 2, 0, 0, 0));
+        statsAlchemyProtection.add(new StatsAlchemyProtection("uncommon", "imperfect", 2, 2, 0, 0));
+        statsAlchemyProtection.add(new StatsAlchemyProtection("rare", "imperfect", 2, 2, 50, 0));
+        statsAlchemyProtection.add(new StatsAlchemyProtection("epic", "imperfect", 2, 2, 50, 1));
+
+        statsAlchemyProtection.add(new StatsAlchemyProtection("common", "rough", 3, 0, 0, 0));
+        statsAlchemyProtection.add(new StatsAlchemyProtection("uncommon", "rough", 3, 4, 0, 0));
+        statsAlchemyProtection.add(new StatsAlchemyProtection("rare", "rough", 3, 4, 70, 0));
+        statsAlchemyProtection.add(new StatsAlchemyProtection("epic", "rough", 3, 4, 70, 2));
+
+        statsAlchemyProtection.add(new StatsAlchemyProtection("common", "polished", 4, 0, 0, 0));
+        statsAlchemyProtection.add(new StatsAlchemyProtection("uncommon", "polished", 4, 6, 0, 0));
+        statsAlchemyProtection.add(new StatsAlchemyProtection("rare", "polished", 4, 6, 90, 0));
+        statsAlchemyProtection.add(new StatsAlchemyProtection("epic", "polished", 4, 6, 90, 3));
+
         statsAlchemyProtection.add(new StatsAlchemyProtection("common", "sturdy", 6, 0, 0, 0));
         statsAlchemyProtection.add(new StatsAlchemyProtection("uncommon", "sturdy", 6, 8, 0, 0));
         statsAlchemyProtection.add(new StatsAlchemyProtection("rare", "sturdy", 6, 8, 110, 0));
@@ -200,18 +336,69 @@ public class GearActivity extends AppCompatActivity implements View.OnClickListe
         statsAlchemyProtection.add(new StatsAlchemyProtection("rare", "splendid", 13, 14, 210, 0));
         statsAlchemyProtection.add(new StatsAlchemyProtection("epic", "splendid", 13, 14, 210, 7));
 
+        //stats life
+        statsAlchemyLife = new ArrayList<>();
+        statsAlchemyLife.add(new StatsAlchemyLife("common", "imperfect", 0.5f, 5, 0, 0, 0));
+        statsAlchemyLife.add(new StatsAlchemyLife("uncommon", "imperfect", 0.5f, 5, 15, 0, 0));
+        statsAlchemyLife.add(new StatsAlchemyLife("rare", "imperfect", 0.5f, 5, 15, 1, 0));
+        statsAlchemyLife.add(new StatsAlchemyLife("epic", "imperfect", 0.5f, 5, 15, 1, 3));
 
-        ArrayList<List> list = new ArrayList<>();
+        statsAlchemyLife.add(new StatsAlchemyLife("common", "rough", 0.7f, 7, 0, 0, 0));
+        statsAlchemyLife.add(new StatsAlchemyLife("uncommon", "rough", 0.7f, 7, 30, 0, 0));
+        statsAlchemyLife.add(new StatsAlchemyLife("rare", "rough", 0.7f, 7, 30, 1, 0));
+        statsAlchemyLife.add(new StatsAlchemyLife("epic", "rough", 0.7f, 7, 30, 1, 5));
 
-        list.add(new ArrayList(statsAlchemyDestruction));
-        list.add(new ArrayList(statsAlchemyProtection));
-//        list.add(new ArrayList(statsAlchemyLife));
+        statsAlchemyLife.add(new StatsAlchemyLife("common", "polished", 0.9f, 9, 0, 0, 0));
+        statsAlchemyLife.add(new StatsAlchemyLife("uncommon", "polished", 0.9f, 9, 45, 0, 0));
+        statsAlchemyLife.add(new StatsAlchemyLife("rare", "polished", 0.9f, 9, 45, 1, 0));
+        statsAlchemyLife.add(new StatsAlchemyLife("epic", "polished", 0.9f, 9, 45, 1, 7));
 
-        ArrayList statsArrayDestruction = (ArrayList) list.get(0);
-        ArrayList statsArrayProtection = (ArrayList) list.get(1);
-//        ArrayList statsArrayLife = (ArrayList) list.get(2);
+        statsAlchemyLife.add(new StatsAlchemyLife("common", "sturdy", 1.1f, 11, 0, 0, 0));
+        statsAlchemyLife.add(new StatsAlchemyLife("uncommon", "sturdy", 1.1f, 11, 60, 0, 0));
+        statsAlchemyLife.add(new StatsAlchemyLife("rare", "sturdy", 1.1f, 11, 60, 2, 0));
+        statsAlchemyLife.add(new StatsAlchemyLife("epic", "sturdy", 1.1f, 11, 60, 2, 10));
+
+        statsAlchemyLife.add(new StatsAlchemyLife("common", "sharp", 1.4f, 14, 0, 0, 0));
+        statsAlchemyLife.add(new StatsAlchemyLife("uncommon", "sharp", 1.4f, 14, 75, 0, 0));
+        statsAlchemyLife.add(new StatsAlchemyLife("rare", "sharp", 1.4f, 14, 75, 2, 0));
+        statsAlchemyLife.add(new StatsAlchemyLife("epic", "sharp", 1.4f, 14, 75, 2, 13));
+
+        statsAlchemyLife.add(new StatsAlchemyLife("common", "resplendent", 1.7f, 17, 0, 0, 0));
+        statsAlchemyLife.add(new StatsAlchemyLife("uncommon", "resplendent", 1.7f, 17, 90, 0, 0));
+        statsAlchemyLife.add(new StatsAlchemyLife("rare", "resplendent", 1.7f, 17, 90, 2, 0));
+        statsAlchemyLife.add(new StatsAlchemyLife("epic", "resplendent", 1.7f, 17, 90, 2, 16));
+
+        statsAlchemyLife.add(new StatsAlchemyLife("common", "splendid", 2f, 20, 0, 0, 0));
+        statsAlchemyLife.add(new StatsAlchemyLife("uncommon", "splendid", 2f, 20, 105, 0, 0));
+        statsAlchemyLife.add(new StatsAlchemyLife("rare", "splendid", 2f, 20, 105, 3, 0));
+        statsAlchemyLife.add(new StatsAlchemyLife("epic", "splendid", 2f, 20, 105, 3, 20));
+
+        ArrayList<List> alchemyStonesStats = new ArrayList<>();
+
+        alchemyStonesStats.add(new ArrayList(statsAlchemyDestruction));
+        alchemyStonesStats.add(new ArrayList(statsAlchemyProtection));
+        alchemyStonesStats.add(new ArrayList(statsAlchemyLife));
+
+        ArrayList statsArrayDestruction = (ArrayList) alchemyStonesStats.get(0);
+        ArrayList statsArrayProtection = (ArrayList) alchemyStonesStats.get(1);
+        ArrayList statsArrayLife = (ArrayList) alchemyStonesStats.get(2);
 
         //stats destruction
+        Object destructionCommonImperfect = statsArrayDestruction.get(0);
+        Object destructionUncommonImperfect = statsArrayDestruction.get(1);
+        Object destructionRareImperfect = statsArrayDestruction.get(2);
+        Object destructionEpicImperfect = statsArrayDestruction.get(3);
+
+        Object destructionCommonRough = statsArrayDestruction.get(4);
+        Object destructionUncommonRough = statsArrayDestruction.get(5);
+        Object destructionRareRough = statsArrayDestruction.get(6);
+        Object destructionEpicRough = statsArrayDestruction.get(7);
+
+        Object destructionCommonPolished = statsArrayDestruction.get(8);
+        Object destructionUncommonPolished = statsArrayDestruction.get(9);
+        Object destructionRarePolished = statsArrayDestruction.get(10);
+        Object destructionEpicPolished = statsArrayDestruction.get(11);
+
         Object destructionCommonSturdy = statsArrayDestruction.get(0);
         Object destructionUncommonSturdy = statsArrayDestruction.get(1);
         Object destructionRareSturdy = statsArrayDestruction.get(2);
@@ -233,6 +420,21 @@ public class GearActivity extends AppCompatActivity implements View.OnClickListe
         Object destructionEpicSplendid = statsArrayDestruction.get(15);
 
         //stats protection
+        Object protectionCommonImperfect = statsArrayProtection.get(0);
+        Object protectionUncommonImperfect = statsArrayProtection.get(1);
+        Object protectionRareImperfect = statsArrayProtection.get(2);
+        Object protectionEpicImperfect = statsArrayProtection.get(3);
+
+        Object protectionCommonRough = statsArrayProtection.get(4);
+        Object protectionUncommonRough = statsArrayProtection.get(5);
+        Object protectionRareRough = statsArrayProtection.get(6);
+        Object protectionEpicRough = statsArrayProtection.get(7);
+
+        Object protectionCommonPolished = statsArrayProtection.get(8);
+        Object protectionUncommonPolished = statsArrayProtection.get(9);
+        Object protectionRarePolished = statsArrayProtection.get(10);
+        Object protectionEpicPolished = statsArrayProtection.get(11);
+
         Object protectionCommonSturdy = statsArrayProtection.get(0);
         Object protectionUncommonSturdy = statsArrayProtection.get(1);
         Object protectionRareSturdy = statsArrayProtection.get(2);
@@ -253,8 +455,93 @@ public class GearActivity extends AppCompatActivity implements View.OnClickListe
         Object protectionRareSplendid = statsArrayProtection.get(14);
         Object protectionEpicSplendid = statsArrayProtection.get(15);
 
+        //stats life
+        Object lifeCommonImperfect = statsArrayLife.get(0);
+        Object lifeUncommonImperfect = statsArrayLife.get(1);
+        Object lifeRareImperfect = statsArrayLife.get(2);
+        Object lifeEpicImperfect = statsArrayLife.get(3);
+
+        Object lifeCommonRough = statsArrayLife.get(4);
+        Object lifeUncommonRough = statsArrayLife.get(5);
+        Object lifeRareRough = statsArrayLife.get(6);
+        Object lifeEpicRough = statsArrayLife.get(7);
+
+        Object lifeCommonPolished = statsArrayLife.get(8);
+        Object lifeUncommonPolished = statsArrayLife.get(9);
+        Object lifeRarePolished = statsArrayLife.get(10);
+        Object lifeEpicPolished = statsArrayLife.get(11);
+
+        Object lifeCommonSturdy = statsArrayLife.get(0);
+        Object lifeUncommonSturdy = statsArrayLife.get(1);
+        Object lifeRareSturdy = statsArrayLife.get(2);
+        Object lifeEpicSturdy = statsArrayLife.get(3);
+
+        Object lifeCommonSharp = statsArrayLife.get(4);
+        Object lifeUncommonSharp = statsArrayLife.get(5);
+        Object lifeRareSharp = statsArrayLife.get(6);
+        Object lifeEpicSharp = statsArrayLife.get(7);
+
+        Object lifeCommonResplendent = statsArrayLife.get(8);
+        Object lifeUncommonResplendent = statsArrayLife.get(9);
+        Object lifeRareResplendent = statsArrayLife.get(10);
+        Object lifeEpicResplendent = statsArrayLife.get(11);
+
+        Object lifeCommonSplendid = statsArrayLife.get(12);
+        Object lifeUncommonSplendid = statsArrayLife.get(13);
+        Object lifeRareSplendid = statsArrayLife.get(14);
+        Object lifeEpicSplendid = statsArrayLife.get(15);
+
         //init alchemy stones
         alchemyStones = new ArrayList<>();
+
+        //imperfect
+        alchemyStones.add(new AlchemyStone("destruction", "Imperfect Alchemy Stone of Destruction", "common", R.drawable.alchemy_destuction_imperfect, destructionCommonImperfect));
+        alchemyStones.add(new AlchemyStone("destruction", "Imperfect Alchemy Stone of Destruction", "uncommon", R.drawable.alchemy_destuction_imperfect, destructionUncommonImperfect));
+        alchemyStones.add(new AlchemyStone("destruction", "Imperfect Alchemy Stone of Destruction", "rare", R.drawable.alchemy_destuction_imperfect, destructionRareImperfect));
+        alchemyStones.add(new AlchemyStone("destruction", "Imperfect Alchemy Stone of Destruction", "epic", R.drawable.alchemy_destuction_imperfect, destructionEpicImperfect));
+
+        alchemyStones.add(new AlchemyStone("protection", "Imperfect Alchemy Stone of Protection", "common", R.drawable.alchemy_protection_imperfect, protectionCommonImperfect));
+        alchemyStones.add(new AlchemyStone("protection", "Imperfect Alchemy Stone of Protection", "uncommon", R.drawable.alchemy_protection_imperfect, protectionUncommonImperfect));
+        alchemyStones.add(new AlchemyStone("protection", "Imperfect Alchemy Stone of Protection", "rare", R.drawable.alchemy_protection_imperfect, protectionRareImperfect));
+        alchemyStones.add(new AlchemyStone("protection", "Imperfect Alchemy Stone of Protection", "epic", R.drawable.alchemy_protection_imperfect, protectionEpicImperfect));
+
+        alchemyStones.add(new AlchemyStone("life", "Imperfect Alchemy Stone of Life", "common", R.drawable.alchemy_life_imperfect, lifeCommonImperfect));
+        alchemyStones.add(new AlchemyStone("life", "Imperfect Alchemy Stone of Life", "uncommon", R.drawable.alchemy_life_imperfect, lifeUncommonImperfect));
+        alchemyStones.add(new AlchemyStone("life", "Imperfect Alchemy Stone of Life", "rare", R.drawable.alchemy_life_imperfect, lifeRareImperfect));
+        alchemyStones.add(new AlchemyStone("life", "Imperfect Alchemy Stone of Life", "epic", R.drawable.alchemy_life_imperfect, lifeEpicImperfect));
+
+        //rough
+        alchemyStones.add(new AlchemyStone("destruction", "Rough Alchemy Stone of Destruction", "common", R.drawable.alchemy_destuction_rough, destructionCommonRough));
+        alchemyStones.add(new AlchemyStone("destruction", "Rough Alchemy Stone of Destruction", "uncommon", R.drawable.alchemy_destuction_rough, destructionUncommonRough));
+        alchemyStones.add(new AlchemyStone("destruction", "Rough Alchemy Stone of Destruction", "rare", R.drawable.alchemy_destuction_rough, destructionRareRough));
+        alchemyStones.add(new AlchemyStone("destruction", "Rough Alchemy Stone of Destruction", "epic", R.drawable.alchemy_destuction_rough, destructionEpicRough));
+
+        alchemyStones.add(new AlchemyStone("protection", "Rough Alchemy Stone of Protection", "common", R.drawable.alchemy_protection_rough, protectionCommonRough));
+        alchemyStones.add(new AlchemyStone("protection", "Rough Alchemy Stone of Protection", "uncommon", R.drawable.alchemy_protection_rough, protectionUncommonRough));
+        alchemyStones.add(new AlchemyStone("protection", "Rough Alchemy Stone of Protection", "rare", R.drawable.alchemy_protection_rough, protectionRareRough));
+        alchemyStones.add(new AlchemyStone("protection", "Rough Alchemy Stone of Protection", "epic", R.drawable.alchemy_protection_rough, protectionEpicRough));
+
+        alchemyStones.add(new AlchemyStone("life", "Rough Alchemy Stone of Life", "common", R.drawable.alchemy_life_rough, lifeCommonRough));
+        alchemyStones.add(new AlchemyStone("life", "Rough Alchemy Stone of Life", "uncommon", R.drawable.alchemy_life_rough, lifeUncommonRough));
+        alchemyStones.add(new AlchemyStone("life", "Rough Alchemy Stone of Life", "rare", R.drawable.alchemy_life_rough, lifeRareRough));
+        alchemyStones.add(new AlchemyStone("life", "Rough Alchemy Stone of Life", "epic", R.drawable.alchemy_life_rough, lifeEpicRough));
+
+        //polished
+        alchemyStones.add(new AlchemyStone("destruction", "Polished Alchemy Stone of Destruction", "common", R.drawable.alchemy_destuction_polished, destructionCommonPolished));
+        alchemyStones.add(new AlchemyStone("destruction", "Polished Alchemy Stone of Destruction", "uncommon", R.drawable.alchemy_destuction_polished, destructionUncommonPolished));
+        alchemyStones.add(new AlchemyStone("destruction", "Polished Alchemy Stone of Destruction", "rare", R.drawable.alchemy_destuction_polished, destructionRarePolished));
+        alchemyStones.add(new AlchemyStone("destruction", "Polished Alchemy Stone of Destruction", "epic", R.drawable.alchemy_destuction_polished, destructionEpicPolished));
+
+        alchemyStones.add(new AlchemyStone("protection", "Polished Alchemy Stone of Protection", "common", R.drawable.alchemy_protection_polished, protectionCommonPolished));
+        alchemyStones.add(new AlchemyStone("protection", "Polished Alchemy Stone of Protection", "uncommon", R.drawable.alchemy_protection_polished, protectionUncommonPolished));
+        alchemyStones.add(new AlchemyStone("protection", "Polished Alchemy Stone of Protection", "rare", R.drawable.alchemy_protection_polished, protectionRarePolished));
+        alchemyStones.add(new AlchemyStone("protection", "Polished Alchemy Stone of Protection", "epic", R.drawable.alchemy_protection_polished, protectionEpicPolished));
+
+        alchemyStones.add(new AlchemyStone("life", "Polished Alchemy Stone of Life", "common", R.drawable.alchemy_life_polished, lifeCommonPolished));
+        alchemyStones.add(new AlchemyStone("life", "Polished Alchemy Stone of Life", "uncommon", R.drawable.alchemy_life_polished, lifeUncommonPolished));
+        alchemyStones.add(new AlchemyStone("life", "Polished Alchemy Stone of Life", "rare", R.drawable.alchemy_life_polished, lifeRarePolished));
+        alchemyStones.add(new AlchemyStone("life", "Polished Alchemy Stone of Life", "epic", R.drawable.alchemy_life_polished, lifeEpicPolished));
+
         //sturdy
         alchemyStones.add(new AlchemyStone("destruction", "Sturdy Alchemy Stone of Destruction", "common", R.drawable.alchemy_destuction_sturdy, destructionCommonSturdy));
         alchemyStones.add(new AlchemyStone("destruction", "Sturdy Alchemy Stone of Destruction", "uncommon", R.drawable.alchemy_destuction_sturdy, destructionUncommonSturdy));
@@ -266,10 +553,10 @@ public class GearActivity extends AppCompatActivity implements View.OnClickListe
         alchemyStones.add(new AlchemyStone("protection", "Sturdy Alchemy Stone of Protection", "rare", R.drawable.alchemy_protection_sturdy, protectionRareSturdy));
         alchemyStones.add(new AlchemyStone("protection", "Sturdy Alchemy Stone of Protection", "epic", R.drawable.alchemy_protection_sturdy, protectionEpicSturdy));
 
-//        alchemyStones.add(new AlchemyStone("life", "Sturdy Alchemy Stone of Life", "common", R.drawable.alchemy_life_sturdy));
-//        alchemyStones.add(new AlchemyStone("life", "Sturdy Alchemy Stone of Life", "uncommon", R.drawable.alchemy_life_sturdy));
-//        alchemyStones.add(new AlchemyStone("life", "Sturdy Alchemy Stone of Life", "rare", R.drawable.alchemy_life_sturdy));
-//        alchemyStones.add(new AlchemyStone("life", "Sturdy Alchemy Stone of Life", "epic", R.drawable.alchemy_life_sturdy));
+        alchemyStones.add(new AlchemyStone("life", "Sturdy Alchemy Stone of Life", "common", R.drawable.alchemy_life_sturdy, lifeCommonSturdy));
+        alchemyStones.add(new AlchemyStone("life", "Sturdy Alchemy Stone of Life", "uncommon", R.drawable.alchemy_life_sturdy, lifeUncommonSturdy));
+        alchemyStones.add(new AlchemyStone("life", "Sturdy Alchemy Stone of Life", "rare", R.drawable.alchemy_life_sturdy, lifeRareSturdy));
+        alchemyStones.add(new AlchemyStone("life", "Sturdy Alchemy Stone of Life", "epic", R.drawable.alchemy_life_sturdy, lifeEpicSturdy));
 
         //sharp
         alchemyStones.add(new AlchemyStone("destruction", "Sharp Alchemy Stone of Destruction", "common", R.drawable.alchemy_destuction_sharp, destructionCommonSharp));
@@ -282,10 +569,10 @@ public class GearActivity extends AppCompatActivity implements View.OnClickListe
         alchemyStones.add(new AlchemyStone("protection", "Sharp Alchemy Stone of Protection", "rare", R.drawable.alchemy_protection_sharp, protectionRareSharp));
         alchemyStones.add(new AlchemyStone("protection", "Sharp Alchemy Stone of Protection", "epic", R.drawable.alchemy_protection_sharp, protectionEpicSharp));
 
-//        alchemyStones.add(new AlchemyStone("life", "Sharp Alchemy Stone of Life", "common", R.drawable.alchemy_life_sharp));
-//        alchemyStones.add(new AlchemyStone("life", "Sharp Alchemy Stone of Life", "uncommon", R.drawable.alchemy_life_sharp));
-//        alchemyStones.add(new AlchemyStone("life", "Sharp Alchemy Stone of Life", "rare", R.drawable.alchemy_life_sharp));
-//        alchemyStones.add(new AlchemyStone("life", "Sharp Alchemy Stone of Life", "epic", R.drawable.alchemy_life_sharp));
+        alchemyStones.add(new AlchemyStone("life", "Sharp Alchemy Stone of Life", "common", R.drawable.alchemy_life_sharp, lifeCommonSharp));
+        alchemyStones.add(new AlchemyStone("life", "Sharp Alchemy Stone of Life", "uncommon", R.drawable.alchemy_life_sharp, lifeUncommonSharp));
+        alchemyStones.add(new AlchemyStone("life", "Sharp Alchemy Stone of Life", "rare", R.drawable.alchemy_life_sharp, lifeRareSharp));
+        alchemyStones.add(new AlchemyStone("life", "Sharp Alchemy Stone of Life", "epic", R.drawable.alchemy_life_sharp, lifeEpicSharp));
 
         //resplendent
         alchemyStones.add(new AlchemyStone("destruction", "Resplendent Alchemy Stone of Destruction", "common", R.drawable.alchemy_destuction_resplendent, destructionCommonResplendent));
@@ -298,10 +585,10 @@ public class GearActivity extends AppCompatActivity implements View.OnClickListe
         alchemyStones.add(new AlchemyStone("protection", "Resplendent Alchemy Stone of Protection", "rare", R.drawable.alchemy_protection_resplendent, protectionRareResplendent));
         alchemyStones.add(new AlchemyStone("protection", "Resplendent Alchemy Stone of Protection", "epic", R.drawable.alchemy_protection_resplendent, protectionEpicResplendent));
 
-//        alchemyStones.add(new AlchemyStone("life", "Resplendent Alchemy Stone of Life", "common", R.drawable.alchemy_life_resplendent));
-//        alchemyStones.add(new AlchemyStone("life", "Resplendent Alchemy Stone of Life", "uncommon", R.drawable.alchemy_life_resplendent));
-//        alchemyStones.add(new AlchemyStone("life", "Resplendent Alchemy Stone of Life", "rare", R.drawable.alchemy_life_resplendent));
-//        alchemyStones.add(new AlchemyStone("life", "Resplendent Alchemy Stone of Life", "epic", R.drawable.alchemy_life_resplendent));
+        alchemyStones.add(new AlchemyStone("life", "Resplendent Alchemy Stone of Life", "common", R.drawable.alchemy_life_resplendent, lifeCommonResplendent));
+        alchemyStones.add(new AlchemyStone("life", "Resplendent Alchemy Stone of Life", "uncommon", R.drawable.alchemy_life_resplendent, lifeUncommonResplendent));
+        alchemyStones.add(new AlchemyStone("life", "Resplendent Alchemy Stone of Life", "rare", R.drawable.alchemy_life_resplendent, lifeRareResplendent));
+        alchemyStones.add(new AlchemyStone("life", "Resplendent Alchemy Stone of Life", "epic", R.drawable.alchemy_life_resplendent, lifeEpicResplendent));
 
         //splendid
         alchemyStones.add(new AlchemyStone("destruction", "Splendid Alchemy Stone of Destruction", "common", R.drawable.alchemy_destuction_splendid, destructionCommonSplendid));
@@ -314,10 +601,10 @@ public class GearActivity extends AppCompatActivity implements View.OnClickListe
         alchemyStones.add(new AlchemyStone("protection", "Splendid Alchemy Stone of Protection", "rare", R.drawable.alchemy_protection_splendid, protectionRareSplendid));
         alchemyStones.add(new AlchemyStone("protection", "Splendid Alchemy Stone of Protection", "epic", R.drawable.alchemy_protection_splendid, protectionEpicSplendid));
 
-//        alchemyStones.add(new AlchemyStone("life", "Splendid Alchemy Stone of Life", "common", R.drawable.alchemy_life_splendid));
-//        alchemyStones.add(new AlchemyStone("life", "Splendid Alchemy Stone of Life", "uncommon", R.drawable.alchemy_life_splendid));
-//        alchemyStones.add(new AlchemyStone("life", "Splendid Alchemy Stone of Life", "rare", R.drawable.alchemy_life_splendid));
-//        alchemyStones.add(new AlchemyStone("life", "Splendid Alchemy Stone of Life", "epic", R.drawable.alchemy_life_splendid));
+        alchemyStones.add(new AlchemyStone("life", "Splendid Alchemy Stone of Life", "common", R.drawable.alchemy_life_splendid, lifeCommonSplendid));
+        alchemyStones.add(new AlchemyStone("life", "Splendid Alchemy Stone of Life", "uncommon", R.drawable.alchemy_life_splendid, lifeUncommonSplendid));
+        alchemyStones.add(new AlchemyStone("life", "Splendid Alchemy Stone of Life", "rare", R.drawable.alchemy_life_splendid, lifeRareSplendid));
+        alchemyStones.add(new AlchemyStone("life", "Splendid Alchemy Stone of Life", "epic", R.drawable.alchemy_life_splendid, lifeEpicSplendid));
     }
 
     private void initRings() {
@@ -428,6 +715,8 @@ public class GearActivity extends AppCompatActivity implements View.OnClickListe
                     rarityResource = rarityCheck(rarity);
                     viewAlchemyStone.setBackgroundResource(rarityResource);
                     viewAlchemyStone.setImageResource(icon);
+                    gear.set(0, alchemyStone);
+                    getClass();
                     break;
                 case REQUEST_CODE_EARRING1:
                     accessoryInit(data);
@@ -435,8 +724,9 @@ public class GearActivity extends AppCompatActivity implements View.OnClickListe
                     viewEarring1.setBackgroundResource(rarityResource);
                     viewEarring1.setImageResource(icon);
                     viewEarring1enhLvl.setImageResource(enhLvl);
-                    apArray[11] = ap;
-                    dpArray[11] = dp;
+                    gear.set(6, accessory);
+                    apArray[6] = ap;
+                    dpArray[6] = dp;
                     break;
                 case REQUEST_CODE_EARRING2:
                     accessoryInit(data);
@@ -444,8 +734,9 @@ public class GearActivity extends AppCompatActivity implements View.OnClickListe
                     viewEarring2.setBackgroundResource(rarityResource);
                     viewEarring2.setImageResource(icon);
                     viewEarring2enhLv1.setImageResource(enhLvl);
-                    apArray[10] = ap;
-                    dpArray[10] = dp;
+                    gear.set(5, accessory);
+                    apArray[5] = ap;
+                    dpArray[5] = dp;
                     break;
                 case REQUEST_CODE_RING1:
                     accessoryInit(data);
@@ -453,8 +744,9 @@ public class GearActivity extends AppCompatActivity implements View.OnClickListe
                     viewRing1.setBackgroundResource(rarityResource);
                     viewRing1.setImageResource(icon);
                     viewRing1enhLvl.setImageResource(enhLvl);
-                    apArray[1] = ap;
-                    dpArray[1] = dp;
+                    gear.set(9, accessory);
+                    apArray[9] = ap;
+                    dpArray[9] = dp;
                     break;
                 case REQUEST_CODE_RING2:
                     accessoryInit(data);
@@ -462,20 +754,21 @@ public class GearActivity extends AppCompatActivity implements View.OnClickListe
                     viewRing2.setBackgroundResource(rarityResource);
                     viewRing2.setImageResource(icon);
                     viewRing2enhLvl.setImageResource(enhLvl);
-                    apArray[2] = ap;
-                    dpArray[2] = dp;
+                    gear.set(10, accessory);
+                    apArray[10] = ap;
+                    dpArray[10] = dp;
                     break;
                 case REQUEST_CODE_BELT:
                     accessoryInit(data);
                     viewBelt.setImageResource(icon);
-                    apArray[8] = ap;
-                    dpArray[8] = dp;
+                    apArray[3] = ap;
+                    dpArray[3] = dp;
                     break;
                 case REQUEST_CODE_NECKLACE:
                     accessoryInit(data);
                     viewNecklace.setImageResource(icon);
-                    apArray[4] = ap;
-                    dpArray[4] = dp;
+                    apArray[12] = ap;
+                    dpArray[12] = dp;
                     break;
             }
         } else {
@@ -518,10 +811,33 @@ public class GearActivity extends AppCompatActivity implements View.OnClickListe
             }
         }
         gearScore();
+
+//        gearScore2();
+    }
+
+    private void gearScore2() {
+        Object objAwakening = gear.get(1);
+        Object objMain = gear.get(2);
+        Object objBelt = gear.get(3);
+        Object objShoes = gear.get(4);
+        Object objEarring2 = gear.get(5);
+        Object objEarring1 = gear.get(6);
+        Object objHelmet = gear.get(7);
+        Object objArmor = gear.get(8);
+        Object objRing1 = gear.get(9);
+        Object objRing2 = gear.get(10);
+        Object objGloves = gear.get(11);
+        Object objNecklace = gear.get(12);
+        Object objSecondary = gear.get(13);
+
+        Accessory ring1 = (Accessory) objRing1;
+        Accessory ring2 = (Accessory) objRing2;
+        int apRing1 = ring1.ap;
+        int dpRing1 = ring1.dp;
+
     }
 
     private void accessoryInit(Intent data) {
-
         accessory = (Accessory) data.getSerializableExtra("accessoryName");
         icon = accessory.icon;
         ap = accessory.ap;
@@ -531,7 +847,6 @@ public class GearActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     private void alchemyInit(Intent data) {
-
         alchemyStone = (AlchemyStone) data.getSerializableExtra("alchemyName");
         icon = alchemyStone.icon;
         rarity = alchemyStone.rarity;
@@ -583,12 +898,19 @@ public class GearActivity extends AppCompatActivity implements View.OnClickListe
 
     private void gearScore() {
 
+        awaSum = 0;
+        for (int i = 0; i < 13; i++) {
+            awaSum = awaSum + apArray[i];
+        }
+        awaSum = awaSum - apArray[2];
+        viewAwaAP.setText("" + awaSum);
+
         apSum = 0;
         for (int i = 0; i < 13; i++) {
             apSum = apSum + apArray[i];
         }
+        apSum = apSum - apArray[1];
         viewAP.setText("" + apSum);
-        viewAwaAP.setText("" + apSum);
 
         dpSum = 0;
         for (int i = 0; i < 13; i++) {
@@ -599,7 +921,11 @@ public class GearActivity extends AppCompatActivity implements View.OnClickListe
         //make awakening ap
         //count GS as awaAP + DP
 
-        gs = apSum + dpSum;
+        if (awaSum == 0) {
+            gs = apSum + dpSum;
+        } else {
+            gs = awaSum + dpSum;
+        }
 
         viewGS.setText("" + gs);
 

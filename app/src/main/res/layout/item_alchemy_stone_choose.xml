@@ -49,6 +49,8 @@
 
         <include layout="@layout/content_stats_alchemy_protection" />
 
+        <include layout="@layout/content_stats_alchemy_life" />
+
 
     </LinearLayout>
 
