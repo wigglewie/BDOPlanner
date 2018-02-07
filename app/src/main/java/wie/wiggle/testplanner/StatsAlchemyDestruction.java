@@ -1,7 +1,6 @@
 package wie.wiggle.testplanner;
 
 import java.io.Serializable;
-import java.sql.Struct;
 
 /**
  * Created by timox on 06-Feb-18.

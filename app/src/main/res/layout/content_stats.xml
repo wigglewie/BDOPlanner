@@ -2,6 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_marginBottom="10dp"
     android:layout_marginTop="10dp"
     android:background="@color/colorBackground"
     android:orientation="vertical">
@@ -455,6 +456,93 @@
             android:layout_marginBottom="5dp"
             android:background="@color/colorTitlesLine" />
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="Damage Reduction: "
+                android:textColor="@color/colorText"
+                android:textSize="13dp" />
+
+            <TextView
+                android:id="@+id/text_stats_defensive_dr"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="0"
+                android:textColor="@color/colorStatsValue"
+                android:textSize="13dp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="Evasion: "
+                android:textColor="@color/colorText"
+                android:textSize="13dp" />
+
+            <TextView
+                android:id="@+id/text_stats_defensive_evasion"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="0"
+                android:textColor="@color/colorStatsValue"
+                android:textSize="13dp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="Hidden Evasion: "
+                android:textColor="@color/colorText"
+                android:textSize="13dp" />
+
+            <TextView
+                android:id="@+id/text_stats_defensive_hiddenEvasion"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="0"
+                android:textColor="@color/colorStatsValue"
+                android:textSize="13dp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="Hidden Damage Reduction: "
+                android:textColor="@color/colorText"
+                android:textSize="13dp" />
+
+            <TextView
+                android:id="@+id/text_stats_defensive_hiddenDR"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="0"
+                android:textColor="@color/colorStatsValue"
+                android:textSize="13dp" />
+
+        </LinearLayout>
 
     </LinearLayout>
 
@@ -621,6 +709,72 @@
             android:layout_marginBottom="5dp"
             android:background="@color/colorTitlesLine" />
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="Max HP: "
+                android:textColor="@color/colorText"
+                android:textSize="13dp" />
+
+            <TextView
+                android:id="@+id/text_stats_survivability_maxHP"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="0"
+                android:textColor="@color/colorStatsValue"
+                android:textSize="13dp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="Max MP(EP)/WP/SP: "
+                android:textColor="@color/colorText"
+                android:textSize="13dp" />
+
+            <TextView
+                android:id="@+id/text_stats_survivability_maxMP"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="0"
+                android:textColor="@color/colorStatsValue"
+                android:textSize="13dp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="HP recovery: "
+                android:textColor="@color/colorText"
+                android:textSize="13dp" />
+
+            <TextView
+                android:id="@+id/text_stats_survivability_hpRecovery"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="0"
+                android:textColor="@color/colorStatsValue"
+                android:textSize="13dp" />
+
+        </LinearLayout>
+
 
     </LinearLayout>
 
@@ -646,6 +800,79 @@
             android:layout_marginBottom="5dp"
             android:background="@color/colorTitlesLine" />
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="Stamina: "
+                android:textColor="@color/colorText"
+                android:textSize="13dp" />
+
+            <TextView
+                android:id="@+id/text_stats_general_stamina"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="0"
+                android:textColor="@color/colorStatsValue"
+                android:textSize="13dp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="Weight Limit: "
+                android:textColor="@color/colorText"
+                android:textSize="13dp" />
+
+            <TextView
+                android:id="@+id/text_stats_general_weightLimit"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="0"
+                android:textColor="@color/colorStatsValue"
+                android:textSize="13dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="LT"
+                android:textColor="@color/colorStatsValue"
+                android:textSize="13dp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="Black Spirit's Rage: "
+                android:textColor="@color/colorText"
+                android:textSize="13dp" />
+
+            <TextView
+                android:id="@+id/text_stats_general_blackSpiritRage"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="0"
+                android:textColor="@color/colorStatsValue"
+                android:textSize="13dp" />
+
+        </LinearLayout>
+
 
     </LinearLayout>
 
@@ -670,6 +897,115 @@
             android:layout_height="1dp"
             android:layout_marginBottom="5dp"
             android:background="@color/colorTitlesLine" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="Alchemy/Cooking time: "
+                android:textColor="@color/colorText"
+                android:textSize="13dp" />
+
+            <TextView
+                android:id="@+id/text_stats_gearSpecials_cookingTime"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="0"
+                android:textColor="@color/colorStatsValue"
+                android:textSize="13dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="s"
+                android:textColor="@color/colorStatsValue"
+                android:textSize="13dp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="Processing Success Rate: "
+                android:textColor="@color/colorText"
+                android:textSize="13dp" />
+
+            <TextView
+                android:id="@+id/text_stats_gearSpecials_processingSuccessRate"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="0"
+                android:textColor="@color/colorStatsValue"
+                android:textSize="13dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="%"
+                android:textColor="@color/colorStatsValue"
+                android:textSize="13dp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="Gathering/Fishing: "
+                android:textColor="@color/colorText"
+                android:textSize="13dp" />
+
+            <TextView
+                android:id="@+id/text_stats_gearSpecials_gatheringFishingLVL"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="0"
+                android:textColor="@color/colorStatsValue"
+                android:textSize="13dp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="Gathering Drop Rate: "
+                android:textColor="@color/colorText"
+                android:textSize="13dp" />
+
+            <TextView
+                android:id="@+id/text_stats_gearSpecials_gatheringDropRate"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="0"
+                android:textColor="@color/colorStatsValue"
+                android:textSize="13dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="%"
+                android:textColor="@color/colorStatsValue"
+                android:textSize="13dp" />
+
+        </LinearLayout>
 
 
     </LinearLayout>

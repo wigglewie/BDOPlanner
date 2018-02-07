@@ -480,7 +480,8 @@
                 android:text="Activate Alc. Stone"
                 android:textColor="@color/colorText"
                 android:textSize="15sp"
-                android:theme="@style/ThemeOverlay.AppCompat.Dark" />
+                android:enabled="false"
+                android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar" />
 
             <View
                 android:layout_width="1dp"

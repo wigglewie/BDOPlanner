@@ -27,13 +27,26 @@ public class GearActivity extends AppCompatActivity implements View.OnClickListe
     private ArrayList<StatsAlchemyProtection> statsAlchemyProtection;
     private ArrayList<StatsAlchemyLife> statsAlchemyLife;
 
-    private static final int REQUEST_CODE_RING1 = 1;
-    private static final int REQUEST_CODE_RING2 = 2;
-    private static final int REQUEST_CODE_EARRING1 = 3;
-    private static final int REQUEST_CODE_EARRING2 = 4;
-    private static final int REQUEST_CODE_BELT = 5;
-    private static final int REQUEST_CODE_NECKLACE = 6;
-    private static final int REQUEST_CODE_ALCHEMY_STONE = 7;
+    private static final int REQUEST_CODE_ALCHEMY_STONE = 0;
+    private static final int REQUEST_CODE_AWAKENING_WEAPON = 1;
+    private static final int REQUEST_CODE_MAIN_WEAPON = 2;
+    private static final int REQUEST_CODE_BELT = 3;
+    private static final int REQUEST_CODE_SHOES = 4;
+    private static final int REQUEST_CODE_EARRING2 = 5;
+    private static final int REQUEST_CODE_EARRING1 = 6;
+    private static final int REQUEST_CODE_HELMET = 7;
+    private static final int REQUEST_CODE_ARMOR = 8;
+    private static final int REQUEST_CODE_RING1 = 9;
+    private static final int REQUEST_CODE_RING2 = 10;
+    private static final int REQUEST_CODE_GLOVES = 0;
+    private static final int REQUEST_CODE_NECKLACE = 12;
+    private static final int REQUEST_CODE_SECONDARY_WEAPON = 13;
+    private static final int REQUEST_CODE_COSTUME_SECONDARY_WEAPON = 14;
+    private static final int REQUEST_CODE_COSTUME_UNDERWEAR = 15;
+    private static final int REQUEST_CODE_COSTUME_AWAKENING_WEAPON = 16;
+    private static final int REQUEST_CODE_COSTUME_MAIN_WEAPON = 17;
+    private static final int REQUEST_CODE_COSTUME = 18;
+
     private ImageView classIcon;
     private ImageView viewAlchemyStone;
     private ImageView viewRing1;
@@ -77,11 +90,26 @@ public class GearActivity extends AppCompatActivity implements View.OnClickListe
     private int dp;
     private int enhLvl;
 
+    //stats
     private int valueHiddenAP;
     private int valueAccuracy;
     private int valueIgnoreAllResistance;
     private int valueAttackSpeedPercentage;
     private int valueCastingSpeedPercentage;
+
+    private int valueDR;
+    private int valueEvasion;
+    private int valueMaxHP;
+    private int valueKnockbackResistance;
+    private int valueKnockdownResistance;
+    private int valueStunResistance;
+    private int valueGrappleResistance;
+
+    private float valueCookingTime;
+    private int valueProcessingSuccessRate;
+    private int valueWeightLimit;
+    private int valueGatheringFishingLvl;
+    private int valueGatheringDropRate;
 
     private TextView viewHiddenAP;
     private TextView viewAccuracy;
@@ -89,10 +117,29 @@ public class GearActivity extends AppCompatActivity implements View.OnClickListe
     private TextView viewAttackSpeedPercentage;
     private TextView viewCastingSpeedPercentage;
 
-    Accessory accessory;
-    AlchemyStone alchemyStone;
+    private TextView viewDR;
+    private TextView viewEvasion;
+    private TextView viewMaxHP;
+    private TextView viewKnockbackResistance;
+    private TextView viewKnockdownResistance;
+    private TextView viewStunResistance;
+    private TextView viewGrappleResistance;
 
-    ArrayList<Object> gear;
+    private TextView viewCookingTime;
+    private TextView viewProcessingSuccessRate;
+    private TextView viewWeightLimit;
+    private TextView viewGatheringFishingLvl;
+    private TextView viewGatheringDropRate;
+
+    private String alchemyStoneType;
+    private StatsAlchemyDestruction statsDestr;
+    private StatsAlchemyProtection statsProt;
+    private StatsAlchemyLife statsLife;
+
+    private Accessory accessory;
+    private AlchemyStone alchemyStone;
+
+    private ArrayList<Object> gear;
     // index:
     // 0 - alchemy stone
     // 1 - awakening weapon
@@ -117,9 +164,10 @@ public class GearActivity extends AppCompatActivity implements View.OnClickListe
     private int[] apArray = new int[13];
     private int[] dpArray = new int[13];
 
-    private android.support.v7.widget.Toolbar toolbar;
-
 //    private TextView className;
+
+
+    private android.support.v7.widget.Toolbar toolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -168,43 +216,89 @@ public class GearActivity extends AppCompatActivity implements View.OnClickListe
         viewAttackSpeedPercentage = (TextView) findViewById(R.id.text_stats_attack_speed_percentage);
         viewCastingSpeedPercentage = (TextView) findViewById(R.id.text_stats_casting_speed_percentage);
 
+        viewDR = (TextView) findViewById(R.id.text_stats_defensive_dr);
+        viewEvasion = (TextView) findViewById(R.id.text_stats_defensive_evasion);
+        viewMaxHP = (TextView) findViewById(R.id.text_stats_survivability_maxHP);
+        viewKnockbackResistance = (TextView) findViewById(R.id.text_stats_resistance_knockback);
+        viewKnockdownResistance = (TextView) findViewById(R.id.text_stats_resistance_knockdown);
+        viewStunResistance = (TextView) findViewById(R.id.text_stats_resistance_stun);
+        viewGrappleResistance = (TextView) findViewById(R.id.text_stats_resistance_grapple);
+
+        viewCookingTime = (TextView) findViewById(R.id.text_stats_gearSpecials_cookingTime);
+        viewProcessingSuccessRate = (TextView) findViewById(R.id.text_stats_gearSpecials_processingSuccessRate);
+        viewWeightLimit = (TextView) findViewById(R.id.text_stats_general_weightLimit);
+        viewGatheringFishingLvl = (TextView) findViewById(R.id.text_stats_gearSpecials_gatheringFishingLVL);
+        viewGatheringDropRate = (TextView) findViewById(R.id.text_stats_gearSpecials_gatheringDropRate);
+
+        valueKnockbackResistance = 20;
+        valueKnockdownResistance = 20;
+        valueStunResistance = 20;
+        valueGrappleResistance = 20;
+
+        //alchemy stone ON/OFF
         checkAlchemy.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
-                if (checkAlchemy.isChecked()) {
-                    if (alchemyStone != null) {
-                        String type = alchemyStone.type;
-                        if (type.equals("destruction")) {
-                            StatsAlchemyDestruction stats = (StatsAlchemyDestruction) alchemyStone.stats;
-                            valueHiddenAP = stats.hiddenAP;
-                            valueAccuracy = stats.accuracy;
-                            valueIgnoreAllResistance = stats.ignoreAllResistance;
-                            valueAttackSpeedPercentage = stats.attackSpeed;
-                            valueCastingSpeedPercentage = stats.castingSpeed;
 
-                            viewHiddenAP.setText(Integer.toString(stats.hiddenAP));
-                            viewAccuracy.setText(Integer.toString(stats.accuracy));
-                            viewIgnoreAllResistance.setText(Integer.toString(stats.ignoreAllResistance));
-                            viewAttackSpeedPercentage.setText(Integer.toString(stats.attackSpeed));
-                            viewCastingSpeedPercentage.setText(Integer.toString(stats.castingSpeed));
+                if (gear.get(0) != null) {
+                    if (checkAlchemy.isChecked()) {
+                        if (alchemyStoneType.equals("destruction")) {
 
-                        } else if (type.equals("protection")) {
+                            viewHiddenAP.setText(Integer.toString(statsDestr.hiddenAP));
+                            viewAccuracy.setText(Integer.toString(statsDestr.accuracy));
+                            viewIgnoreAllResistance.setText(Integer.toString(statsDestr.ignoreAllResistance));
+                            viewAttackSpeedPercentage.setText(Integer.toString(statsDestr.attackSpeed));
+                            viewCastingSpeedPercentage.setText(Integer.toString(statsDestr.castingSpeed));
 
-                        } else if (type.equals("life")) {
+                        } else if (alchemyStoneType.equals("protection")) {
 
+                            viewDR.setText(Integer.toString(statsProt.damageReduction));
+                            viewEvasion.setText(Integer.toString(statsProt.evasion));
+                            viewMaxHP.setText(Integer.toString(statsProt.maxHP));
+                            viewKnockbackResistance.setText(Integer.toString(valueKnockbackResistance + statsProt.resistanceAll));
+                            viewKnockdownResistance.setText(Integer.toString(valueKnockdownResistance + statsProt.resistanceAll));
+                            viewStunResistance.setText(Integer.toString(valueStunResistance + statsProt.resistanceAll));
+                            viewGrappleResistance.setText(Integer.toString(valueGrappleResistance + statsProt.resistanceAll));
+
+                        } else if (alchemyStoneType.equals("life")) {
+
+                            viewCookingTime.setText(Float.toString(statsLife.cookingTime));
+                            viewProcessingSuccessRate.setText(Integer.toString(statsLife.processingSuccessRate));
+                            viewWeightLimit.setText(Integer.toString(statsLife.weightLimit));
+                            viewGatheringFishingLvl.setText(Integer.toString(statsLife.gatheringFishingLvl));
+                            viewGatheringDropRate.setText(Integer.toString(statsLife.gatheringDropRate));
                         }
-
+                    } else {
+                        alchStoneOff();
                     }
                 } else {
-                    viewHiddenAP.setText("0");
-                    viewAccuracy.setText("0");
-                    viewIgnoreAllResistance.setText("0");
-                    viewAttackSpeedPercentage.setText("0");
-                    viewCastingSpeedPercentage.setText("0");
+                    checkAlchemy.setChecked(false);
+                    alchStoneOff();
                 }
             }
-        });
 
+            private void alchStoneOff() {
+                viewHiddenAP.setText(Integer.toString(valueHiddenAP));
+                viewAccuracy.setText(Integer.toString(valueAccuracy));
+                viewIgnoreAllResistance.setText(Integer.toString(valueIgnoreAllResistance));
+                viewAttackSpeedPercentage.setText(Integer.toString(valueAttackSpeedPercentage));
+                viewCastingSpeedPercentage.setText(Integer.toString(valueCastingSpeedPercentage));
+
+                viewDR.setText(Integer.toString(valueDR));
+                viewEvasion.setText(Integer.toString(valueEvasion));
+                viewMaxHP.setText(Integer.toString(valueMaxHP));
+                viewKnockbackResistance.setText(Integer.toString(valueKnockbackResistance));
+                viewKnockdownResistance.setText(Integer.toString(valueKnockdownResistance));
+                viewStunResistance.setText(Integer.toString(valueStunResistance));
+                viewGrappleResistance.setText(Integer.toString(valueGrappleResistance));
+
+                viewCookingTime.setText(Float.toString(valueCookingTime));
+                viewProcessingSuccessRate.setText(Integer.toString(valueProcessingSuccessRate));
+                viewWeightLimit.setText(Integer.toString(valueWeightLimit));
+                viewGatheringFishingLvl.setText(Integer.toString(valueGatheringFishingLvl));
+                viewGatheringDropRate.setText(Integer.toString(valueGatheringDropRate));
+            }
+        });
 
         viewAlchemyStone.setOnClickListener(this);
         viewRing1.setOnClickListener(this);
@@ -715,8 +809,22 @@ public class GearActivity extends AppCompatActivity implements View.OnClickListe
                     rarityResource = rarityCheck(rarity);
                     viewAlchemyStone.setBackgroundResource(rarityResource);
                     viewAlchemyStone.setImageResource(icon);
+
+                    alchemyStoneType = alchemyStone.type;
+                    switch (alchemyStoneType) {
+                        case "destruction":
+                            statsDestr = (StatsAlchemyDestruction) alchemyStone.stats;
+                            break;
+                        case "protection":
+                            statsProt = (StatsAlchemyProtection) alchemyStone.stats;
+                            break;
+                        case "life":
+                            statsLife = (StatsAlchemyLife) alchemyStone.stats;
+                            break;
+                    }
                     gear.set(0, alchemyStone);
-                    getClass();
+                    checkAlchemy.setEnabled(true);
+                    checkAlchemy.setChecked(false);
                     break;
                 case REQUEST_CODE_EARRING1:
                     accessoryInit(data);
@@ -779,34 +887,43 @@ public class GearActivity extends AppCompatActivity implements View.OnClickListe
                 case REQUEST_CODE_ALCHEMY_STONE:
                     viewAlchemyStone.setImageResource(R.drawable.alchemy_placeholder);
                     viewAlchemyStone.setBackgroundResource(R.drawable.outline_default);
+                    gear.set(0, null);
+                    if (checkAlchemy.isChecked()) {
+                        checkAlchemy.setChecked(false);
+                    }
+                    checkAlchemy.setEnabled(false);
                     break;
                 case REQUEST_CODE_EARRING1:
                     viewEarring1.setImageResource(R.drawable.earring_placeholder);
                     viewEarring1.setBackgroundResource(R.drawable.outline_default);
                     viewEarring1enhLvl.setImageResource(0);
-                    apArray[11] = 0;
-                    dpArray[11] = 0;
+                    gear.set(6, null);
+                    apArray[6] = 0;
+                    dpArray[6] = 0;
                     break;
                 case REQUEST_CODE_EARRING2:
                     viewEarring2.setImageResource(R.drawable.earring_placeholder);
                     viewEarring2.setBackgroundResource(R.drawable.outline_default);
                     viewEarring2enhLv1.setImageResource(0);
-                    apArray[10] = 0;
-                    dpArray[10] = 0;
+                    gear.set(5, null);
+                    apArray[5] = 0;
+                    dpArray[5] = 0;
                     break;
                 case REQUEST_CODE_RING1:
                     viewRing1.setImageResource(R.drawable.ring_placeholder);
                     viewRing1.setBackgroundResource(R.drawable.outline_default);
                     viewRing1enhLvl.setImageResource(0);
-                    apArray[1] = 0;
-                    dpArray[1] = 0;
+                    gear.set(9, null);
+                    apArray[9] = 0;
+                    dpArray[9] = 0;
                     break;
                 case REQUEST_CODE_RING2:
                     viewRing2.setImageResource(R.drawable.ring_placeholder);
                     viewRing2.setBackgroundResource(R.drawable.outline_default);
                     viewRing2enhLvl.setImageResource(0);
-                    apArray[2] = 0;
-                    dpArray[2] = 0;
+                    gear.set(10, null);
+                    apArray[10] = 0;
+                    dpArray[10] = 0;
                     break;
             }
         }
