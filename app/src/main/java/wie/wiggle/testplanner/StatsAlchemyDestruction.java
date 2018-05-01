@@ -8,17 +8,17 @@ import java.io.Serializable;
 
 public class StatsAlchemyDestruction implements Serializable {
 
-    String rarity;
-    String name;
+//    String rarity;
+//    String name;
     int hiddenAP;
     int accuracy;
     int ignoreAllResistance;
     int attackSpeed;
     int castingSpeed;
 
-    public StatsAlchemyDestruction(String rarity, String name, int hiddenAP, int accuracy, int ignoreAllResistance, int attackSpeed, int castingSpeed) {
-        this.rarity = rarity;
-        this.name = name;
+    public StatsAlchemyDestruction(int hiddenAP, int accuracy, int ignoreAllResistance, int attackSpeed, int castingSpeed) {
+//        this.rarity = rarity;
+//        this.name = name;
         this.hiddenAP = hiddenAP;
         this.accuracy = accuracy;
         this.ignoreAllResistance = ignoreAllResistance;
@@ -26,21 +26,21 @@ public class StatsAlchemyDestruction implements Serializable {
         this.castingSpeed = castingSpeed;
     }
 
-    public String getRarity() {
-        return rarity;
-    }
+//    public String getRarity() {
+//        return rarity;
+//    }
 
-    public void setRarity(String rarity) {
-        this.rarity = rarity;
-    }
+//    public void setRarity(String rarity) {
+//        this.rarity = rarity;
+//    }
 
-    public String getName() {
-        return name;
-    }
+//    public String getName() {
+//        return name;
+//    }
 
-    public void setName(String name) {
-        this.name = name;
-    }
+//    public void setName(String name) {
+//        this.name = name;
+//    }
 
     public int getHiddenAP() {
         return hiddenAP;

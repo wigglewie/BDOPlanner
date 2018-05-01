@@ -18,8 +18,6 @@ import android.widget.TextView;
 
 import com.rohit.recycleritemclicksupport.RecyclerItemClickSupport;
 
-import org.w3c.dom.Text;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -29,9 +27,9 @@ import java.util.List;
 
 public class ItemAccessoryChooseActivity extends AppCompatActivity implements RecyclerItemClickSupport.OnItemClickListener {
 
-    private List<Accessory> accessoryArray;
+    private List<ItemAccessory> accessoryArray;
     private RecyclerView rv;
-    private AdapterGear mAdapter;
+    private AdapterAccessories mAdapter;
     private RecyclerView.LayoutManager mLayoutManager;
 
     String stringAP;
@@ -45,7 +43,7 @@ public class ItemAccessoryChooseActivity extends AppCompatActivity implements Re
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_item_accessory_choose);
+        setContentView(R.layout.activity_item_choose);
 
         toolbar = (android.support.v7.widget.Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -57,9 +55,9 @@ public class ItemAccessoryChooseActivity extends AppCompatActivity implements Re
         rv = (RecyclerView) findViewById(R.id.recyclerView_gear_items);
         RecyclerItemClickSupport.addTo(rv).setOnItemClickListener(this);
 
-        accessoryArray = (ArrayList<Accessory>) getIntent().getSerializableExtra("accessoryArray");
+        accessoryArray = (ArrayList<ItemAccessory>) getIntent().getSerializableExtra("accessoryArray");
 
-        mAdapter = new AdapterGear(accessoryArray);
+        mAdapter = new AdapterAccessories(accessoryArray);
         mLayoutManager = new LinearLayoutManager(this);
 
         rv.addItemDecoration(new EqualSpacingItemDecoration(30));
@@ -131,12 +129,12 @@ public class ItemAccessoryChooseActivity extends AppCompatActivity implements Re
     public void onItemClicked(RecyclerView recyclerView, int position, View v) {
 
         Intent intent = new Intent();
-        Accessory accessory = accessoryArray.get(position);
-        stringAP = ((TextView) recyclerView.findViewHolderForAdapterPosition(position).itemView.findViewById(R.id.item_gear_ap)).getText().toString();
-        stringDP = ((TextView) recyclerView.findViewHolderForAdapterPosition(position).itemView.findViewById(R.id.item_gearp_dp)).getText().toString();
+        ItemAccessory accessory = accessoryArray.get(position);
+        stringAP = ((TextView) recyclerView.findViewHolderForAdapterPosition(position).itemView.findViewById(R.id.item_accessory_ap)).getText().toString();
+        stringDP = ((TextView) recyclerView.findViewHolderForAdapterPosition(position).itemView.findViewById(R.id.item_accessory_dp)).getText().toString();
         valueAP = Integer.parseInt(stringAP);
         valueDP = Integer.parseInt(stringDP);
-        sb = ((SeekBar) recyclerView.findViewHolderForAdapterPosition(position).itemView.findViewById(R.id.item_gear_seekbar)).getProgress();
+        sb = ((SeekBar) recyclerView.findViewHolderForAdapterPosition(position).itemView.findViewById(R.id.item_accessory_seekBar)).getProgress();
         accessory.setAp(valueAP);
         accessory.setDp(valueDP);
         accessory.setEnhLVL(sb);

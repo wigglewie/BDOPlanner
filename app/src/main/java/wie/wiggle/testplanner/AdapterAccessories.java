@@ -15,29 +15,29 @@ import java.util.List;
  * Created by timox on 01/09/2017.
  */
 
-public class AdapterGear extends RecyclerView.Adapter<AdapterGear.MyViewHolder> {
+public class AdapterAccessories extends RecyclerView.Adapter<AdapterAccessories.MyViewHolder> {
 
-    private List<Accessory> accessories;
-    private List<Accessory> itemsCopy = new ArrayList<>();
+    private List<ItemAccessory> accessories;
+    private List<ItemAccessory> itemsCopy = new ArrayList<>();
     int valueAP;
     int valueDP;
     String stringAP;
     String stringDP;
 
-    public AdapterGear(List accessories) {
+    public AdapterAccessories(List accessories) {
         this.accessories = accessories;
         itemsCopy.addAll(accessories);
     }
 
     @Override
     public MyViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
-        View earring = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.item_gear_choose, viewGroup, false);
+        View earring = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.item_accessory_choose, viewGroup, false);
         return new MyViewHolder(earring);
     }
 
     @Override
     public void onBindViewHolder(final MyViewHolder holder, int i) {
-        final Accessory item = accessories.get(i);
+        final ItemAccessory item = accessories.get(i);
         String ap = "" + item.ap;
         String dp = "" + item.dp;
         holder.name.setText(item.name);
@@ -117,7 +117,7 @@ public class AdapterGear extends RecyclerView.Adapter<AdapterGear.MyViewHolder> 
             accessories.addAll(itemsCopy);
         } else {
             text = text.toLowerCase();
-            for (Accessory item : itemsCopy) {
+            for (ItemAccessory item : itemsCopy) {
                 if (item.name.toLowerCase().contains(text)) {
                     accessories.add(item);
                 }
@@ -142,11 +142,11 @@ public class AdapterGear extends RecyclerView.Adapter<AdapterGear.MyViewHolder> 
 
         public MyViewHolder(View itemView) {
             super(itemView);
-            name = (TextView) itemView.findViewById(R.id.item_gear_name);
-            icon = (ImageView) itemView.findViewById(R.id.item_gear_icon);
-            ap = (TextView) itemView.findViewById(R.id.item_gear_ap);
-            dp = (TextView) itemView.findViewById(R.id.item_gearp_dp);
-            seekBar = (SeekBar) itemView.findViewById(R.id.item_gear_seekbar);
+            name = (TextView) itemView.findViewById(R.id.item_accessory_name);
+            icon = (ImageView) itemView.findViewById(R.id.item_awakening_icon);
+            ap = (TextView) itemView.findViewById(R.id.item_accessory_ap);
+            dp = (TextView) itemView.findViewById(R.id.item_accessory_dp);
+            seekBar = (SeekBar) itemView.findViewById(R.id.item_accessory_seekBar);
         }
     }
 }

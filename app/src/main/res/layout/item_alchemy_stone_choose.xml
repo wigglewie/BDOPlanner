@@ -27,11 +27,11 @@
             <TextView
                 android:id="@+id/item_alchemy_name"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:paddingTop="10dp"
                 android:text="Sharp Alchemy Stone of Destruction"
                 android:textColor="@color/colorText"
-                android:textSize="13dp" />
+                android:textSize="15dp" />
 
 
         </LinearLayout>

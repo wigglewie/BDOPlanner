@@ -1,11 +1,9 @@
 package wie.wiggle.testplanner;
 
-import android.annotation.SuppressLint;
 import android.app.SearchManager;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Parcelable;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -15,7 +13,6 @@ import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
-import android.widget.TextView;
 
 import com.rohit.recycleritemclicksupport.RecyclerItemClickSupport;
 
@@ -28,7 +25,7 @@ import java.util.List;
 
 public class ItemAlchemyStoneChooseActivity extends AppCompatActivity implements RecyclerItemClickSupport.OnItemClickListener {
 
-    private List<AlchemyStone> alchemyStones;
+    private List<ItemAlchemyStone> alchemyStones;
     private RecyclerView rv;
     private AdapterAlchemyStones mAdapter;
     private RecyclerView.LayoutManager mLayoutManager;
@@ -38,7 +35,7 @@ public class ItemAlchemyStoneChooseActivity extends AppCompatActivity implements
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_item_alchemy_stone_choose);
+        setContentView(R.layout.activity_item_choose);
 
         toolbar = (android.support.v7.widget.Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -50,7 +47,7 @@ public class ItemAlchemyStoneChooseActivity extends AppCompatActivity implements
         rv = (RecyclerView) findViewById(R.id.recyclerView_gear_items);
         RecyclerItemClickSupport.addTo(rv).setOnItemClickListener(this);
 
-        alchemyStones = (ArrayList<AlchemyStone>) getIntent().getSerializableExtra("alchemyStones");
+        alchemyStones = (ArrayList<ItemAlchemyStone>) getIntent().getSerializableExtra("alchemyStones");
 
         mAdapter = new AdapterAlchemyStones(alchemyStones);
         mLayoutManager = new LinearLayoutManager(this);
@@ -126,7 +123,7 @@ public class ItemAlchemyStoneChooseActivity extends AppCompatActivity implements
     public void onItemClicked(RecyclerView recyclerView, int position, View v) {
 
         Intent intent = new Intent();
-        AlchemyStone alchemyStone = alchemyStones.get(position);
+        ItemAlchemyStone alchemyStone = alchemyStones.get(position);
         intent.putExtra("alchemyName", alchemyStone);
         setResult(RESULT_OK, intent);
         finish();

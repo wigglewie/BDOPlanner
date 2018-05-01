@@ -10,7 +10,7 @@ import android.widget.TextView;
 
 public class AlertDialogAlchemyShow extends AppCompatActivity {
 
-//    private AlchemyStone alchemyStone;
+//    private ItemAlchemyStone alchemyStone;
 
     TextView adAlchemyName;
 
@@ -120,7 +120,7 @@ public class AlertDialogAlchemyShow extends AppCompatActivity {
         adViewGatheringDropRate = view.findViewById(R.id.item_alchemy_view_gatheringDropRate);
     }
 
-    public View showStatsDestruction(AlchemyStone alchemyStone, View view) {
+    public View showStatsDestruction(ItemAlchemyStone alchemyStone, View view) {
 
         initViews(view);
         adCheckRarity(alchemyStone);
@@ -136,7 +136,7 @@ public class AlertDialogAlchemyShow extends AppCompatActivity {
         adViewAttackSpeed.setVisibility(View.GONE);
         adViewCastingSpeed.setVisibility(View.GONE);
 
-        final StatsAlchemyDestruction adStatsDestruction = (StatsAlchemyDestruction) alchemyStone.stats;
+        final StatsAlchemyDestruction adStatsDestruction = (StatsAlchemyDestruction) alchemyStone.item_effects;
 
         adStatHiddenAP = adStatsDestruction.hiddenAP;
         adStatAccuracy = adStatsDestruction.accuracy;
@@ -172,7 +172,7 @@ public class AlertDialogAlchemyShow extends AppCompatActivity {
         return view;
     }
 
-    public void showStatsProtection(AlchemyStone alchemyStone, View view) {
+    public void showStatsProtection(ItemAlchemyStone alchemyStone, View view) {
 
         initViews(view);
         adCheckRarity(alchemyStone);
@@ -190,7 +190,7 @@ public class AlertDialogAlchemyShow extends AppCompatActivity {
         adViewStun.setVisibility(View.GONE);
         adViewGrapple.setVisibility(View.GONE);
 
-        final StatsAlchemyProtection adStatsProtection = (StatsAlchemyProtection) alchemyStone.stats;
+        final StatsAlchemyProtection adStatsProtection = (StatsAlchemyProtection) alchemyStone.item_effects;
 
         adStatDR = adStatsProtection.damageReduction;
         adStatEvasion = adStatsProtection.evasion;
@@ -225,7 +225,7 @@ public class AlertDialogAlchemyShow extends AppCompatActivity {
         }
     }
 
-    public void showStatsLife(AlchemyStone alchemyStone, View view) {
+    public void showStatsLife(ItemAlchemyStone alchemyStone, View view) {
 
         initViews(view);
         adCheckRarity(alchemyStone);
@@ -241,7 +241,7 @@ public class AlertDialogAlchemyShow extends AppCompatActivity {
         adViewGatheringFishingLvl.setVisibility(View.GONE);
         adViewGatheringDropRate.setVisibility(View.GONE);
 
-        final StatsAlchemyLife adStatsLife = (StatsAlchemyLife) alchemyStone.stats;
+        final StatsAlchemyLife adStatsLife = (StatsAlchemyLife) alchemyStone.item_effects;
 
         adStatCookingTime = adStatsLife.cookingTime;
         adStatProcessingSuccessRate = adStatsLife.processingSuccessRate;
@@ -272,7 +272,7 @@ public class AlertDialogAlchemyShow extends AppCompatActivity {
         }
     }
 
-    private void adCheckRarity(AlchemyStone alchemyStone) {
+    private void adCheckRarity(ItemAlchemyStone alchemyStone) {
         switch (alchemyStone.rarity) {
             case "common":
                 adAlchemyName.setTextColor(adAlchemyName.getResources().getColor(R.color.colorItemCommon));

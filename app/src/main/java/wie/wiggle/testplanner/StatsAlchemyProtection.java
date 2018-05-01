@@ -8,27 +8,6 @@ import java.io.Serializable;
 
 public class StatsAlchemyProtection implements Serializable {
 
-    // index:
-    // 0 - alchemy stone
-    // 1 - awakening weapon
-    // 2 - main weapon
-    // 3 - belt
-    // 4 - shoes
-    // 5 - earring2
-    // 6 - earring1
-    // 7 - helmet
-    // 8 - chest (armor)
-    // 9 - ring1
-    // 10 - ring2
-    // 11 - gloves
-    // 12 - necklace
-    // 13 - secondary weapon
-    // 14 - secondary weapon costume
-    // 15 - underwear
-    // 16 - awakening weapon costume
-    // 17 - main weapon costume
-    // 18 - costume
-
     String rarity;
     String name;
     int damageReduction;

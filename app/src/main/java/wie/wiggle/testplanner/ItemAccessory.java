@@ -6,7 +6,7 @@ import java.io.Serializable;
  * Created by timox on 01/09/2017.
  */
 
-public class Accessory implements Serializable {
+public class ItemAccessory implements Serializable {
 
     String type;
     String name;
@@ -18,7 +18,7 @@ public class Accessory implements Serializable {
     int enhStepAP;
     int enhStepDP;
 
-    Accessory(String type, String name, String rarity, int icon, int ap, int dp, int enhLVL, int enhStepAP, int enhStepDP) {
+    ItemAccessory(String type, String name, String rarity, int icon, int ap, int dp, int enhLVL, int enhStepAP, int enhStepDP) {
         this.type = type;
         this.name = name;
         this.rarity = rarity;

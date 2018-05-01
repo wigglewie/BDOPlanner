@@ -20,6 +20,7 @@
         <activity android:name=".GearActivity" />
         <activity android:name=".ItemAccessoryChooseActivity" />
         <activity android:name=".ItemAlchemyStoneChooseActivity" />
+        <activity android:name=".ItemAwakeningWeaponChooseActivity" />
 
     </application>
 

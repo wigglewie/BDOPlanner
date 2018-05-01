@@ -6,7 +6,7 @@ import java.util.List;
 
 public class InitializingAlchemyStones {
 
-    private ArrayList<AlchemyStone> alchemyStones;
+    private ArrayList<ItemAlchemyStone> alchemyStones;
     private ArrayList<StatsAlchemyDestruction> statsAlchemyDestruction;
     private ArrayList<StatsAlchemyProtection> statsAlchemyProtection;
     private ArrayList<StatsAlchemyLife> statsAlchemyLife;
@@ -116,7 +116,7 @@ public class InitializingAlchemyStones {
     private Object lifeRareSplendid;
     private Object lifeEpicSplendid;
 
-    public ArrayList<AlchemyStone> initializeAlchemyStones() {
+    public ArrayList<ItemAlchemyStone> initializeAlchemyStones() {
 
         initStats();
         initObjectStats();
@@ -124,232 +124,232 @@ public class InitializingAlchemyStones {
         //init alchemy stones
         alchemyStones = new ArrayList<>();
         //imperfect
-        alchemyStones.add(new AlchemyStone("destruction", "Imperfect Alchemy Stone of Destruction", "common", R.drawable.alchemy_destuction_imperfect, destructionCommonImperfect));
-        alchemyStones.add(new AlchemyStone("destruction", "Imperfect Alchemy Stone of Destruction", "uncommon", R.drawable.alchemy_destuction_imperfect, destructionUncommonImperfect));
-        alchemyStones.add(new AlchemyStone("destruction", "Imperfect Alchemy Stone of Destruction", "rare", R.drawable.alchemy_destuction_imperfect, destructionRareImperfect));
-        alchemyStones.add(new AlchemyStone("destruction", "Imperfect Alchemy Stone of Destruction", "epic", R.drawable.alchemy_destuction_imperfect, destructionEpicImperfect));
-
-        alchemyStones.add(new AlchemyStone("protection", "Imperfect Alchemy Stone of Protection", "common", R.drawable.alchemy_protection_imperfect, protectionCommonImperfect));
-        alchemyStones.add(new AlchemyStone("protection", "Imperfect Alchemy Stone of Protection", "uncommon", R.drawable.alchemy_protection_imperfect, protectionUncommonImperfect));
-        alchemyStones.add(new AlchemyStone("protection", "Imperfect Alchemy Stone of Protection", "rare", R.drawable.alchemy_protection_imperfect, protectionRareImperfect));
-        alchemyStones.add(new AlchemyStone("protection", "Imperfect Alchemy Stone of Protection", "epic", R.drawable.alchemy_protection_imperfect, protectionEpicImperfect));
-
-        alchemyStones.add(new AlchemyStone("life", "Imperfect Alchemy Stone of Life", "common", R.drawable.alchemy_life_imperfect, lifeCommonImperfect));
-        alchemyStones.add(new AlchemyStone("life", "Imperfect Alchemy Stone of Life", "uncommon", R.drawable.alchemy_life_imperfect, lifeUncommonImperfect));
-        alchemyStones.add(new AlchemyStone("life", "Imperfect Alchemy Stone of Life", "rare", R.drawable.alchemy_life_imperfect, lifeRareImperfect));
-        alchemyStones.add(new AlchemyStone("life", "Imperfect Alchemy Stone of Life", "epic", R.drawable.alchemy_life_imperfect, lifeEpicImperfect));
-
-        //rough
-        alchemyStones.add(new AlchemyStone("destruction", "Rough Alchemy Stone of Destruction", "common", R.drawable.alchemy_destuction_rough, destructionCommonRough));
-        alchemyStones.add(new AlchemyStone("destruction", "Rough Alchemy Stone of Destruction", "uncommon", R.drawable.alchemy_destuction_rough, destructionUncommonRough));
-        alchemyStones.add(new AlchemyStone("destruction", "Rough Alchemy Stone of Destruction", "rare", R.drawable.alchemy_destuction_rough, destructionRareRough));
-        alchemyStones.add(new AlchemyStone("destruction", "Rough Alchemy Stone of Destruction", "epic", R.drawable.alchemy_destuction_rough, destructionEpicRough));
-
-        alchemyStones.add(new AlchemyStone("protection", "Rough Alchemy Stone of Protection", "common", R.drawable.alchemy_protection_rough, protectionCommonRough));
-        alchemyStones.add(new AlchemyStone("protection", "Rough Alchemy Stone of Protection", "uncommon", R.drawable.alchemy_protection_rough, protectionUncommonRough));
-        alchemyStones.add(new AlchemyStone("protection", "Rough Alchemy Stone of Protection", "rare", R.drawable.alchemy_protection_rough, protectionRareRough));
-        alchemyStones.add(new AlchemyStone("protection", "Rough Alchemy Stone of Protection", "epic", R.drawable.alchemy_protection_rough, protectionEpicRough));
-
-        alchemyStones.add(new AlchemyStone("life", "Rough Alchemy Stone of Life", "common", R.drawable.alchemy_life_rough, lifeCommonRough));
-        alchemyStones.add(new AlchemyStone("life", "Rough Alchemy Stone of Life", "uncommon", R.drawable.alchemy_life_rough, lifeUncommonRough));
-        alchemyStones.add(new AlchemyStone("life", "Rough Alchemy Stone of Life", "rare", R.drawable.alchemy_life_rough, lifeRareRough));
-        alchemyStones.add(new AlchemyStone("life", "Rough Alchemy Stone of Life", "epic", R.drawable.alchemy_life_rough, lifeEpicRough));
-
-        //polished
-        alchemyStones.add(new AlchemyStone("destruction", "Polished Alchemy Stone of Destruction", "common", R.drawable.alchemy_destuction_polished, destructionCommonPolished));
-        alchemyStones.add(new AlchemyStone("destruction", "Polished Alchemy Stone of Destruction", "uncommon", R.drawable.alchemy_destuction_polished, destructionUncommonPolished));
-        alchemyStones.add(new AlchemyStone("destruction", "Polished Alchemy Stone of Destruction", "rare", R.drawable.alchemy_destuction_polished, destructionRarePolished));
-        alchemyStones.add(new AlchemyStone("destruction", "Polished Alchemy Stone of Destruction", "epic", R.drawable.alchemy_destuction_polished, destructionEpicPolished));
-
-        alchemyStones.add(new AlchemyStone("protection", "Polished Alchemy Stone of Protection", "common", R.drawable.alchemy_protection_polished, protectionCommonPolished));
-        alchemyStones.add(new AlchemyStone("protection", "Polished Alchemy Stone of Protection", "uncommon", R.drawable.alchemy_protection_polished, protectionUncommonPolished));
-        alchemyStones.add(new AlchemyStone("protection", "Polished Alchemy Stone of Protection", "rare", R.drawable.alchemy_protection_polished, protectionRarePolished));
-        alchemyStones.add(new AlchemyStone("protection", "Polished Alchemy Stone of Protection", "epic", R.drawable.alchemy_protection_polished, protectionEpicPolished));
-
-        alchemyStones.add(new AlchemyStone("life", "Polished Alchemy Stone of Life", "common", R.drawable.alchemy_life_polished, lifeCommonPolished));
-        alchemyStones.add(new AlchemyStone("life", "Polished Alchemy Stone of Life", "uncommon", R.drawable.alchemy_life_polished, lifeUncommonPolished));
-        alchemyStones.add(new AlchemyStone("life", "Polished Alchemy Stone of Life", "rare", R.drawable.alchemy_life_polished, lifeRarePolished));
-        alchemyStones.add(new AlchemyStone("life", "Polished Alchemy Stone of Life", "epic", R.drawable.alchemy_life_polished, lifeEpicPolished));
-
-        //sturdy
-        alchemyStones.add(new AlchemyStone("destruction", "Sturdy Alchemy Stone of Destruction", "common", R.drawable.alchemy_destuction_sturdy, destructionCommonSturdy));
-        alchemyStones.add(new AlchemyStone("destruction", "Sturdy Alchemy Stone of Destruction", "uncommon", R.drawable.alchemy_destuction_sturdy, destructionUncommonSturdy));
-        alchemyStones.add(new AlchemyStone("destruction", "Sturdy Alchemy Stone of Destruction", "rare", R.drawable.alchemy_destuction_sturdy, destructionRareSturdy));
-        alchemyStones.add(new AlchemyStone("destruction", "Sturdy Alchemy Stone of Destruction", "epic", R.drawable.alchemy_destuction_sturdy, destructionEpicSturdy));
-
-        alchemyStones.add(new AlchemyStone("protection", "Sturdy Alchemy Stone of Protection", "common", R.drawable.alchemy_protection_sturdy, protectionCommonSturdy));
-        alchemyStones.add(new AlchemyStone("protection", "Sturdy Alchemy Stone of Protection", "uncommon", R.drawable.alchemy_protection_sturdy, protectionUncommonSturdy));
-        alchemyStones.add(new AlchemyStone("protection", "Sturdy Alchemy Stone of Protection", "rare", R.drawable.alchemy_protection_sturdy, protectionRareSturdy));
-        alchemyStones.add(new AlchemyStone("protection", "Sturdy Alchemy Stone of Protection", "epic", R.drawable.alchemy_protection_sturdy, protectionEpicSturdy));
-
-        alchemyStones.add(new AlchemyStone("life", "Sturdy Alchemy Stone of Life", "common", R.drawable.alchemy_life_sturdy, lifeCommonSturdy));
-        alchemyStones.add(new AlchemyStone("life", "Sturdy Alchemy Stone of Life", "uncommon", R.drawable.alchemy_life_sturdy, lifeUncommonSturdy));
-        alchemyStones.add(new AlchemyStone("life", "Sturdy Alchemy Stone of Life", "rare", R.drawable.alchemy_life_sturdy, lifeRareSturdy));
-        alchemyStones.add(new AlchemyStone("life", "Sturdy Alchemy Stone of Life", "epic", R.drawable.alchemy_life_sturdy, lifeEpicSturdy));
-
-        //sharp
-        alchemyStones.add(new AlchemyStone("destruction", "Sharp Alchemy Stone of Destruction", "common", R.drawable.alchemy_destuction_sharp, destructionCommonSharp));
-        alchemyStones.add(new AlchemyStone("destruction", "Sharp Alchemy Stone of Destruction", "uncommon", R.drawable.alchemy_destuction_sharp, destructionUncommonSharp));
-        alchemyStones.add(new AlchemyStone("destruction", "Sharp Alchemy Stone of Destruction", "rare", R.drawable.alchemy_destuction_sharp, destructionRareSharp));
-        alchemyStones.add(new AlchemyStone("destruction", "Sharp Alchemy Stone of Destruction", "epic", R.drawable.alchemy_destuction_sharp, destructionEpicSharp));
-
-        alchemyStones.add(new AlchemyStone("protection", "Sharp Alchemy Stone of Protection", "common", R.drawable.alchemy_protection_sharp, protectionCommonSharp));
-        alchemyStones.add(new AlchemyStone("protection", "Sharp Alchemy Stone of Protection", "uncommon", R.drawable.alchemy_protection_sharp, protectionUncommonSharp));
-        alchemyStones.add(new AlchemyStone("protection", "Sharp Alchemy Stone of Protection", "rare", R.drawable.alchemy_protection_sharp, protectionRareSharp));
-        alchemyStones.add(new AlchemyStone("protection", "Sharp Alchemy Stone of Protection", "epic", R.drawable.alchemy_protection_sharp, protectionEpicSharp));
-
-        alchemyStones.add(new AlchemyStone("life", "Sharp Alchemy Stone of Life", "common", R.drawable.alchemy_life_sharp, lifeCommonSharp));
-        alchemyStones.add(new AlchemyStone("life", "Sharp Alchemy Stone of Life", "uncommon", R.drawable.alchemy_life_sharp, lifeUncommonSharp));
-        alchemyStones.add(new AlchemyStone("life", "Sharp Alchemy Stone of Life", "rare", R.drawable.alchemy_life_sharp, lifeRareSharp));
-        alchemyStones.add(new AlchemyStone("life", "Sharp Alchemy Stone of Life", "epic", R.drawable.alchemy_life_sharp, lifeEpicSharp));
-
-        //resplendent
-        alchemyStones.add(new AlchemyStone("destruction", "Resplendent Alchemy Stone of Destruction", "common", R.drawable.alchemy_destuction_resplendent, destructionCommonResplendent));
-        alchemyStones.add(new AlchemyStone("destruction", "Resplendent Alchemy Stone of Destruction", "uncommon", R.drawable.alchemy_destuction_resplendent, destructionUncommonResplendent));
-        alchemyStones.add(new AlchemyStone("destruction", "Resplendent Alchemy Stone of Destruction", "rare", R.drawable.alchemy_destuction_resplendent, destructionRareResplendent));
-        alchemyStones.add(new AlchemyStone("destruction", "Resplendent Alchemy Stone of Destruction", "epic", R.drawable.alchemy_destuction_resplendent, destructionEpicResplendent));
-
-        alchemyStones.add(new AlchemyStone("protection", "Resplendent Alchemy Stone of Protection", "common", R.drawable.alchemy_protection_resplendent, protectionCommonResplendent));
-        alchemyStones.add(new AlchemyStone("protection", "Resplendent Alchemy Stone of Protection", "uncommon", R.drawable.alchemy_protection_resplendent, protectionUncommonResplendent));
-        alchemyStones.add(new AlchemyStone("protection", "Resplendent Alchemy Stone of Protection", "rare", R.drawable.alchemy_protection_resplendent, protectionRareResplendent));
-        alchemyStones.add(new AlchemyStone("protection", "Resplendent Alchemy Stone of Protection", "epic", R.drawable.alchemy_protection_resplendent, protectionEpicResplendent));
-
-        alchemyStones.add(new AlchemyStone("life", "Resplendent Alchemy Stone of Life", "common", R.drawable.alchemy_life_resplendent, lifeCommonResplendent));
-        alchemyStones.add(new AlchemyStone("life", "Resplendent Alchemy Stone of Life", "uncommon", R.drawable.alchemy_life_resplendent, lifeUncommonResplendent));
-        alchemyStones.add(new AlchemyStone("life", "Resplendent Alchemy Stone of Life", "rare", R.drawable.alchemy_life_resplendent, lifeRareResplendent));
-        alchemyStones.add(new AlchemyStone("life", "Resplendent Alchemy Stone of Life", "epic", R.drawable.alchemy_life_resplendent, lifeEpicResplendent));
-
-        //splendid
-        alchemyStones.add(new AlchemyStone("destruction", "Splendid Alchemy Stone of Destruction", "common", R.drawable.alchemy_destuction_splendid, destructionCommonSplendid));
-        alchemyStones.add(new AlchemyStone("destruction", "Splendid Alchemy Stone of Destruction", "uncommon", R.drawable.alchemy_destuction_splendid, destructionUncommonSplendid));
-        alchemyStones.add(new AlchemyStone("destruction", "Splendid Alchemy Stone of Destruction", "rare", R.drawable.alchemy_destuction_splendid, destructionRareSplendid));
-        alchemyStones.add(new AlchemyStone("destruction", "Splendid Alchemy Stone of Destruction", "epic", R.drawable.alchemy_destuction_splendid, destructionEpicSplendid));
-
-        alchemyStones.add(new AlchemyStone("protection", "Splendid Alchemy Stone of Protection", "common", R.drawable.alchemy_protection_splendid, protectionCommonSplendid));
-        alchemyStones.add(new AlchemyStone("protection", "Splendid Alchemy Stone of Protection", "uncommon", R.drawable.alchemy_protection_splendid, protectionUncommonSplendid));
-        alchemyStones.add(new AlchemyStone("protection", "Splendid Alchemy Stone of Protection", "rare", R.drawable.alchemy_protection_splendid, protectionRareSplendid));
-        alchemyStones.add(new AlchemyStone("protection", "Splendid Alchemy Stone of Protection", "epic", R.drawable.alchemy_protection_splendid, protectionEpicSplendid));
-
-        alchemyStones.add(new AlchemyStone("life", "Splendid Alchemy Stone of Life", "common", R.drawable.alchemy_life_splendid, lifeCommonSplendid));
-        alchemyStones.add(new AlchemyStone("life", "Splendid Alchemy Stone of Life", "uncommon", R.drawable.alchemy_life_splendid, lifeUncommonSplendid));
-        alchemyStones.add(new AlchemyStone("life", "Splendid Alchemy Stone of Life", "rare", R.drawable.alchemy_life_splendid, lifeRareSplendid));
-        alchemyStones.add(new AlchemyStone("life", "Splendid Alchemy Stone of Life", "epic", R.drawable.alchemy_life_splendid, lifeEpicSplendid));
-
+//        alchemyStones.add(new ItemAlchemyStone("destruction", "Imperfect Alchemy Stone of Destruction", "common", R.drawable.alchemy_destuction_imperfect, destructionCommonImperfect));
+//        alchemyStones.add(new ItemAlchemyStone("destruction", "Imperfect Alchemy Stone of Destruction", "uncommon", R.drawable.alchemy_destuction_imperfect, destructionUncommonImperfect));
+//        alchemyStones.add(new ItemAlchemyStone("destruction", "Imperfect Alchemy Stone of Destruction", "rare", R.drawable.alchemy_destuction_imperfect, destructionRareImperfect));
+//        alchemyStones.add(new ItemAlchemyStone("destruction", "Imperfect Alchemy Stone of Destruction", "epic", R.drawable.alchemy_destuction_imperfect, destructionEpicImperfect));
+//
+//        alchemyStones.add(new ItemAlchemyStone("protection", "Imperfect Alchemy Stone of Protection", "common", R.drawable.alchemy_protection_imperfect, protectionCommonImperfect));
+//        alchemyStones.add(new ItemAlchemyStone("protection", "Imperfect Alchemy Stone of Protection", "uncommon", R.drawable.alchemy_protection_imperfect, protectionUncommonImperfect));
+//        alchemyStones.add(new ItemAlchemyStone("protection", "Imperfect Alchemy Stone of Protection", "rare", R.drawable.alchemy_protection_imperfect, protectionRareImperfect));
+//        alchemyStones.add(new ItemAlchemyStone("protection", "Imperfect Alchemy Stone of Protection", "epic", R.drawable.alchemy_protection_imperfect, protectionEpicImperfect));
+//
+//        alchemyStones.add(new ItemAlchemyStone("life", "Imperfect Alchemy Stone of Life", "common", R.drawable.alchemy_life_imperfect, lifeCommonImperfect));
+//        alchemyStones.add(new ItemAlchemyStone("life", "Imperfect Alchemy Stone of Life", "uncommon", R.drawable.alchemy_life_imperfect, lifeUncommonImperfect));
+//        alchemyStones.add(new ItemAlchemyStone("life", "Imperfect Alchemy Stone of Life", "rare", R.drawable.alchemy_life_imperfect, lifeRareImperfect));
+//        alchemyStones.add(new ItemAlchemyStone("life", "Imperfect Alchemy Stone of Life", "epic", R.drawable.alchemy_life_imperfect, lifeEpicImperfect));
+//
+//        rough
+//        alchemyStones.add(new ItemAlchemyStone("destruction", "Rough Alchemy Stone of Destruction", "common", R.drawable.alchemy_destuction_rough, destructionCommonRough));
+//        alchemyStones.add(new ItemAlchemyStone("destruction", "Rough Alchemy Stone of Destruction", "uncommon", R.drawable.alchemy_destuction_rough, destructionUncommonRough));
+//        alchemyStones.add(new ItemAlchemyStone("destruction", "Rough Alchemy Stone of Destruction", "rare", R.drawable.alchemy_destuction_rough, destructionRareRough));
+//        alchemyStones.add(new ItemAlchemyStone("destruction", "Rough Alchemy Stone of Destruction", "epic", R.drawable.alchemy_destuction_rough, destructionEpicRough));
+//
+//        alchemyStones.add(new ItemAlchemyStone("protection", "Rough Alchemy Stone of Protection", "common", R.drawable.alchemy_protection_rough, protectionCommonRough));
+//        alchemyStones.add(new ItemAlchemyStone("protection", "Rough Alchemy Stone of Protection", "uncommon", R.drawable.alchemy_protection_rough, protectionUncommonRough));
+//        alchemyStones.add(new ItemAlchemyStone("protection", "Rough Alchemy Stone of Protection", "rare", R.drawable.alchemy_protection_rough, protectionRareRough));
+//        alchemyStones.add(new ItemAlchemyStone("protection", "Rough Alchemy Stone of Protection", "epic", R.drawable.alchemy_protection_rough, protectionEpicRough));
+//
+//        alchemyStones.add(new ItemAlchemyStone("life", "Rough Alchemy Stone of Life", "common", R.drawable.alchemy_life_rough, lifeCommonRough));
+//        alchemyStones.add(new ItemAlchemyStone("life", "Rough Alchemy Stone of Life", "uncommon", R.drawable.alchemy_life_rough, lifeUncommonRough));
+//        alchemyStones.add(new ItemAlchemyStone("life", "Rough Alchemy Stone of Life", "rare", R.drawable.alchemy_life_rough, lifeRareRough));
+//        alchemyStones.add(new ItemAlchemyStone("life", "Rough Alchemy Stone of Life", "epic", R.drawable.alchemy_life_rough, lifeEpicRough));
+//
+//        polished
+//        alchemyStones.add(new ItemAlchemyStone("destruction", "Polished Alchemy Stone of Destruction", "common", R.drawable.alchemy_destuction_polished, destructionCommonPolished));
+//        alchemyStones.add(new ItemAlchemyStone("destruction", "Polished Alchemy Stone of Destruction", "uncommon", R.drawable.alchemy_destuction_polished, destructionUncommonPolished));
+//        alchemyStones.add(new ItemAlchemyStone("destruction", "Polished Alchemy Stone of Destruction", "rare", R.drawable.alchemy_destuction_polished, destructionRarePolished));
+//        alchemyStones.add(new ItemAlchemyStone("destruction", "Polished Alchemy Stone of Destruction", "epic", R.drawable.alchemy_destuction_polished, destructionEpicPolished));
+//
+//        alchemyStones.add(new ItemAlchemyStone("protection", "Polished Alchemy Stone of Protection", "common", R.drawable.alchemy_protection_polished, protectionCommonPolished));
+//        alchemyStones.add(new ItemAlchemyStone("protection", "Polished Alchemy Stone of Protection", "uncommon", R.drawable.alchemy_protection_polished, protectionUncommonPolished));
+//        alchemyStones.add(new ItemAlchemyStone("protection", "Polished Alchemy Stone of Protection", "rare", R.drawable.alchemy_protection_polished, protectionRarePolished));
+//        alchemyStones.add(new ItemAlchemyStone("protection", "Polished Alchemy Stone of Protection", "epic", R.drawable.alchemy_protection_polished, protectionEpicPolished));
+//
+//        alchemyStones.add(new ItemAlchemyStone("life", "Polished Alchemy Stone of Life", "common", R.drawable.alchemy_life_polished, lifeCommonPolished));
+//        alchemyStones.add(new ItemAlchemyStone("life", "Polished Alchemy Stone of Life", "uncommon", R.drawable.alchemy_life_polished, lifeUncommonPolished));
+//        alchemyStones.add(new ItemAlchemyStone("life", "Polished Alchemy Stone of Life", "rare", R.drawable.alchemy_life_polished, lifeRarePolished));
+//        alchemyStones.add(new ItemAlchemyStone("life", "Polished Alchemy Stone of Life", "epic", R.drawable.alchemy_life_polished, lifeEpicPolished));
+//
+//        sturdy
+//        alchemyStones.add(new ItemAlchemyStone("destruction", "Sturdy Alchemy Stone of Destruction", "common", R.drawable.alchemy_destuction_sturdy, destructionCommonSturdy));
+//        alchemyStones.add(new ItemAlchemyStone("destruction", "Sturdy Alchemy Stone of Destruction", "uncommon", R.drawable.alchemy_destuction_sturdy, destructionUncommonSturdy));
+//        alchemyStones.add(new ItemAlchemyStone("destruction", "Sturdy Alchemy Stone of Destruction", "rare", R.drawable.alchemy_destuction_sturdy, destructionRareSturdy));
+//        alchemyStones.add(new ItemAlchemyStone("destruction", "Sturdy Alchemy Stone of Destruction", "epic", R.drawable.alchemy_destuction_sturdy, destructionEpicSturdy));
+//
+//        alchemyStones.add(new ItemAlchemyStone("protection", "Sturdy Alchemy Stone of Protection", "common", R.drawable.alchemy_protection_sturdy, protectionCommonSturdy));
+//        alchemyStones.add(new ItemAlchemyStone("protection", "Sturdy Alchemy Stone of Protection", "uncommon", R.drawable.alchemy_protection_sturdy, protectionUncommonSturdy));
+//        alchemyStones.add(new ItemAlchemyStone("protection", "Sturdy Alchemy Stone of Protection", "rare", R.drawable.alchemy_protection_sturdy, protectionRareSturdy));
+//        alchemyStones.add(new ItemAlchemyStone("protection", "Sturdy Alchemy Stone of Protection", "epic", R.drawable.alchemy_protection_sturdy, protectionEpicSturdy));
+//
+//        alchemyStones.add(new ItemAlchemyStone("life", "Sturdy Alchemy Stone of Life", "common", R.drawable.alchemy_life_sturdy, lifeCommonSturdy));
+//        alchemyStones.add(new ItemAlchemyStone("life", "Sturdy Alchemy Stone of Life", "uncommon", R.drawable.alchemy_life_sturdy, lifeUncommonSturdy));
+//        alchemyStones.add(new ItemAlchemyStone("life", "Sturdy Alchemy Stone of Life", "rare", R.drawable.alchemy_life_sturdy, lifeRareSturdy));
+//        alchemyStones.add(new ItemAlchemyStone("life", "Sturdy Alchemy Stone of Life", "epic", R.drawable.alchemy_life_sturdy, lifeEpicSturdy));
+//
+//        sharp
+//        alchemyStones.add(new ItemAlchemyStone("destruction", "Sharp Alchemy Stone of Destruction", "common", R.drawable.alchemy_destuction_sharp, destructionCommonSharp));
+//        alchemyStones.add(new ItemAlchemyStone("destruction", "Sharp Alchemy Stone of Destruction", "uncommon", R.drawable.alchemy_destuction_sharp, destructionUncommonSharp));
+//        alchemyStones.add(new ItemAlchemyStone("destruction", "Sharp Alchemy Stone of Destruction", "rare", R.drawable.alchemy_destuction_sharp, destructionRareSharp));
+//        alchemyStones.add(new ItemAlchemyStone("destruction", "Sharp Alchemy Stone of Destruction", "epic", R.drawable.alchemy_destuction_sharp, destructionEpicSharp));
+//
+//        alchemyStones.add(new ItemAlchemyStone("protection", "Sharp Alchemy Stone of Protection", "common", R.drawable.alchemy_protection_sharp, protectionCommonSharp));
+//        alchemyStones.add(new ItemAlchemyStone("protection", "Sharp Alchemy Stone of Protection", "uncommon", R.drawable.alchemy_protection_sharp, protectionUncommonSharp));
+//        alchemyStones.add(new ItemAlchemyStone("protection", "Sharp Alchemy Stone of Protection", "rare", R.drawable.alchemy_protection_sharp, protectionRareSharp));
+//        alchemyStones.add(new ItemAlchemyStone("protection", "Sharp Alchemy Stone of Protection", "epic", R.drawable.alchemy_protection_sharp, protectionEpicSharp));
+//
+//        alchemyStones.add(new ItemAlchemyStone("life", "Sharp Alchemy Stone of Life", "common", R.drawable.alchemy_life_sharp, lifeCommonSharp));
+//        alchemyStones.add(new ItemAlchemyStone("life", "Sharp Alchemy Stone of Life", "uncommon", R.drawable.alchemy_life_sharp, lifeUncommonSharp));
+//        alchemyStones.add(new ItemAlchemyStone("life", "Sharp Alchemy Stone of Life", "rare", R.drawable.alchemy_life_sharp, lifeRareSharp));
+//        alchemyStones.add(new ItemAlchemyStone("life", "Sharp Alchemy Stone of Life", "epic", R.drawable.alchemy_life_sharp, lifeEpicSharp));
+//
+//        resplendent
+//        alchemyStones.add(new ItemAlchemyStone("destruction", "Resplendent Alchemy Stone of Destruction", "common", R.drawable.alchemy_destuction_resplendent, destructionCommonResplendent));
+//        alchemyStones.add(new ItemAlchemyStone("destruction", "Resplendent Alchemy Stone of Destruction", "uncommon", R.drawable.alchemy_destuction_resplendent, destructionUncommonResplendent));
+//        alchemyStones.add(new ItemAlchemyStone("destruction", "Resplendent Alchemy Stone of Destruction", "rare", R.drawable.alchemy_destuction_resplendent, destructionRareResplendent));
+//        alchemyStones.add(new ItemAlchemyStone("destruction", "Resplendent Alchemy Stone of Destruction", "epic", R.drawable.alchemy_destuction_resplendent, destructionEpicResplendent));
+//
+//        alchemyStones.add(new ItemAlchemyStone("protection", "Resplendent Alchemy Stone of Protection", "common", R.drawable.alchemy_protection_resplendent, protectionCommonResplendent));
+//        alchemyStones.add(new ItemAlchemyStone("protection", "Resplendent Alchemy Stone of Protection", "uncommon", R.drawable.alchemy_protection_resplendent, protectionUncommonResplendent));
+//        alchemyStones.add(new ItemAlchemyStone("protection", "Resplendent Alchemy Stone of Protection", "rare", R.drawable.alchemy_protection_resplendent, protectionRareResplendent));
+//        alchemyStones.add(new ItemAlchemyStone("protection", "Resplendent Alchemy Stone of Protection", "epic", R.drawable.alchemy_protection_resplendent, protectionEpicResplendent));
+//
+//        alchemyStones.add(new ItemAlchemyStone("life", "Resplendent Alchemy Stone of Life", "common", R.drawable.alchemy_life_resplendent, lifeCommonResplendent));
+//        alchemyStones.add(new ItemAlchemyStone("life", "Resplendent Alchemy Stone of Life", "uncommon", R.drawable.alchemy_life_resplendent, lifeUncommonResplendent));
+//        alchemyStones.add(new ItemAlchemyStone("life", "Resplendent Alchemy Stone of Life", "rare", R.drawable.alchemy_life_resplendent, lifeRareResplendent));
+//        alchemyStones.add(new ItemAlchemyStone("life", "Resplendent Alchemy Stone of Life", "epic", R.drawable.alchemy_life_resplendent, lifeEpicResplendent));
+//
+//        splendid
+//        alchemyStones.add(new ItemAlchemyStone("destruction", "Splendid Alchemy Stone of Destruction", "common", R.drawable.alchemy_destuction_splendid, destructionCommonSplendid));
+//        alchemyStones.add(new ItemAlchemyStone("destruction", "Splendid Alchemy Stone of Destruction", "uncommon", R.drawable.alchemy_destuction_splendid, destructionUncommonSplendid));
+//        alchemyStones.add(new ItemAlchemyStone("destruction", "Splendid Alchemy Stone of Destruction", "rare", R.drawable.alchemy_destuction_splendid, destructionRareSplendid));
+//        alchemyStones.add(new ItemAlchemyStone("destruction", "Splendid Alchemy Stone of Destruction", "epic", R.drawable.alchemy_destuction_splendid, destructionEpicSplendid));
+//
+//        alchemyStones.add(new ItemAlchemyStone("protection", "Splendid Alchemy Stone of Protection", "common", R.drawable.alchemy_protection_splendid, protectionCommonSplendid));
+//        alchemyStones.add(new ItemAlchemyStone("protection", "Splendid Alchemy Stone of Protection", "uncommon", R.drawable.alchemy_protection_splendid, protectionUncommonSplendid));
+//        alchemyStones.add(new ItemAlchemyStone("protection", "Splendid Alchemy Stone of Protection", "rare", R.drawable.alchemy_protection_splendid, protectionRareSplendid));
+//        alchemyStones.add(new ItemAlchemyStone("protection", "Splendid Alchemy Stone of Protection", "epic", R.drawable.alchemy_protection_splendid, protectionEpicSplendid));
+//
+//        alchemyStones.add(new ItemAlchemyStone("life", "Splendid Alchemy Stone of Life", "common", R.drawable.alchemy_life_splendid, lifeCommonSplendid));
+//        alchemyStones.add(new ItemAlchemyStone("life", "Splendid Alchemy Stone of Life", "uncommon", R.drawable.alchemy_life_splendid, lifeUncommonSplendid));
+//        alchemyStones.add(new ItemAlchemyStone("life", "Splendid Alchemy Stone of Life", "rare", R.drawable.alchemy_life_splendid, lifeRareSplendid));
+//        alchemyStones.add(new ItemAlchemyStone("life", "Splendid Alchemy Stone of Life", "epic", R.drawable.alchemy_life_splendid, lifeEpicSplendid));
+//
         return alchemyStones;
     }
 
     private void initStats() {
 
-        statsAlchemyDestruction = new ArrayList<>();
-        statsAlchemyDestruction.add(new StatsAlchemyDestruction("common", "imperfect", 2, 0, 0, 0, 0));
-        statsAlchemyDestruction.add(new StatsAlchemyDestruction("uncommon", "imperfect", 2, 2, 0, 0, 0));
-        statsAlchemyDestruction.add(new StatsAlchemyDestruction("rare", "imperfect", 2, 2, 1, 0, 0));
-        statsAlchemyDestruction.add(new StatsAlchemyDestruction("epic", "imperfect", 2, 2, 1, 1, 1));
-
-        statsAlchemyDestruction.add(new StatsAlchemyDestruction("common", "rough", 3, 0, 0, 0, 0));
-        statsAlchemyDestruction.add(new StatsAlchemyDestruction("uncommon", "rough", 3, 4, 0, 0, 0));
-        statsAlchemyDestruction.add(new StatsAlchemyDestruction("rare", "rough", 3, 4, 2, 0, 0));
-        statsAlchemyDestruction.add(new StatsAlchemyDestruction("epic", "rough", 3, 4, 2, 2, 2));
-
-        statsAlchemyDestruction.add(new StatsAlchemyDestruction("common", "polished", 4, 0, 0, 0, 0));
-        statsAlchemyDestruction.add(new StatsAlchemyDestruction("uncommon", "polished", 4, 8, 0, 0, 0));
-        statsAlchemyDestruction.add(new StatsAlchemyDestruction("rare", "polished", 4, 6, 3, 0, 0));
-        statsAlchemyDestruction.add(new StatsAlchemyDestruction("epic", "polished", 4, 6, 3, 3, 3));
-
-        statsAlchemyDestruction.add(new StatsAlchemyDestruction("common", "sturdy", 6, 0, 0, 0, 0));
-        statsAlchemyDestruction.add(new StatsAlchemyDestruction("uncommon", "sturdy", 6, 8, 0, 0, 0));
-        statsAlchemyDestruction.add(new StatsAlchemyDestruction("rare", "sturdy", 6, 8, 4, 0, 0));
-        statsAlchemyDestruction.add(new StatsAlchemyDestruction("epic", "sturdy", 6, 8, 4, 4, 4));
-
-        statsAlchemyDestruction.add(new StatsAlchemyDestruction("common", "sharp", 8, 0, 0, 0, 0));
-        statsAlchemyDestruction.add(new StatsAlchemyDestruction("uncommon", "sharp", 8, 10, 0, 0, 0));
-        statsAlchemyDestruction.add(new StatsAlchemyDestruction("rare", "sharp", 8, 10, 5, 0, 0));
-        statsAlchemyDestruction.add(new StatsAlchemyDestruction("epic", "sharp", 8, 10, 5, 5, 5));
-
-        statsAlchemyDestruction.add(new StatsAlchemyDestruction("common", "resplendent", 10, 0, 0, 0, 0));
-        statsAlchemyDestruction.add(new StatsAlchemyDestruction("uncommon", "resplendent", 10, 12, 0, 0, 0));
-        statsAlchemyDestruction.add(new StatsAlchemyDestruction("rare", "resplendent", 10, 12, 6, 0, 0));
-        statsAlchemyDestruction.add(new StatsAlchemyDestruction("epic", "resplendent", 10, 0, 6, 6, 6));
-
-        statsAlchemyDestruction.add(new StatsAlchemyDestruction("common", "splendid", 13, 0, 0, 0, 0));
-        statsAlchemyDestruction.add(new StatsAlchemyDestruction("uncommon", "splendid", 13, 14, 0, 0, 0));
-        statsAlchemyDestruction.add(new StatsAlchemyDestruction("rare", "splendid", 13, 14, 8, 0, 0));
-        statsAlchemyDestruction.add(new StatsAlchemyDestruction("epic", "splendid", 13, 14, 8, 8, 8));
-
-        //stats protection
-        statsAlchemyProtection = new ArrayList<>();
-        statsAlchemyProtection.add(new StatsAlchemyProtection("common", "imperfect", 2, 0, 0, 0));
-        statsAlchemyProtection.add(new StatsAlchemyProtection("uncommon", "imperfect", 2, 2, 0, 0));
-        statsAlchemyProtection.add(new StatsAlchemyProtection("rare", "imperfect", 2, 2, 50, 0));
-        statsAlchemyProtection.add(new StatsAlchemyProtection("epic", "imperfect", 2, 2, 50, 1));
-
-        statsAlchemyProtection.add(new StatsAlchemyProtection("common", "rough", 3, 0, 0, 0));
-        statsAlchemyProtection.add(new StatsAlchemyProtection("uncommon", "rough", 3, 4, 0, 0));
-        statsAlchemyProtection.add(new StatsAlchemyProtection("rare", "rough", 3, 4, 70, 0));
-        statsAlchemyProtection.add(new StatsAlchemyProtection("epic", "rough", 3, 4, 70, 2));
-
-        statsAlchemyProtection.add(new StatsAlchemyProtection("common", "polished", 4, 0, 0, 0));
-        statsAlchemyProtection.add(new StatsAlchemyProtection("uncommon", "polished", 4, 6, 0, 0));
-        statsAlchemyProtection.add(new StatsAlchemyProtection("rare", "polished", 4, 6, 90, 0));
-        statsAlchemyProtection.add(new StatsAlchemyProtection("epic", "polished", 4, 6, 90, 3));
-
-        statsAlchemyProtection.add(new StatsAlchemyProtection("common", "sturdy", 6, 0, 0, 0));
-        statsAlchemyProtection.add(new StatsAlchemyProtection("uncommon", "sturdy", 6, 8, 0, 0));
-        statsAlchemyProtection.add(new StatsAlchemyProtection("rare", "sturdy", 6, 8, 110, 0));
-        statsAlchemyProtection.add(new StatsAlchemyProtection("epic", "sturdy", 6, 8, 110, 4));
-
-        statsAlchemyProtection.add(new StatsAlchemyProtection("common", "sharp", 8, 0, 0, 0));
-        statsAlchemyProtection.add(new StatsAlchemyProtection("uncommon", "sharp", 8, 10, 0, 0));
-        statsAlchemyProtection.add(new StatsAlchemyProtection("rare", "sharp", 8, 10, 140, 0));
-        statsAlchemyProtection.add(new StatsAlchemyProtection("epic", "sharp", 8, 10, 140, 5));
-
-        statsAlchemyProtection.add(new StatsAlchemyProtection("common", "resplendent", 10, 0, 0, 0));
-        statsAlchemyProtection.add(new StatsAlchemyProtection("uncommon", "resplendent", 10, 12, 0, 0));
-        statsAlchemyProtection.add(new StatsAlchemyProtection("rare", "resplendent", 10, 12, 170, 0));
-        statsAlchemyProtection.add(new StatsAlchemyProtection("epic", "resplendent", 10, 12, 170, 6));
-
-        statsAlchemyProtection.add(new StatsAlchemyProtection("common", "splendid", 13, 0, 0, 0));
-        statsAlchemyProtection.add(new StatsAlchemyProtection("uncommon", "splendid", 13, 14, 0, 0));
-        statsAlchemyProtection.add(new StatsAlchemyProtection("rare", "splendid", 13, 14, 210, 0));
-        statsAlchemyProtection.add(new StatsAlchemyProtection("epic", "splendid", 13, 14, 210, 7));
-
-        //stats life
-        statsAlchemyLife = new ArrayList<>();
-        statsAlchemyLife.add(new StatsAlchemyLife("common", "imperfect", 0.5f, 5, 0, 0, 0));
-        statsAlchemyLife.add(new StatsAlchemyLife("uncommon", "imperfect", 0.5f, 5, 15, 0, 0));
-        statsAlchemyLife.add(new StatsAlchemyLife("rare", "imperfect", 0.5f, 5, 15, 1, 0));
-        statsAlchemyLife.add(new StatsAlchemyLife("epic", "imperfect", 0.5f, 5, 15, 1, 3));
-
-        statsAlchemyLife.add(new StatsAlchemyLife("common", "rough", 0.7f, 7, 0, 0, 0));
-        statsAlchemyLife.add(new StatsAlchemyLife("uncommon", "rough", 0.7f, 7, 30, 0, 0));
-        statsAlchemyLife.add(new StatsAlchemyLife("rare", "rough", 0.7f, 7, 30, 1, 0));
-        statsAlchemyLife.add(new StatsAlchemyLife("epic", "rough", 0.7f, 7, 30, 1, 5));
-
-        statsAlchemyLife.add(new StatsAlchemyLife("common", "polished", 0.9f, 9, 0, 0, 0));
-        statsAlchemyLife.add(new StatsAlchemyLife("uncommon", "polished", 0.9f, 9, 45, 0, 0));
-        statsAlchemyLife.add(new StatsAlchemyLife("rare", "polished", 0.9f, 9, 45, 1, 0));
-        statsAlchemyLife.add(new StatsAlchemyLife("epic", "polished", 0.9f, 9, 45, 1, 7));
-
-        statsAlchemyLife.add(new StatsAlchemyLife("common", "sturdy", 1.1f, 11, 0, 0, 0));
-        statsAlchemyLife.add(new StatsAlchemyLife("uncommon", "sturdy", 1.1f, 11, 60, 0, 0));
-        statsAlchemyLife.add(new StatsAlchemyLife("rare", "sturdy", 1.1f, 11, 60, 2, 0));
-        statsAlchemyLife.add(new StatsAlchemyLife("epic", "sturdy", 1.1f, 11, 60, 2, 10));
-
-        statsAlchemyLife.add(new StatsAlchemyLife("common", "sharp", 1.4f, 14, 0, 0, 0));
-        statsAlchemyLife.add(new StatsAlchemyLife("uncommon", "sharp", 1.4f, 14, 75, 0, 0));
-        statsAlchemyLife.add(new StatsAlchemyLife("rare", "sharp", 1.4f, 14, 75, 2, 0));
-        statsAlchemyLife.add(new StatsAlchemyLife("epic", "sharp", 1.4f, 14, 75, 2, 13));
-
-        statsAlchemyLife.add(new StatsAlchemyLife("common", "resplendent", 1.7f, 17, 0, 0, 0));
-        statsAlchemyLife.add(new StatsAlchemyLife("uncommon", "resplendent", 1.7f, 17, 90, 0, 0));
-        statsAlchemyLife.add(new StatsAlchemyLife("rare", "resplendent", 1.7f, 17, 90, 2, 0));
-        statsAlchemyLife.add(new StatsAlchemyLife("epic", "resplendent", 1.7f, 17, 90, 2, 16));
-
-        statsAlchemyLife.add(new StatsAlchemyLife("common", "splendid", 2f, 20, 0, 0, 0));
-        statsAlchemyLife.add(new StatsAlchemyLife("uncommon", "splendid", 2f, 20, 105, 0, 0));
-        statsAlchemyLife.add(new StatsAlchemyLife("rare", "splendid", 2f, 20, 105, 3, 0));
-        statsAlchemyLife.add(new StatsAlchemyLife("epic", "splendid", 2f, 20, 105, 3, 20));
-
+//        statsAlchemyDestruction = new ArrayList<>();
+//        statsAlchemyDestruction.add(new StatsAlchemyDestruction("common", "imperfect", 2, 0, 0, 0, 0));
+//        statsAlchemyDestruction.add(new StatsAlchemyDestruction("uncommon", "imperfect", 2, 2, 0, 0, 0));
+//        statsAlchemyDestruction.add(new StatsAlchemyDestruction("rare", "imperfect", 2, 2, 1, 0, 0));
+//        statsAlchemyDestruction.add(new StatsAlchemyDestruction("epic", "imperfect", 2, 2, 1, 1, 1));
+//
+//        statsAlchemyDestruction.add(new StatsAlchemyDestruction("common", "rough", 3, 0, 0, 0, 0));
+//        statsAlchemyDestruction.add(new StatsAlchemyDestruction("uncommon", "rough", 3, 4, 0, 0, 0));
+//        statsAlchemyDestruction.add(new StatsAlchemyDestruction("rare", "rough", 3, 4, 2, 0, 0));
+//        statsAlchemyDestruction.add(new StatsAlchemyDestruction("epic", "rough", 3, 4, 2, 2, 2));
+//
+//        statsAlchemyDestruction.add(new StatsAlchemyDestruction("common", "polished", 4, 0, 0, 0, 0));
+//        statsAlchemyDestruction.add(new StatsAlchemyDestruction("uncommon", "polished", 4, 8, 0, 0, 0));
+//        statsAlchemyDestruction.add(new StatsAlchemyDestruction("rare", "polished", 4, 6, 3, 0, 0));
+//        statsAlchemyDestruction.add(new StatsAlchemyDestruction("epic", "polished", 4, 6, 3, 3, 3));
+//
+//        statsAlchemyDestruction.add(new StatsAlchemyDestruction("common", "sturdy", 6, 0, 0, 0, 0));
+//        statsAlchemyDestruction.add(new StatsAlchemyDestruction("uncommon", "sturdy", 6, 8, 0, 0, 0));
+//        statsAlchemyDestruction.add(new StatsAlchemyDestruction("rare", "sturdy", 6, 8, 4, 0, 0));
+//        statsAlchemyDestruction.add(new StatsAlchemyDestruction("epic", "sturdy", 6, 8, 4, 4, 4));
+//
+//        statsAlchemyDestruction.add(new StatsAlchemyDestruction("common", "sharp", 8, 0, 0, 0, 0));
+//        statsAlchemyDestruction.add(new StatsAlchemyDestruction("uncommon", "sharp", 8, 10, 0, 0, 0));
+//        statsAlchemyDestruction.add(new StatsAlchemyDestruction("rare", "sharp", 8, 10, 5, 0, 0));
+//        statsAlchemyDestruction.add(new StatsAlchemyDestruction("epic", "sharp", 8, 10, 5, 5, 5));
+//
+//        statsAlchemyDestruction.add(new StatsAlchemyDestruction("common", "resplendent", 10, 0, 0, 0, 0));
+//        statsAlchemyDestruction.add(new StatsAlchemyDestruction("uncommon", "resplendent", 10, 12, 0, 0, 0));
+//        statsAlchemyDestruction.add(new StatsAlchemyDestruction("rare", "resplendent", 10, 12, 6, 0, 0));
+//        statsAlchemyDestruction.add(new StatsAlchemyDestruction("epic", "resplendent", 10, 0, 6, 6, 6));
+//
+//        statsAlchemyDestruction.add(new StatsAlchemyDestruction("common", "splendid", 13, 0, 0, 0, 0));
+//        statsAlchemyDestruction.add(new StatsAlchemyDestruction("uncommon", "splendid", 13, 14, 0, 0, 0));
+//        statsAlchemyDestruction.add(new StatsAlchemyDestruction("rare", "splendid", 13, 14, 8, 0, 0));
+//        statsAlchemyDestruction.add(new StatsAlchemyDestruction("epic", "splendid", 13, 14, 8, 8, 8));
+//
+//        item_effects protection
+//        statsAlchemyProtection = new ArrayList<>();
+//        statsAlchemyProtection.add(new StatsAlchemyProtection("common", "imperfect", 2, 0, 0, 0));
+//        statsAlchemyProtection.add(new StatsAlchemyProtection("uncommon", "imperfect", 2, 2, 0, 0));
+//        statsAlchemyProtection.add(new StatsAlchemyProtection("rare", "imperfect", 2, 2, 50, 0));
+//        statsAlchemyProtection.add(new StatsAlchemyProtection("epic", "imperfect", 2, 2, 50, 1));
+//
+//        statsAlchemyProtection.add(new StatsAlchemyProtection("common", "rough", 3, 0, 0, 0));
+//        statsAlchemyProtection.add(new StatsAlchemyProtection("uncommon", "rough", 3, 4, 0, 0));
+//        statsAlchemyProtection.add(new StatsAlchemyProtection("rare", "rough", 3, 4, 70, 0));
+//        statsAlchemyProtection.add(new StatsAlchemyProtection("epic", "rough", 3, 4, 70, 2));
+//
+//        statsAlchemyProtection.add(new StatsAlchemyProtection("common", "polished", 4, 0, 0, 0));
+//        statsAlchemyProtection.add(new StatsAlchemyProtection("uncommon", "polished", 4, 6, 0, 0));
+//        statsAlchemyProtection.add(new StatsAlchemyProtection("rare", "polished", 4, 6, 90, 0));
+//        statsAlchemyProtection.add(new StatsAlchemyProtection("epic", "polished", 4, 6, 90, 3));
+//
+//        statsAlchemyProtection.add(new StatsAlchemyProtection("common", "sturdy", 6, 0, 0, 0));
+//        statsAlchemyProtection.add(new StatsAlchemyProtection("uncommon", "sturdy", 6, 8, 0, 0));
+//        statsAlchemyProtection.add(new StatsAlchemyProtection("rare", "sturdy", 6, 8, 110, 0));
+//        statsAlchemyProtection.add(new StatsAlchemyProtection("epic", "sturdy", 6, 8, 110, 4));
+//
+//        statsAlchemyProtection.add(new StatsAlchemyProtection("common", "sharp", 8, 0, 0, 0));
+//        statsAlchemyProtection.add(new StatsAlchemyProtection("uncommon", "sharp", 8, 10, 0, 0));
+//        statsAlchemyProtection.add(new StatsAlchemyProtection("rare", "sharp", 8, 10, 140, 0));
+//        statsAlchemyProtection.add(new StatsAlchemyProtection("epic", "sharp", 8, 10, 140, 5));
+//
+//        statsAlchemyProtection.add(new StatsAlchemyProtection("common", "resplendent", 10, 0, 0, 0));
+//        statsAlchemyProtection.add(new StatsAlchemyProtection("uncommon", "resplendent", 10, 12, 0, 0));
+//        statsAlchemyProtection.add(new StatsAlchemyProtection("rare", "resplendent", 10, 12, 170, 0));
+//        statsAlchemyProtection.add(new StatsAlchemyProtection("epic", "resplendent", 10, 12, 170, 6));
+//
+//        statsAlchemyProtection.add(new StatsAlchemyProtection("common", "splendid", 13, 0, 0, 0));
+//        statsAlchemyProtection.add(new StatsAlchemyProtection("uncommon", "splendid", 13, 14, 0, 0));
+//        statsAlchemyProtection.add(new StatsAlchemyProtection("rare", "splendid", 13, 14, 210, 0));
+//        statsAlchemyProtection.add(new StatsAlchemyProtection("epic", "splendid", 13, 14, 210, 7));
+//
+//        item_effects life
+//        statsAlchemyLife = new ArrayList<>();
+//        statsAlchemyLife.add(new StatsAlchemyLife("common", "imperfect", 0.5f, 5, 0, 0, 0));
+//        statsAlchemyLife.add(new StatsAlchemyLife("uncommon", "imperfect", 0.5f, 5, 15, 0, 0));
+//        statsAlchemyLife.add(new StatsAlchemyLife("rare", "imperfect", 0.5f, 5, 15, 1, 0));
+//        statsAlchemyLife.add(new StatsAlchemyLife("epic", "imperfect", 0.5f, 5, 15, 1, 3));
+//
+//        statsAlchemyLife.add(new StatsAlchemyLife("common", "rough", 0.7f, 7, 0, 0, 0));
+//        statsAlchemyLife.add(new StatsAlchemyLife("uncommon", "rough", 0.7f, 7, 30, 0, 0));
+//        statsAlchemyLife.add(new StatsAlchemyLife("rare", "rough", 0.7f, 7, 30, 1, 0));
+//        statsAlchemyLife.add(new StatsAlchemyLife("epic", "rough", 0.7f, 7, 30, 1, 5));
+//
+//        statsAlchemyLife.add(new StatsAlchemyLife("common", "polished", 0.9f, 9, 0, 0, 0));
+//        statsAlchemyLife.add(new StatsAlchemyLife("uncommon", "polished", 0.9f, 9, 45, 0, 0));
+//        statsAlchemyLife.add(new StatsAlchemyLife("rare", "polished", 0.9f, 9, 45, 1, 0));
+//        statsAlchemyLife.add(new StatsAlchemyLife("epic", "polished", 0.9f, 9, 45, 1, 7));
+//
+//        statsAlchemyLife.add(new StatsAlchemyLife("common", "sturdy", 1.1f, 11, 0, 0, 0));
+//        statsAlchemyLife.add(new StatsAlchemyLife("uncommon", "sturdy", 1.1f, 11, 60, 0, 0));
+//        statsAlchemyLife.add(new StatsAlchemyLife("rare", "sturdy", 1.1f, 11, 60, 2, 0));
+//        statsAlchemyLife.add(new StatsAlchemyLife("epic", "sturdy", 1.1f, 11, 60, 2, 10));
+//
+//        statsAlchemyLife.add(new StatsAlchemyLife("common", "sharp", 1.4f, 14, 0, 0, 0));
+//        statsAlchemyLife.add(new StatsAlchemyLife("uncommon", "sharp", 1.4f, 14, 75, 0, 0));
+//        statsAlchemyLife.add(new StatsAlchemyLife("rare", "sharp", 1.4f, 14, 75, 2, 0));
+//        statsAlchemyLife.add(new StatsAlchemyLife("epic", "sharp", 1.4f, 14, 75, 2, 13));
+//
+//        statsAlchemyLife.add(new StatsAlchemyLife("common", "resplendent", 1.7f, 17, 0, 0, 0));
+//        statsAlchemyLife.add(new StatsAlchemyLife("uncommon", "resplendent", 1.7f, 17, 90, 0, 0));
+//        statsAlchemyLife.add(new StatsAlchemyLife("rare", "resplendent", 1.7f, 17, 90, 2, 0));
+//        statsAlchemyLife.add(new StatsAlchemyLife("epic", "resplendent", 1.7f, 17, 90, 2, 16));
+//
+//        statsAlchemyLife.add(new StatsAlchemyLife("common", "splendid", 2f, 20, 0, 0, 0));
+//        statsAlchemyLife.add(new StatsAlchemyLife("uncommon", "splendid", 2f, 20, 105, 0, 0));
+//        statsAlchemyLife.add(new StatsAlchemyLife("rare", "splendid", 2f, 20, 105, 3, 0));
+//        statsAlchemyLife.add(new StatsAlchemyLife("epic", "splendid", 2f, 20, 105, 3, 20));
+//
     }
 
     private void initObjectStats() {
@@ -364,7 +364,7 @@ public class InitializingAlchemyStones {
         ArrayList statsArrayProtection = (ArrayList) alchemyStonesAllStats.get(1);
         ArrayList statsArrayLife = (ArrayList) alchemyStonesAllStats.get(2);
 
-        //stats destruction
+        //item_effects destruction
         destructionCommonImperfect = statsArrayDestruction.get(0);
         destructionUncommonImperfect = statsArrayDestruction.get(1);
         destructionRareImperfect = statsArrayDestruction.get(2);
@@ -400,7 +400,7 @@ public class InitializingAlchemyStones {
         destructionRareSplendid = statsArrayDestruction.get(14);
         destructionEpicSplendid = statsArrayDestruction.get(15);
 
-        //stats protection
+        //item_effects protection
         protectionCommonImperfect = statsArrayProtection.get(0);
         protectionUncommonImperfect = statsArrayProtection.get(1);
         protectionRareImperfect = statsArrayProtection.get(2);
@@ -436,7 +436,7 @@ public class InitializingAlchemyStones {
         protectionRareSplendid = statsArrayProtection.get(14);
         protectionEpicSplendid = statsArrayProtection.get(15);
 
-        //stats life
+        //item_effects life
         lifeCommonImperfect = statsArrayLife.get(0);
         lifeUncommonImperfect = statsArrayLife.get(1);
         lifeRareImperfect = statsArrayLife.get(2);

@@ -1,27 +1,25 @@
 package wie.wiggle.testplanner;
 
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * Created by timox on 05-Feb-18.
  */
 
-public class AlchemyStone implements Serializable {
+public class ItemAlchemyStone implements Serializable {
 
     String type;
     String name;
     String rarity;
-    int icon;
-    Object stats;
+    String icon;
+    Object item_effects;
 
-    public AlchemyStone(String type, String name, String rarity, int icon, Object stats) {
+    public ItemAlchemyStone(String type, String name, String rarity, String icon, Object item_effects) {
         this.type = type;
         this.name = name;
         this.rarity = rarity;
         this.icon = icon;
-        this.stats = stats;
+        this.item_effects = item_effects;
     }
 
     public String getType() {
@@ -48,19 +46,19 @@ public class AlchemyStone implements Serializable {
         this.rarity = rarity;
     }
 
-    public int getIcon() {
+    public String getIcon() {
         return icon;
     }
 
-    public void setIcon(int icon) {
+    public void setIcon(String icon) {
         this.icon = icon;
     }
 
-    public Object getStats() {
-        return stats;
+    public Object getItem_effects() {
+        return item_effects;
     }
 
-    public void setStats(Object stats) {
-        this.stats = stats;
+    public void setItem_effects(Object item_effects) {
+        this.item_effects = item_effects;
     }
 }

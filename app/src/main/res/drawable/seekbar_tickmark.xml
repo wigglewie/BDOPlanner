@@ -3,7 +3,7 @@
     <shape>
         <solid android:color="@color/colorStatsValue" />
         <size
-            android:width="4dp"
+            android:width="2dp"
             android:height="10dp" />
     </shape>
 </rotate>

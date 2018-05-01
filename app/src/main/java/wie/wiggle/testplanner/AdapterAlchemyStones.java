@@ -7,7 +7,12 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.google.gson.Gson;
+
 import java.util.ArrayList;
+import java.util.LinkedHashMap;
 import java.util.List;
 
 /**
@@ -16,8 +21,8 @@ import java.util.List;
 
 public class AdapterAlchemyStones extends RecyclerView.Adapter<AdapterAlchemyStones.MyViewHolder> {
 
-    private List<AlchemyStone> alchemyStones;
-    private List<AlchemyStone> itemsCopy = new ArrayList<>();
+    private List<ItemAlchemyStone> alchemyStones;
+    private List<ItemAlchemyStone> itemsCopy = new ArrayList<>();
 
     String type;
 
@@ -52,7 +57,7 @@ public class AdapterAlchemyStones extends RecyclerView.Adapter<AdapterAlchemySto
 
     @Override
     public void onBindViewHolder(final MyViewHolder holder, int i) {
-        final AlchemyStone item = alchemyStones.get(i);
+        final ItemAlchemyStone item = alchemyStones.get(i);
         type = item.type;
 
         if (type.equals("destruction")) {
@@ -67,7 +72,25 @@ public class AdapterAlchemyStones extends RecyclerView.Adapter<AdapterAlchemySto
             holder.viewAttackSpeed.setVisibility(View.GONE);
             holder.viewCastingSpeed.setVisibility(View.GONE);
 
-            final StatsAlchemyDestruction statsDestruction = (StatsAlchemyDestruction) item.stats;
+//            LinkedHashMap<String, Double> item_effects = (LinkedHashMap<String, Double>) item.item_effects;
+
+//            final StatsAlchemyDestruction statsDestruction = new StatsAlchemyDestruction(
+//                    item_effects.get("hiddenAp").intValue(),
+//                    item_effects.get("accuracy").intValue(),
+//                    item_effects.get("ignoreAllResistance").intValue(),
+//                    item_effects.get("attackSpeed").intValue(),
+//                    item_effects.get("castingSpeed").intValue());
+
+            final  ArrayList stats = (ArrayList) item.item_effects;
+
+            Double v1 = (Double) stats.get(0);
+            Double v2 = (Double) stats.get(1);
+            Double v3 = (Double) stats.get(2);
+            Double v4 = (Double) stats.get(3);
+            Double v5 = (Double) stats.get(4);
+
+
+            final  StatsAlchemyDestruction statsDestruction = new StatsAlchemyDestruction(v1.intValue(), v2.intValue(), v3.intValue(), v4.intValue(), v5.intValue());
 
             valueHiddenAP = statsDestruction.hiddenAP;
             valueAccuracy = statsDestruction.accuracy;
@@ -76,7 +99,7 @@ public class AdapterAlchemyStones extends RecyclerView.Adapter<AdapterAlchemySto
             valueCastingSpeed = statsDestruction.castingSpeed;
 
             holder.name.setText(item.name);
-            holder.icon.setImageResource(item.icon);
+            holder.icon.setImageResource(holder.icon.getContext().getResources().getIdentifier("drawable/" + item.icon, null, holder.icon.getContext().getPackageName()));
 
             holder.valueHiddenAP.setText(Integer.toString(valueHiddenAP));
             holder.valueAccuracy.setText(Integer.toString(valueAccuracy));
@@ -114,7 +137,7 @@ public class AdapterAlchemyStones extends RecyclerView.Adapter<AdapterAlchemySto
             holder.viewStun.setVisibility(View.GONE);
             holder.viewGrapple.setVisibility(View.GONE);
 
-            final StatsAlchemyProtection statsProtection = (StatsAlchemyProtection) item.stats;
+            final StatsAlchemyProtection statsProtection = (StatsAlchemyProtection) item.item_effects;
 
             valueDR = statsProtection.damageReduction;
             valueEvasion = statsProtection.evasion;
@@ -122,7 +145,7 @@ public class AdapterAlchemyStones extends RecyclerView.Adapter<AdapterAlchemySto
             valueResistanceAll = statsProtection.resistanceAll;
 
             holder.name.setText(item.name);
-            holder.icon.setImageResource(item.icon);
+//            holder.icon.setImageResource(item.icon);
 
             holder.valueDR.setText(Integer.toString(valueDR));
             holder.valueEvasion.setText(Integer.toString(valueEvasion));
@@ -160,7 +183,7 @@ public class AdapterAlchemyStones extends RecyclerView.Adapter<AdapterAlchemySto
             holder.viewGatheringFishingLvl.setVisibility(View.GONE);
             holder.viewGatheringDropRate.setVisibility(View.GONE);
 
-            final StatsAlchemyLife statsLife = (StatsAlchemyLife) item.stats;
+            final StatsAlchemyLife statsLife = (StatsAlchemyLife) item.item_effects;
 
             valueCookingTime = statsLife.cookingTime;
             valueProcessingSuccessRate = statsLife.processingSuccessRate;
@@ -169,7 +192,7 @@ public class AdapterAlchemyStones extends RecyclerView.Adapter<AdapterAlchemySto
             valueGatheringDropRate = statsLife.gatheringDropRate;
 
             holder.name.setText(item.name);
-            holder.icon.setImageResource(item.icon);
+//            holder.icon.setImageResource(item.icon);
 
             holder.valueCookingTime.setText(Float.toString(valueCookingTime));
             holder.valueProcessingSuccessRate.setText(Integer.toString(valueProcessingSuccessRate));
@@ -218,7 +241,7 @@ public class AdapterAlchemyStones extends RecyclerView.Adapter<AdapterAlchemySto
             alchemyStones.addAll(itemsCopy);
         } else {
             text = text.toLowerCase();
-            for (AlchemyStone item : itemsCopy) {
+            for (ItemAlchemyStone item : itemsCopy) {
                 if (item.name.toLowerCase().contains(text)) {
                     alchemyStones.add(item);
                 }

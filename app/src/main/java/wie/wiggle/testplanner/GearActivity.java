@@ -1,13 +1,9 @@
 package wie.wiggle.testplanner;
 
-import android.app.Dialog;
-import android.app.DialogFragment;
 import android.content.Intent;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.ContextThemeWrapper;
-import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -17,20 +13,31 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.InputStreamReader;
+import java.lang.reflect.Type;
 import java.util.ArrayList;
-import java.util.zip.Inflater;
 
 
 public class GearActivity extends AppCompatActivity implements View.OnClickListener, View.OnLongClickListener {
 
-    private ArrayList<Accessory> earrings;
-    private ArrayList<Accessory> rings;
-    private ArrayList<Accessory> belts;
-    private ArrayList<Accessory> necklaces;
-    private ArrayList<AlchemyStone> alchemyStones;
+    private ArrayList<ItemAccessory> earrings;
+    private ArrayList<ItemAccessory> rings;
+    private ArrayList<ItemAccessory> belts;
+    private ArrayList<ItemAccessory> necklaces;
+    private ArrayList<ItemAlchemyStone> alchemyStones;
     private ArrayList<StatsAlchemyDestruction> adStatsDestruction;
     private ArrayList<StatsAlchemyProtection> adStatsProtection;
     private ArrayList<StatsAlchemyLife> adStatsLife;
+
+    private ArrayList<ItemAwakeningWeapon> awakeningWeapons;
+    private ArrayList<ItemAwakeningWeapon> awakeningWeaponsCopy;
 
     private static final int REQUEST_CODE_ALCHEMY_STONE = 0;
     private static final int REQUEST_CODE_AWAKENING_WEAPON = 1;
@@ -95,7 +102,7 @@ public class GearActivity extends AppCompatActivity implements View.OnClickListe
     private int dp;
     private int enhLvl;
 
-    //stats
+    //item_effects
     private int valueHiddenAP;
     private int valueAccuracy;
     private int valueIgnoreAllResistance;
@@ -141,8 +148,9 @@ public class GearActivity extends AppCompatActivity implements View.OnClickListe
     private StatsAlchemyProtection statsProt;
     private StatsAlchemyLife statsLife;
 
-    private Accessory accessory;
-    private AlchemyStone alchemyStone;
+    private ItemAccessory accessory;
+    private ItemAlchemyStone alchemyStone;
+    private ItemAwakeningWeapon awakeningWeapon;
 
     private ArrayList<Object> gear;
     // index:
@@ -181,6 +189,8 @@ public class GearActivity extends AppCompatActivity implements View.OnClickListe
     TextView adValueIgnoreResistance;
     TextView adValueAttackSpeed;
     TextView adValueCastingSpeed;
+
+    private Character character;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -332,13 +342,32 @@ public class GearActivity extends AppCompatActivity implements View.OnClickListe
         viewSecondaryWeapon.setOnClickListener(this);
         viewAwakeningWeapon.setOnClickListener(this);
 
-        Character character = getIntent().getParcelableExtra("class");
+        character = getIntent().getParcelableExtra("class");
 
         classIcon.setImageResource(character.icon);
 //        className.setText(character.name);
 
-        InitializingAlchemyStones initializingAlchemyStones = new InitializingAlchemyStones();
-        alchemyStones = initializingAlchemyStones.initializeAlchemyStones();
+//        alchemyStones = new InitializingAlchemyStones().initializeAlchemyStones();
+
+        Gson gson = new Gson();
+        Type type = new TypeToken<ArrayList<ItemAlchemyStone>>() {
+        }.getType();
+        alchemyStones = gson.fromJson(new InputStreamReader(getResources().openRawResource(R.raw.test)), type);
+
+//        try {
+//            JSONObject object = new JSONObject("test.json");
+//            JSONArray array = object.getJSONArray("item_effects");
+//            ArrayList arrayList = new ArrayList();
+//            for (int i = 0; i < array.length(); i++) {
+//                arrayList.add(array.getJSONObject(i).getString("hiddenAp"));
+//            }
+//            getClass();
+//        } catch (JSONException e) {
+//        }
+
+
+        awakeningWeapons = new InitializingAwakeningWeapons().initializeAwakeningWeapons();
+        awakeningWeaponsCopy = new InitializingAwakeningWeapons().initializeAwakeningWeapons();
 
         initEarrings();
         initRings();
@@ -373,26 +402,26 @@ public class GearActivity extends AppCompatActivity implements View.OnClickListe
 
     private void initRings() {
         rings = new ArrayList<>();
-        rings.add(new Accessory("ring", "Yuria Ring", "uncommon", R.drawable.ring_uncommon_yuria, 0, 0, 0, 0, 0));
-        rings.add(new Accessory("ring", "Bares Ring", "uncommon", R.drawable.ring_uncommon_bares, 2, 0, 0, 1, 0));
-        rings.add(new Accessory("ring", "Hesus Ring", "uncommon", R.drawable.ring_uncommon_hesus, 0, 1, 0, 0, 1));
-        rings.add(new Accessory("ring", "Ring of Crescent Guardian", "epic", R.drawable.ring_epic_crescent_guardian, 5, 0, 0, 3, 0));
-        rings.add(new Accessory("ring", "Ring of Cadry Guardian", "epic", R.drawable.ring_epic_cadry_guardian, 0, 5, 0, 0, 3));
-        rings.add(new Accessory("ring", "Topaz Ring of Regeneration", "epic", R.drawable.ring_epic_topaz_of_regeneration, 0, 0, 0, 0, 0));
-        rings.add(new Accessory("ring", "Emerald Ring of Tranquility", "epic", R.drawable.ring_epic_emerald_of_tranquility, 0, 0, 0, 0, 0));
+        rings.add(new ItemAccessory("ring", "Yuria Ring", "uncommon", R.drawable.ring_uncommon_yuria, 0, 0, 0, 0, 0));
+        rings.add(new ItemAccessory("ring", "Bares Ring", "uncommon", R.drawable.ring_uncommon_bares, 2, 0, 0, 1, 0));
+        rings.add(new ItemAccessory("ring", "Hesus Ring", "uncommon", R.drawable.ring_uncommon_hesus, 0, 1, 0, 0, 1));
+        rings.add(new ItemAccessory("ring", "Ring of Crescent Guardian", "epic", R.drawable.ring_epic_crescent_guardian, 5, 0, 0, 3, 0));
+        rings.add(new ItemAccessory("ring", "Ring of Cadry Guardian", "epic", R.drawable.ring_epic_cadry_guardian, 0, 5, 0, 0, 3));
+        rings.add(new ItemAccessory("ring", "Topaz Ring of Regeneration", "epic", R.drawable.ring_epic_topaz_of_regeneration, 0, 0, 0, 0, 0));
+        rings.add(new ItemAccessory("ring", "Emerald Ring of Tranquility", "epic", R.drawable.ring_epic_emerald_of_tranquility, 0, 0, 0, 0, 0));
     }
 
     private void initEarrings() {
         earrings = new ArrayList<>();
-        earrings.add(new Accessory("earring", "Yuria Earring", "uncommon", R.drawable.earring_uncommon_yuria, 0, 0, 0, 0, 0));
-        earrings.add(new Accessory("earring", "Bares Earring", "uncommon", R.drawable.earring_uncommon_bares, 2, 0, 0, 1, 0));
-        earrings.add(new Accessory("earring", "Jarette's Earring", "rare", R.drawable.earring_rare_jarettes, 4, 0, 0, 0, 0));
-        earrings.add(new Accessory("earring", "Ridell Earring", "rare", R.drawable.earring_rare_ridell, 0, 5, 0, 0, 1));
-        earrings.add(new Accessory("earring", "Fugitive Khalk's Earring", "rare", R.drawable.earring_rare_fugitive_khalks, 5, 0, 0, 2, 0));
-        earrings.add(new Accessory("earring", "Blue Coral Earring", "rare", R.drawable.earring_rare_blue_coral, 4, 0, 0, 2, 0));
-        earrings.add(new Accessory("earring", "Red Coral Earring", "rare", R.drawable.earring_rare_red_coral, 2, 0, 0, 2, 0));
-        earrings.add(new Accessory("earring", "Tungrad Earring", "epic", R.drawable.earring_epic_tungrad, 7, 0, 0, 2, 0));
-        earrings.add(new Accessory("earring", "Dark Blood Ruby Earring", "rare", R.drawable.earring_rare_dark_blood_ruby, 4, 0, 0, 0, 0));
+        earrings.add(new ItemAccessory("earring", "Yuria Earring", "uncommon", R.drawable.earring_uncommon_yuria, 0, 0, 0, 0, 0));
+        earrings.add(new ItemAccessory("earring", "Bares Earring", "uncommon", R.drawable.earring_uncommon_bares, 2, 0, 0, 1, 0));
+        earrings.add(new ItemAccessory("earring", "Jarette's Earring", "rare", R.drawable.earring_rare_jarettes, 4, 0, 0, 0, 0));
+        earrings.add(new ItemAccessory("earring", "Ridell Earring", "rare", R.drawable.earring_rare_ridell, 0, 5, 0, 0, 1));
+        earrings.add(new ItemAccessory("earring", "Fugitive Khalk's Earring", "rare", R.drawable.earring_rare_fugitive_khalks, 5, 0, 0, 2, 0));
+        earrings.add(new ItemAccessory("earring", "Blue Coral Earring", "rare", R.drawable.earring_rare_blue_coral, 4, 0, 0, 2, 0));
+        earrings.add(new ItemAccessory("earring", "Red Coral Earring", "rare", R.drawable.earring_rare_red_coral, 2, 0, 0, 2, 0));
+        earrings.add(new ItemAccessory("earring", "Tungrad Earring", "epic", R.drawable.earring_epic_tungrad, 7, 0, 0, 2, 0));
+        earrings.add(new ItemAccessory("earring", "Dark Blood Ruby Earring", "rare", R.drawable.earring_rare_dark_blood_ruby, 4, 0, 0, 0, 0));
     }
 
     @Override
@@ -430,11 +459,23 @@ public class GearActivity extends AppCompatActivity implements View.OnClickListe
 
         Intent intentAccessoryChoose = new Intent(this, ItemAccessoryChooseActivity.class);
         Intent intentAlchemyStoneChoose = new Intent(this, ItemAlchemyStoneChooseActivity.class);
+        Intent intentAwakeningChoose = new Intent(this, ItemAwakeningWeaponChooseActivity.class);
 
         switch (view.getId()) {
             case R.id.view_alchemy_stone:
                 intentAlchemyStoneChoose.putExtra("alchemyStones", alchemyStones);
                 startActivityForResult(intentAlchemyStoneChoose, REQUEST_CODE_ALCHEMY_STONE);
+                break;
+            case R.id.view_awakening_weapon:
+                awakeningWeaponsCopy.clear();
+                for (int i = 0; i < awakeningWeapons.size(); i++) {
+                    if (awakeningWeapons.get(i).className.equals(character.name)) {
+                        awakeningWeaponsCopy.add(awakeningWeapons.get(i));
+                    }
+                }
+                intentAwakeningChoose.putExtra("awakeningWeapons", awakeningWeaponsCopy);
+                getClass();
+                startActivityForResult(intentAwakeningChoose, REQUEST_CODE_AWAKENING_WEAPON);
                 break;
             case R.id.view_earring1:
                 intentAccessoryChoose.putExtra("accessoryArray", earrings);
@@ -518,13 +559,13 @@ public class GearActivity extends AppCompatActivity implements View.OnClickListe
                     alchemyStoneType = alchemyStone.type;
                     switch (alchemyStoneType) {
                         case "destruction":
-                            statsDestr = (StatsAlchemyDestruction) alchemyStone.stats;
+                            statsDestr = (StatsAlchemyDestruction) alchemyStone.item_effects;
                             break;
                         case "protection":
-                            statsProt = (StatsAlchemyProtection) alchemyStone.stats;
+                            statsProt = (StatsAlchemyProtection) alchemyStone.item_effects;
                             break;
                         case "life":
-                            statsLife = (StatsAlchemyLife) alchemyStone.stats;
+                            statsLife = (StatsAlchemyLife) alchemyStone.item_effects;
                             break;
                     }
                     gear.set(0, alchemyStone);
@@ -653,15 +694,15 @@ public class GearActivity extends AppCompatActivity implements View.OnClickListe
         Object objNecklace = gear.get(12);
         Object objSecondary = gear.get(13);
 
-        Accessory ring1 = (Accessory) objRing1;
-        Accessory ring2 = (Accessory) objRing2;
+        ItemAccessory ring1 = (ItemAccessory) objRing1;
+        ItemAccessory ring2 = (ItemAccessory) objRing2;
         int apRing1 = ring1.ap;
         int dpRing1 = ring1.dp;
 
     }
 
     private void accessoryInit(Intent data) {
-        accessory = (Accessory) data.getSerializableExtra("accessoryName");
+        accessory = (ItemAccessory) data.getSerializableExtra("accessoryName");
         icon = accessory.icon;
         ap = accessory.ap;
         dp = accessory.dp;
@@ -670,8 +711,8 @@ public class GearActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     private void alchemyInit(Intent data) {
-        alchemyStone = (AlchemyStone) data.getSerializableExtra("alchemyName");
-        icon = alchemyStone.icon;
+        alchemyStone = (ItemAlchemyStone) data.getSerializableExtra("alchemyName");
+//        icon = alchemyStone.icon;
         rarity = alchemyStone.rarity;
     }
 
@@ -741,7 +782,7 @@ public class GearActivity extends AppCompatActivity implements View.OnClickListe
         }
         viewDP.setText("" + dpSum);
 
-        //make awakening ap
+        //make awakening ap1
         //count GS as awaAP + DP
 
         if (awaSum == 0) {
