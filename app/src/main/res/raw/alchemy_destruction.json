@@ -3,7 +3,7 @@
     "type": "destruction",
     "rarity": "common",
     "name": "Imperfect Alchemy Stone of Destruction",
-    "icon": "alchemy_destuction_imperfect",
+    "icon": "alchemy_destruction_imperfect",
     "item_effects": {
       "hiddenAp": 2,
       "accuracy": 0,
@@ -16,7 +16,7 @@
     "type": "destruction",
     "rarity": "uncommon",
     "name": "Imperfect Alchemy Stone of Destruction",
-    "icon": "alchemy_destuction_imperfect",
+    "icon": "alchemy_destruction_imperfect",
     "item_effects": {
       "hiddenAp": 2,
       "accuracy": 2,
@@ -29,7 +29,7 @@
     "type": "destruction",
     "rarity": "rare",
     "name": "Imperfect Alchemy Stone of Destruction",
-    "icon": "alchemy_destuction_imperfect",
+    "icon": "alchemy_destruction_imperfect",
     "item_effects": {
       "hiddenAp": 2,
       "accuracy": 2,
@@ -42,7 +42,7 @@
     "type": "destruction",
     "rarity": "epic",
     "name": "Imperfect Alchemy Stone of Destruction",
-    "icon": "alchemy_destuction_imperfect",
+    "icon": "alchemy_destruction_imperfect",
     "item_effects": {
       "hiddenAp": 2,
       "accuracy": 2,
@@ -55,7 +55,7 @@
     "type": "destruction",
     "rarity": "common",
     "name": "Rough Alchemy Stone of Destruction",
-    "icon": "alchemy_destuction_rough",
+    "icon": "alchemy_destruction_rough",
     "item_effects": {
       "hiddenAp": 3,
       "accuracy": 0,
@@ -68,7 +68,7 @@
     "type": "destruction",
     "rarity": "uncommon",
     "name": "Rough Alchemy Stone of Destruction",
-    "icon": "alchemy_destuction_rough",
+    "icon": "alchemy_destruction_rough",
     "item_effects": {
       "hiddenAp": 3,
       "accuracy": 4,
@@ -81,7 +81,7 @@
     "type": "destruction",
     "rarity": "rare",
     "name": "Rough Alchemy Stone of Destruction",
-    "icon": "alchemy_destuction_rough",
+    "icon": "alchemy_destruction_rough",
     "item_effects": {
       "hiddenAp": 3,
       "accuracy": 4,
@@ -94,7 +94,7 @@
     "type": "destruction",
     "rarity": "epic",
     "name": "Rough Alchemy Stone of Destruction",
-    "icon": "alchemy_destuction_rough",
+    "icon": "alchemy_destruction_rough",
     "item_effects": {
       "hiddenAp": 3,
       "accuracy": 4,
@@ -107,7 +107,7 @@
     "type": "destruction",
     "rarity": "common",
     "name": "Polished Alchemy Stone of Destruction",
-    "icon": "alchemy_destuction_polished",
+    "icon": "alchemy_destruction_polished",
     "item_effects": {
       "hiddenAp": 4,
       "accuracy": 0,
@@ -120,7 +120,7 @@
     "type": "destruction",
     "rarity": "uncommon",
     "name": "Polished Alchemy Stone of Destruction",
-    "icon": "alchemy_destuction_polished",
+    "icon": "alchemy_destruction_polished",
     "item_effects": {
       "hiddenAp": 4,
       "accuracy": 6,
@@ -133,7 +133,7 @@
     "type": "destruction",
     "rarity": "rare",
     "name": "Polished Alchemy Stone of Destruction",
-    "icon": "alchemy_destuction_polished",
+    "icon": "alchemy_destruction_polished",
     "item_effects": {
       "hiddenAp": 4,
       "accuracy": 6,
@@ -146,7 +146,7 @@
     "type": "destruction",
     "rarity": "epic",
     "name": "Polished Alchemy Stone of Destruction",
-    "icon": "alchemy_destuction_polished",
+    "icon": "alchemy_destruction_polished",
     "item_effects": {
       "hiddenAp": 4,
       "accuracy": 6,
@@ -159,7 +159,7 @@
     "type": "destruction",
     "rarity": "common",
     "name": "Sturdy Alchemy Stone of Destruction",
-    "icon": "alchemy_destuction_sturdy",
+    "icon": "alchemy_destruction_sturdy",
     "item_effects": {
       "hiddenAp": 6,
       "accuracy": 0,
@@ -172,7 +172,7 @@
     "type": "destruction",
     "rarity": "uncommon",
     "name": "Sturdy Alchemy Stone of Destruction",
-    "icon": "alchemy_destuction_sturdy",
+    "icon": "alchemy_destruction_sturdy",
     "item_effects": {
       "hiddenAp": 6,
       "accuracy": 8,
@@ -185,7 +185,7 @@
     "type": "destruction",
     "rarity": "rare",
     "name": "Sturdy Alchemy Stone of Destruction",
-    "icon": "alchemy_destuction_sturdy",
+    "icon": "alchemy_destruction_sturdy",
     "item_effects": {
       "hiddenAp": 6,
       "accuracy": 8,
@@ -198,7 +198,7 @@
     "type": "destruction",
     "rarity": "epic",
     "name": "Sturdy Alchemy Stone of Destruction",
-    "icon": "alchemy_destuction_sturdy",
+    "icon": "alchemy_destruction_sturdy",
     "item_effects": {
       "hiddenAp": 6,
       "accuracy": 8,
@@ -211,7 +211,7 @@
     "type": "destruction",
     "rarity": "common",
     "name": "Sharp Alchemy Stone of Destruction",
-    "icon": "alchemy_destuction_sharp",
+    "icon": "alchemy_destruction_sharp",
     "item_effects": {
       "hiddenAp": 8,
       "accuracy": 0,
@@ -224,7 +224,7 @@
     "type": "destruction",
     "rarity": "uncommon",
     "name": "Sharp Alchemy Stone of Destruction",
-    "icon": "alchemy_destuction_sharp",
+    "icon": "alchemy_destruction_sharp",
     "item_effects": {
       "hiddenAp": 8,
       "accuracy": 10,
@@ -237,7 +237,7 @@
     "type": "destruction",
     "rarity": "rare",
     "name": "Sharp Alchemy Stone of Destruction",
-    "icon": "alchemy_destuction_sharp",
+    "icon": "alchemy_destruction_sharp",
     "item_effects": {
       "hiddenAp": 8,
       "accuracy": 10,
@@ -250,7 +250,7 @@
     "type": "destruction",
     "rarity": "epic",
     "name": "Sharp Alchemy Stone of Destruction",
-    "icon": "alchemy_destuction_sharp",
+    "icon": "alchemy_destruction_sharp",
     "item_effects": {
       "hiddenAp": 8,
       "accuracy": 10,
@@ -263,7 +263,7 @@
     "type": "destruction",
     "rarity": "common",
     "name": "Resplendent Alchemy Stone of Destruction",
-    "icon": "alchemy_destuction_resplendent",
+    "icon": "alchemy_destruction_resplendent",
     "item_effects": {
       "hiddenAp": 10,
       "accuracy": 0,
@@ -276,7 +276,7 @@
     "type": "destruction",
     "rarity": "uncommon",
     "name": "Resplendent Alchemy Stone of Destruction",
-    "icon": "alchemy_destuction_resplendent",
+    "icon": "alchemy_destruction_resplendent",
     "item_effects": {
       "hiddenAp": 10,
       "accuracy": 12,
@@ -289,7 +289,7 @@
     "type": "destruction",
     "rarity": "rare",
     "name": "Resplendent Alchemy Stone of Destruction",
-    "icon": "alchemy_destuction_resplendent",
+    "icon": "alchemy_destruction_resplendent",
     "item_effects": {
       "hiddenAp": 10,
       "accuracy": 12,
@@ -302,7 +302,7 @@
     "type": "destruction",
     "rarity": "epic",
     "name": "Resplendent Alchemy Stone of Destruction",
-    "icon": "alchemy_destuction_resplendent",
+    "icon": "alchemy_destruction_resplendent",
     "item_effects": {
       "hiddenAp": 10,
       "accuracy": 12,
@@ -315,7 +315,7 @@
     "type": "destruction",
     "rarity": "common",
     "name": "Splendid Alchemy Stone of Destruction",
-    "icon": "alchemy_destuction_splendid",
+    "icon": "alchemy_destruction_splendid",
     "item_effects": {
       "hiddenAp": 13,
       "accuracy": 0,
@@ -328,7 +328,7 @@
     "type": "destruction",
     "rarity": "uncommon",
     "name": "Splendid Alchemy Stone of Destruction",
-    "icon": "alchemy_destuction_splendid",
+    "icon": "alchemy_destruction_splendid",
     "item_effects": {
       "hiddenAp": 13,
       "accuracy": 14,
@@ -341,7 +341,7 @@
     "type": "destruction",
     "rarity": "rare",
     "name": "Splendid Alchemy Stone of Destruction",
-    "icon": "alchemy_destuction_splendid",
+    "icon": "alchemy_destruction_splendid",
     "item_effects": {
       "hiddenAp": 13,
       "accuracy": 14,
@@ -354,13 +354,65 @@
     "type": "destruction",
     "rarity": "epic",
     "name": "Splendid Alchemy Stone of Destruction",
-    "icon": "alchemy_destuction_splendid",
+    "icon": "alchemy_destruction_splendid",
     "item_effects": {
       "hiddenAp": 13,
       "accuracy": 14,
       "ignoreAllResistance": 8,
       "attackSpeed": 8,
       "castingSpeed": 8
+    }
+  },
+  {
+    "type": "destruction",
+    "rarity": "common",
+    "name": "Shining Alchemy Stone of Destruction",
+    "icon": "alchemy_destruction_shining",
+    "item_effects": {
+      "hiddenAp": 16,
+      "accuracy": 0,
+      "ignoreAllResistance": 0,
+      "attackSpeed": 0,
+      "castingSpeed": 0
+    }
+  },
+  {
+    "type": "destruction",
+    "rarity": "uncommon",
+    "name": "Shining Alchemy Stone of Destruction",
+    "icon": "alchemy_destruction_shining",
+    "item_effects": {
+      "hiddenAp": 16,
+      "accuracy": 16,
+      "ignoreAllResistance": 0,
+      "attackSpeed": 0,
+      "castingSpeed": 0
+    }
+  },
+  {
+    "type": "destruction",
+    "rarity": "rare",
+    "name": "Shining Alchemy Stone of Destruction",
+    "icon": "alchemy_destruction_shining",
+    "item_effects": {
+      "hiddenAp": 16,
+      "accuracy": 16,
+      "ignoreAllResistance": 10,
+      "attackSpeed": 0,
+      "castingSpeed": 0
+    }
+  },
+  {
+    "type": "destruction",
+    "rarity": "epic",
+    "name": "Shining Alchemy Stone of Destruction",
+    "icon": "alchemy_destruction_shining",
+    "item_effects": {
+      "hiddenAp": 16,
+      "accuracy": 16,
+      "ignoreAllResistance": 10,
+      "attackSpeed": 10,
+      "castingSpeed": 10
     }
   }
 ]

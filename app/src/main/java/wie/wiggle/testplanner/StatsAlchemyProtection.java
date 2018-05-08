@@ -8,37 +8,37 @@ import java.io.Serializable;
 
 public class StatsAlchemyProtection implements Serializable {
 
-    String rarity;
-    String name;
+//    String rarity;
+//    String name;
     int damageReduction;
     int evasion;
     int maxHP;
     int resistanceAll;
 
-    public StatsAlchemyProtection(String rarity, String name, int damageReduction, int evasion, int maxHP, int resistanceAll) {
-        this.rarity = rarity;
-        this.name = name;
+    public StatsAlchemyProtection(int damageReduction, int evasion, int maxHP, int resistanceAll) {
+//        this.rarity = rarity;
+//        this.name = name;
         this.damageReduction = damageReduction;
         this.evasion = evasion;
         this.maxHP = maxHP;
         this.resistanceAll = resistanceAll;
     }
 
-    public String getRarity() {
-        return rarity;
-    }
-
-    public void setRarity(String rarity) {
-        this.rarity = rarity;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
+//    public String getRarity() {
+//        return rarity;
+//    }
+//
+//    public void setRarity(String rarity) {
+//        this.rarity = rarity;
+//    }
+//
+//    public String getName() {
+//        return name;
+//    }
+//
+//    public void setName(String name) {
+//        this.name = name;
+//    }
 
     public int getDamageReduction() {
         return damageReduction;

@@ -123,8 +123,10 @@ public class ItemAlchemyStoneChooseActivity extends AppCompatActivity implements
     public void onItemClicked(RecyclerView recyclerView, int position, View v) {
 
         Intent intent = new Intent();
+        int size = alchemyStones.size();
         ItemAlchemyStone alchemyStone = alchemyStones.get(position);
         intent.putExtra("alchemyName", alchemyStone);
+        getClass();
         setResult(RESULT_OK, intent);
         finish();
 

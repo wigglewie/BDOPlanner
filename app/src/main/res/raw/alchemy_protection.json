@@ -1,0 +1,386 @@
+[
+  {
+    "type": "protection",
+    "rarity": "common",
+    "name": "Imperfect Alchemy Stone of Protection",
+    "icon": "alchemy_protection_imperfect",
+    "item_effects": {
+      "dr": 2,
+      "evasion": 0,
+      "maxHP": 0,
+      "resistanceALL": 0
+    }
+  },
+  {
+    "type": "protection",
+    "rarity": "uncommon",
+    "name": "Imperfect Alchemy Stone of Protection",
+    "icon": "alchemy_protection_imperfect",
+    "item_effects": {
+      "dr": 2,
+      "evasion": 2,
+      "maxHP": 0,
+      "resistanceALL": 0
+    }
+  },
+  {
+    "type": "protection",
+    "rarity": "rare",
+    "name": "Imperfect Alchemy Stone of Protection",
+    "icon": "alchemy_protection_imperfect",
+    "item_effects": {
+      "dr": 2,
+      "evasion": 2,
+      "maxHP": 50,
+      "resistanceALL": 0
+    }
+  },
+  {
+    "type": "protection",
+    "rarity": "epic",
+    "name": "Imperfect Alchemy Stone of Protection",
+    "icon": "alchemy_protection_imperfect",
+    "item_effects": {
+      "dr": 2,
+      "evasion": 2,
+      "maxHP": 50,
+      "resistanceALL": 1
+    }
+  },
+  {
+    "type": "protection",
+    "rarity": "common",
+    "name": "Rough Alchemy Stone of Protection",
+    "icon": "alchemy_protection_rough",
+    "item_effects": {
+      "dr": 3,
+      "evasion": 0,
+      "maxHP": 0,
+      "resistanceALL": 0
+    }
+  },
+  {
+    "type": "protection",
+    "rarity": "uncommon",
+    "name": "Rough Alchemy Stone of Protection",
+    "icon": "alchemy_protection_rough",
+    "item_effects": {
+      "dr": 3,
+      "evasion": 4,
+      "maxHP": 0,
+      "resistanceALL": 0
+    }
+  },
+  {
+    "type": "protection",
+    "rarity": "rare",
+    "name": "Rough Alchemy Stone of Protection",
+    "icon": "alchemy_protection_rough",
+    "item_effects": {
+      "dr": 3,
+      "evasion": 4,
+      "maxHP": 70,
+      "resistanceALL": 0
+    }
+  },
+  {
+    "type": "protection",
+    "rarity": "epic",
+    "name": "Rough Alchemy Stone of Protection",
+    "icon": "alchemy_protection_rough",
+    "item_effects": {
+      "dr": 3,
+      "evasion": 4,
+      "maxHP": 70,
+      "resistanceALL": 2
+    }
+  },
+  {
+    "type": "protection",
+    "rarity": "common",
+    "name": "Polished Alchemy Stone of Protection",
+    "icon": "alchemy_protection_polished",
+    "item_effects": {
+      "dr": 4,
+      "evasion": 0,
+      "maxHP": 0,
+      "resistanceALL": 0
+    }
+  },
+  {
+    "type": "protection",
+    "rarity": "uncommon",
+    "name": "Polished Alchemy Stone of Protection",
+    "icon": "alchemy_protection_polished",
+    "item_effects": {
+      "dr": 4,
+      "evasion": 6,
+      "maxHP": 0,
+      "resistanceALL": 0
+    }
+  },
+  {
+    "type": "protection",
+    "rarity": "rare",
+    "name": "Polished Alchemy Stone of Protection",
+    "icon": "alchemy_protection_polished",
+    "item_effects": {
+      "dr": 4,
+      "evasion": 6,
+      "maxHP": 90,
+      "resistanceALL": 0
+    }
+  },
+  {
+    "type": "protection",
+    "rarity": "epic",
+    "name": "Polished Alchemy Stone of Protection",
+    "icon": "alchemy_protection_polished",
+    "item_effects": {
+      "dr": 4,
+      "evasion": 6,
+      "maxHP": 90,
+      "resistanceALL": 3
+    }
+  },
+  {
+    "type": "protection",
+    "rarity": "common",
+    "name": "Sturdy Alchemy Stone of Protection",
+    "icon": "alchemy_protection_sturdy",
+    "item_effects": {
+      "dr": 6,
+      "evasion": 0,
+      "maxHP": 0,
+      "resistanceALL": 0
+    }
+  },
+  {
+    "type": "protection",
+    "rarity": "uncommon",
+    "name": "Sturdy Alchemy Stone of Protection",
+    "icon": "alchemy_protection_sturdy",
+    "item_effects": {
+      "dr": 6,
+      "evasion": 8,
+      "maxHP": 0,
+      "resistanceALL": 0
+    }
+  },
+  {
+    "type": "protection",
+    "rarity": "rare",
+    "name": "Sturdy Alchemy Stone of Protection",
+    "icon": "alchemy_protection_sturdy",
+    "item_effects": {
+      "dr": 6,
+      "evasion": 8,
+      "maxHP": 110,
+      "resistanceALL": 0
+    }
+  },
+  {
+    "type": "protection",
+    "rarity": "epic",
+    "name": "Sturdy Alchemy Stone of Protection",
+    "icon": "alchemy_protection_sturdy",
+    "item_effects": {
+      "dr": 6,
+      "evasion": 8,
+      "maxHP": 110,
+      "resistanceALL": 4
+    }
+  },
+  {
+    "type": "protection",
+    "rarity": "common",
+    "name": "Sharp Alchemy Stone of Protection",
+    "icon": "alchemy_protection_sharp",
+    "item_effects": {
+      "dr": 8,
+      "evasion": 0,
+      "maxHP": 0,
+      "resistanceALL": 0
+    }
+  },
+  {
+    "type": "protection",
+    "rarity": "uncommon",
+    "name": "Sharp Alchemy Stone of Protection",
+    "icon": "alchemy_protection_sharp",
+    "item_effects": {
+      "dr": 8,
+      "evasion": 10,
+      "maxHP": 0,
+      "resistanceALL": 0
+    }
+  },
+  {
+    "type": "protection",
+    "rarity": "rare",
+    "name": "Sharp Alchemy Stone of Protection",
+    "icon": "alchemy_protection_sharp",
+    "item_effects": {
+      "dr": 8,
+      "evasion": 10,
+      "maxHP": 140,
+      "resistanceALL": 0
+    }
+  },
+  {
+    "type": "protection",
+    "rarity": "epic",
+    "name": "Sharp Alchemy Stone of Protection",
+    "icon": "alchemy_protection_sharp",
+    "item_effects": {
+      "dr": 8,
+      "evasion": 10,
+      "maxHP": 140,
+      "resistanceALL": 5
+    }
+  },
+  {
+    "type": "protection",
+    "rarity": "common",
+    "name": "Resplendent Alchemy Stone of Protection",
+    "icon": "alchemy_protection_resplendent",
+    "item_effects": {
+      "dr": 10,
+      "evasion": 0,
+      "maxHP": 0,
+      "resistanceALL": 0
+    }
+  },
+  {
+    "type": "protection",
+    "rarity": "uncommon",
+    "name": "Resplendent Alchemy Stone of Protection",
+    "icon": "alchemy_protection_resplendent",
+    "item_effects": {
+      "dr": 10,
+      "evasion": 12,
+      "maxHP": 0,
+      "resistanceALL": 0
+    }
+  },
+  {
+    "type": "protection",
+    "rarity": "rare",
+    "name": "Resplendent Alchemy Stone of Protection",
+    "icon": "alchemy_protection_resplendent",
+    "item_effects": {
+      "dr": 10,
+      "evasion": 12,
+      "maxHP": 170,
+      "resistanceALL": 0
+    }
+  },
+  {
+    "type": "protection",
+    "rarity": "epic",
+    "name": "Resplendent Alchemy Stone of Protection",
+    "icon": "alchemy_protection_resplendent",
+    "item_effects": {
+      "dr": 10,
+      "evasion": 12,
+      "maxHP": 170,
+      "resistanceALL": 6
+    }
+  },
+  {
+    "type": "protection",
+    "rarity": "common",
+    "name": "Splendid Alchemy Stone of Protection",
+    "icon": "alchemy_protection_splendid",
+    "item_effects": {
+      "dr": 13,
+      "evasion": 0,
+      "maxHP": 0,
+      "resistanceALL": 0
+    }
+  },
+  {
+    "type": "protection",
+    "rarity": "uncommon",
+    "name": "Splendid Alchemy Stone of Protection",
+    "icon": "alchemy_protection_splendid",
+    "item_effects": {
+      "dr": 13,
+      "evasion": 14,
+      "maxHP": 0,
+      "resistanceALL": 0
+    }
+  },
+  {
+    "type": "protection",
+    "rarity": "rare",
+    "name": "Splendid Alchemy Stone of Protection",
+    "icon": "alchemy_protection_splendid",
+    "item_effects": {
+      "dr": 13,
+      "evasion": 14,
+      "maxHP": 210,
+      "resistanceALL": 0
+    }
+  },
+  {
+    "type": "protection",
+    "rarity": "epic",
+    "name": "Splendid Alchemy Stone of Protection",
+    "icon": "alchemy_protection_splendid",
+    "item_effects": {
+      "dr": 13,
+      "evasion": 14,
+      "maxHP": 210,
+      "resistanceALL": 7
+    }
+  },
+  {
+    "type": "protection",
+    "rarity": "common",
+    "name": "Shining Alchemy Stone of Protection",
+    "icon": "alchemy_protection_shining",
+    "item_effects": {
+      "dr": 16,
+      "evasion": 0,
+      "maxHP": 0,
+      "resistanceALL": 0
+    }
+  },
+  {
+    "type": "protection",
+    "rarity": "uncommon",
+    "name": "Shining Alchemy Stone of Protection",
+    "icon": "alchemy_protection_shining",
+    "item_effects": {
+      "dr": 16,
+      "evasion": 16,
+      "maxHP": 0,
+      "resistanceALL": 0
+    }
+  },
+  {
+    "type": "protection",
+    "rarity": "rare",
+    "name": "Shining Alchemy Stone of Protection",
+    "icon": "alchemy_protection_shining",
+    "item_effects": {
+      "dr": 16,
+      "evasion": 16,
+      "maxHP": 250,
+      "resistanceALL": 0
+    }
+  },
+  {
+    "type": "protection",
+    "rarity": "epic",
+    "name": "Shining Alchemy Stone of Protection",
+    "icon": "alchemy_protection_shining",
+    "item_effects": {
+      "dr": 16,
+      "evasion": 16,
+      "maxHP": 250,
+      "resistanceALL": 8
+    }
+  }
+]

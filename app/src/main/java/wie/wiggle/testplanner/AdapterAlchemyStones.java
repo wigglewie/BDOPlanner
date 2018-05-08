@@ -12,6 +12,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.gson.Gson;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.List;
 
@@ -81,16 +82,18 @@ public class AdapterAlchemyStones extends RecyclerView.Adapter<AdapterAlchemySto
 //                    item_effects.get("attackSpeed").intValue(),
 //                    item_effects.get("castingSpeed").intValue());
 
-            final  ArrayList stats = (ArrayList) item.item_effects;
+            final HashMap stats = (HashMap) item.item_effects;
+//            ArrayList list = new ArrayList<>(stats.values());
 
-            Double v1 = (Double) stats.get(0);
-            Double v2 = (Double) stats.get(1);
-            Double v3 = (Double) stats.get(2);
-            Double v4 = (Double) stats.get(3);
-            Double v5 = (Double) stats.get(4);
+            ArrayList list = new ArrayList<>(stats.values());
 
+            Double v1 = (Double) list.get(0);
+            Double v2 = (Double) list.get(1);
+            Double v3 = (Double) list.get(2);
+            Double v4 = (Double) list.get(3);
+            Double v5 = (Double) list.get(4);
 
-            final  StatsAlchemyDestruction statsDestruction = new StatsAlchemyDestruction(v1.intValue(), v2.intValue(), v3.intValue(), v4.intValue(), v5.intValue());
+            final StatsAlchemyDestruction statsDestruction = new StatsAlchemyDestruction(v1.intValue(), v2.intValue(), v3.intValue(), v4.intValue(), v5.intValue());
 
             valueHiddenAP = statsDestruction.hiddenAP;
             valueAccuracy = statsDestruction.accuracy;
@@ -137,7 +140,16 @@ public class AdapterAlchemyStones extends RecyclerView.Adapter<AdapterAlchemySto
             holder.viewStun.setVisibility(View.GONE);
             holder.viewGrapple.setVisibility(View.GONE);
 
-            final StatsAlchemyProtection statsProtection = (StatsAlchemyProtection) item.item_effects;
+            final HashMap stats = (HashMap) item.item_effects;
+
+            ArrayList list = new ArrayList(stats.values());
+
+            Double v1 = (Double) list.get(0);
+            Double v2 = (Double) list.get(1);
+            Double v3 = (Double) list.get(2);
+            Double v4 = (Double) list.get(3);
+
+            final StatsAlchemyProtection statsProtection = new StatsAlchemyProtection(v1.intValue(), v2.intValue(), v3.intValue(), v4.intValue());
 
             valueDR = statsProtection.damageReduction;
             valueEvasion = statsProtection.evasion;
@@ -145,7 +157,7 @@ public class AdapterAlchemyStones extends RecyclerView.Adapter<AdapterAlchemySto
             valueResistanceAll = statsProtection.resistanceAll;
 
             holder.name.setText(item.name);
-//            holder.icon.setImageResource(item.icon);
+            holder.icon.setImageResource(holder.icon.getContext().getResources().getIdentifier("drawable/" + item.icon, null, holder.icon.getContext().getPackageName()));
 
             holder.valueDR.setText(Integer.toString(valueDR));
             holder.valueEvasion.setText(Integer.toString(valueEvasion));
@@ -183,7 +195,17 @@ public class AdapterAlchemyStones extends RecyclerView.Adapter<AdapterAlchemySto
             holder.viewGatheringFishingLvl.setVisibility(View.GONE);
             holder.viewGatheringDropRate.setVisibility(View.GONE);
 
-            final StatsAlchemyLife statsLife = (StatsAlchemyLife) item.item_effects;
+            final HashMap stats = (HashMap) item.item_effects;
+
+            ArrayList list = new ArrayList(stats.values());
+
+            Double v1 = (Double) list.get(0);
+            Double v2 = (Double) list.get(1);
+            Double v3 = (Double) list.get(2);
+            Double v4 = (Double) list.get(3);
+            Double v5 = (Double) list.get(4);
+
+            final StatsAlchemyLife statsLife = new StatsAlchemyLife(v1.floatValue(), v2.intValue(), v3.intValue(), v4.intValue(), v5.intValue());
 
             valueCookingTime = statsLife.cookingTime;
             valueProcessingSuccessRate = statsLife.processingSuccessRate;
@@ -192,7 +214,7 @@ public class AdapterAlchemyStones extends RecyclerView.Adapter<AdapterAlchemySto
             valueGatheringDropRate = statsLife.gatheringDropRate;
 
             holder.name.setText(item.name);
-//            holder.icon.setImageResource(item.icon);
+            holder.icon.setImageResource(holder.icon.getContext().getResources().getIdentifier("drawable/" + item.icon, null, holder.icon.getContext().getPackageName()));
 
             holder.valueCookingTime.setText(Float.toString(valueCookingTime));
             holder.valueProcessingSuccessRate.setText(Integer.toString(valueProcessingSuccessRate));

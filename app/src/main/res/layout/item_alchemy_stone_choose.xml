@@ -22,7 +22,7 @@
                 android:layout_height="wrap_content"
                 android:foregroundGravity="center"
                 android:padding="12dp"
-                android:src="@drawable/alchemy_destuction_sharp" />
+                android:src="@drawable/alchemy_destruction_sharp" />
 
             <TextView
                 android:id="@+id/item_alchemy_name"

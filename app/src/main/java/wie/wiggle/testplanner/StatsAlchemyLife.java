@@ -29,17 +29,17 @@ public class StatsAlchemyLife implements Serializable {
     // 17 - main weapon costume
     // 18 - costume
 
-    String rarity;
-    String name;
+//    String rarity;
+//    String name;
     float cookingTime;
     int processingSuccessRate;
     int weightLimit;
     int gatheringFishingLvl;
     int gatheringDropRate;
 
-    public StatsAlchemyLife(String rarity, String name, float cookingTime, int processingSuccessRate, int weightLimit, int gatheringFishingLvl, int gatheringDropRate) {
-        this.rarity = rarity;
-        this.name = name;
+    public StatsAlchemyLife(float cookingTime, int processingSuccessRate, int weightLimit, int gatheringFishingLvl, int gatheringDropRate) {
+//        this.rarity = rarity;
+//        this.name = name;
         this.cookingTime = cookingTime;
         this.processingSuccessRate = processingSuccessRate;
         this.weightLimit = weightLimit;
@@ -47,21 +47,21 @@ public class StatsAlchemyLife implements Serializable {
         this.gatheringDropRate = gatheringDropRate;
     }
 
-    public String getRarity() {
-        return rarity;
-    }
-
-    public void setRarity(String rarity) {
-        this.rarity = rarity;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
+//    public String getRarity() {
+//        return rarity;
+//    }
+//
+//    public void setRarity(String rarity) {
+//        this.rarity = rarity;
+//    }
+//
+//    public String getName() {
+//        return name;
+//    }
+//
+//    public void setName(String name) {
+//        this.name = name;
+//    }
 
     public float getCookingTime() {
         return cookingTime;

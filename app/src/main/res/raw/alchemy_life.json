@@ -1,0 +1,418 @@
+[
+  {
+    "type": "life",
+    "rarity": "common",
+    "name": "Imperfect Alchemy Stone of Life",
+    "icon": "alchemy_life_imperfect",
+    "item_effects": {
+      "cookingTime": 0.5,
+      "processingSuccessRate": 5,
+      "weightLimit": 0,
+      "gatheringFishingLvl": 0,
+      "gatheringDropRate": 0
+    }
+  },
+  {
+    "type": "life",
+    "rarity": "uncommon",
+    "name": "Imperfect Alchemy Stone of Life",
+    "icon": "alchemy_life_imperfect",
+    "item_effects": {
+      "cookingTime": 0.5,
+      "processingSuccessRate": 5,
+      "weightLimit": 15,
+      "gatheringFishingLvl": 0,
+      "gatheringDropRate": 0
+    }
+  },
+  {
+    "type": "life",
+    "rarity": "rare",
+    "name": "Imperfect Alchemy Stone of Life",
+    "icon": "alchemy_life_imperfect",
+    "item_effects": {
+      "cookingTime": 0.5,
+      "processingSuccessRate": 5,
+      "weightLimit": 15,
+      "gatheringFishingLvl": 1,
+      "gatheringDropRate": 0
+    }
+  },
+  {
+    "type": "life",
+    "rarity": "epic",
+    "name": "Imperfect Alchemy Stone of Life",
+    "icon": "alchemy_life_imperfect",
+    "item_effects": {
+      "cookingTime": 0.5,
+      "processingSuccessRate": 5,
+      "weightLimit": 15,
+      "gatheringFishingLvl": 1,
+      "gatheringDropRate": 3
+    }
+  },
+  {
+    "type": "life",
+    "rarity": "common",
+    "name": "Rough Alchemy Stone of Life",
+    "icon": "alchemy_life_rough",
+    "item_effects": {
+      "cookingTime": 0.7,
+      "processingSuccessRate": 7,
+      "weightLimit": 0,
+      "gatheringFishingLvl": 0,
+      "gatheringDropRate": 0
+    }
+  },
+  {
+    "type": "life",
+    "rarity": "uncommon",
+    "name": "Rough Alchemy Stone of Life",
+    "icon": "alchemy_life_rough",
+    "item_effects": {
+      "cookingTime": 0.7,
+      "processingSuccessRate": 7,
+      "weightLimit": 30,
+      "gatheringFishingLvl": 0,
+      "gatheringDropRate": 0
+    }
+  },
+  {
+    "type": "life",
+    "rarity": "rare",
+    "name": "Rough Alchemy Stone of Life",
+    "icon": "alchemy_life_rough",
+    "item_effects": {
+      "cookingTime": 0.7,
+      "processingSuccessRate": 7,
+      "weightLimit": 30,
+      "gatheringFishingLvl": 1,
+      "gatheringDropRate": 0
+    }
+  },
+  {
+    "type": "life",
+    "rarity": "epic",
+    "name": "Rough Alchemy Stone of Life",
+    "icon": "alchemy_life_rough",
+    "item_effects": {
+      "cookingTime": 0.7,
+      "processingSuccessRate": 7,
+      "weightLimit": 30,
+      "gatheringFishingLvl": 1,
+      "gatheringDropRate": 5
+    }
+  },
+  {
+    "type": "life",
+    "rarity": "common",
+    "name": "Polished Alchemy Stone of Life",
+    "icon": "alchemy_life_polished",
+    "item_effects": {
+      "cookingTime": 0.9,
+      "processingSuccessRate": 9,
+      "weightLimit": 0,
+      "gatheringFishingLvl": 0,
+      "gatheringDropRate": 0
+    }
+  },
+  {
+    "type": "life",
+    "rarity": "uncommon",
+    "name": "Polished Alchemy Stone of Life",
+    "icon": "alchemy_life_polished",
+    "item_effects": {
+      "cookingTime": 0.9,
+      "processingSuccessRate": 9,
+      "weightLimit": 45,
+      "gatheringFishingLvl": 0,
+      "gatheringDropRate": 0
+    }
+  },
+  {
+    "type": "life",
+    "rarity": "rare",
+    "name": "Polished Alchemy Stone of Life",
+    "icon": "alchemy_life_polished",
+    "item_effects": {
+      "cookingTime": 0.9,
+      "processingSuccessRate": 9,
+      "weightLimit": 45,
+      "gatheringFishingLvl": 1,
+      "gatheringDropRate": 0
+    }
+  },
+  {
+    "type": "life",
+    "rarity": "epic",
+    "name": "Polished Alchemy Stone of Life",
+    "icon": "alchemy_life_polished",
+    "item_effects": {
+      "cookingTime": 0.9,
+      "processingSuccessRate": 9,
+      "weightLimit": 45,
+      "gatheringFishingLvl": 1,
+      "gatheringDropRate": 7
+    }
+  },
+  {
+    "type": "life",
+    "rarity": "common",
+    "name": "Sturdy Alchemy Stone of Life",
+    "icon": "alchemy_life_sturdy",
+    "item_effects": {
+      "cookingTime": 1.1,
+      "processingSuccessRate": 11,
+      "weightLimit": 0,
+      "gatheringFishingLvl": 0,
+      "gatheringDropRate": 0
+    }
+  },
+  {
+    "type": "life",
+    "rarity": "uncommon",
+    "name": "Sturdy Alchemy Stone of Life",
+    "icon": "alchemy_life_sturdy",
+    "item_effects": {
+      "cookingTime": 1.1,
+      "processingSuccessRate": 11,
+      "weightLimit": 60,
+      "gatheringFishingLvl": 0,
+      "gatheringDropRate": 0
+    }
+  },
+  {
+    "type": "life",
+    "rarity": "rare",
+    "name": "Sturdy Alchemy Stone of Life",
+    "icon": "alchemy_life_sturdy",
+    "item_effects": {
+      "cookingTime": 1.1,
+      "processingSuccessRate": 11,
+      "weightLimit": 60,
+      "gatheringFishingLvl": 2,
+      "gatheringDropRate": 0
+    }
+  },
+  {
+    "type": "life",
+    "rarity": "epic",
+    "name": "Sturdy Alchemy Stone of Life",
+    "icon": "alchemy_life_sturdy",
+    "item_effects": {
+      "cookingTime": 1.1,
+      "processingSuccessRate": 11,
+      "weightLimit": 60,
+      "gatheringFishingLvl": 2,
+      "gatheringDropRate": 10
+    }
+  },
+  {
+    "type": "life",
+    "rarity": "common",
+    "name": "Sharp Alchemy Stone of Life",
+    "icon": "alchemy_life_sharp",
+    "item_effects": {
+      "cookingTime": 1.4,
+      "processingSuccessRate": 14,
+      "weightLimit": 0,
+      "gatheringFishingLvl": 0,
+      "gatheringDropRate": 0
+    }
+  },
+  {
+    "type": "life",
+    "rarity": "uncommon",
+    "name": "Sharp Alchemy Stone of Life",
+    "icon": "alchemy_life_sharp",
+    "item_effects": {
+      "cookingTime": 1.4,
+      "processingSuccessRate": 14,
+      "weightLimit": 75,
+      "gatheringFishingLvl": 0,
+      "gatheringDropRate": 0
+    }
+  },
+  {
+    "type": "life",
+    "rarity": "rare",
+    "name": "Sharp Alchemy Stone of Life",
+    "icon": "alchemy_life_sharp",
+    "item_effects": {
+      "cookingTime": 1.4,
+      "processingSuccessRate": 14,
+      "weightLimit": 75,
+      "gatheringFishingLvl": 2,
+      "gatheringDropRate": 0
+    }
+  },
+  {
+    "type": "life",
+    "rarity": "epic",
+    "name": "Sharp Alchemy Stone of Life",
+    "icon": "alchemy_life_sharp",
+    "item_effects": {
+      "cookingTime": 1.4,
+      "processingSuccessRate": 14,
+      "weightLimit": 75,
+      "gatheringFishingLvl": 2,
+      "gatheringDropRate": 13
+    }
+  },
+  {
+    "type": "life",
+    "rarity": " common",
+    "name": "Resplendent Alchemy Stone of Life",
+    "icon": "alchemy_life_resplendent",
+    "item_effects": {
+      "cookingTime": 1.7,
+      "processingSuccessRate": 17,
+      "weightLimit": 0,
+      "gatheringFishingLvl": 0,
+      "gatheringDropRate": 0
+    }
+  },
+  {
+    "type": "life",
+    "rarity": "uncommon",
+    "name": "Resplendent Alchemy Stone of Life",
+    "icon": "alchemy_life_resplendent",
+    "item_effects": {
+      "cookingTime": 1.7,
+      "processingSuccessRate": 17,
+      "weightLimit": 90,
+      "gatheringFishingLvl": 0,
+      "gatheringDropRate": 0
+    }
+  },
+  {
+    "type": "life",
+    "rarity": "rare",
+    "name": "Resplendent Alchemy Stone of Life",
+    "icon": "alchemy_life_resplendent",
+    "item_effects": {
+      "cookingTime": 1.7,
+      "processingSuccessRate": 17,
+      "weightLimit": 90,
+      "gatheringFishingLvl": 2,
+      "gatheringDropRate": 0
+    }
+  },
+  {
+    "type": "life",
+    "rarity": "epic",
+    "name": "Resplendent Alchemy Stone of Life",
+    "icon": "alchemy_life_resplendent",
+    "item_effects": {
+      "cookingTime": 1.7,
+      "processingSuccessRate": 17,
+      "weightLimit": 90,
+      "gatheringFishingLvl": 2,
+      "gatheringDropRate": 16
+    }
+  },
+  {
+    "type": "life",
+    "rarity": "common",
+    "name": "Splendid Alchemy Stone of Life",
+    "icon": "alchemy_life_splendid",
+    "item_effects": {
+      "cookingTime": 2.0,
+      "processingSuccessRate": 20,
+      "weightLimit": 0,
+      "gatheringFishingLvl": 0,
+      "gatheringDropRate": 0
+    }
+  },
+  {
+    "type": "life",
+    "rarity": "uncommon",
+    "name": "Splendid Alchemy Stone of Life",
+    "icon": "alchemy_life_splendid",
+    "item_effects": {
+      "cookingTime": 2.0,
+      "processingSuccessRate": 20,
+      "weightLimit": 105,
+      "gatheringFishingLvl": 0,
+      "gatheringDropRate": 0
+    }
+  },
+  {
+    "type": "life",
+    "rarity": "rare",
+    "name": "Splendid Alchemy Stone of Life",
+    "icon": "alchemy_life_splendid",
+    "item_effects": {
+      "cookingTime": 2.0,
+      "processingSuccessRate": 20,
+      "weightLimit": 105,
+      "gatheringFishingLvl": 3,
+      "gatheringDropRate": 0
+    }
+  },
+  {
+    "type": "life",
+    "rarity": "epic",
+    "name": "Splendid Alchemy Stone of Life",
+    "icon": "alchemy_life_splendid",
+    "item_effects": {
+      "cookingTime": 2.0,
+      "processingSuccessRate": 20,
+      "weightLimit": 105,
+      "gatheringFishingLvl": 3,
+      "gatheringDropRate": 20
+    }
+  },
+  {
+    "type": "life",
+    "rarity": "common",
+    "name": "Shining Alchemy Stone of Life",
+    "icon": "alchemy_life_shining",
+    "item_effects": {
+      "cookingTime": 2.5,
+      "processingSuccessRate": 25,
+      "weightLimit": 0,
+      "gatheringFishingLvl": 0,
+      "gatheringDropRate": 0
+    }
+  },
+  {
+    "type": "life",
+    "rarity": "uncommon",
+    "name": "Shining Alchemy Stone of Life",
+    "icon": "alchemy_life_shining",
+    "item_effects": {
+      "cookingTime": 2.5,
+      "processingSuccessRate": 25,
+      "weightLimit": 120,
+      "gatheringFishingLvl": 0,
+      "gatheringDropRate": 0
+    }
+  },
+  {
+    "type": "life",
+    "rarity": "rare",
+    "name": "Shining Alchemy Stone of Life",
+    "icon": "alchemy_life_shining",
+    "item_effects": {
+      "cookingTime": 2.5,
+      "processingSuccessRate": 25,
+      "weightLimit": 120,
+      "gatheringFishingLvl": 3,
+      "gatheringDropRate": 0
+    }
+  },
+  {
+    "type": "life",
+    "rarity": "epic",
+    "name": "Shining Alchemy Stone of Life",
+    "icon": "alchemy_life_shining",
+    "item_effects": {
+      "cookingTime": 2.5,
+      "processingSuccessRate": 25,
+      "weightLimit": 120,
+      "gatheringFishingLvl": 3,
+      "gatheringDropRate": 25
+    }
+  }
+]

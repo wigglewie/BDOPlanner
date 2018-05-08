@@ -23,6 +23,7 @@ import org.json.JSONObject;
 import java.io.InputStreamReader;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 
 public class GearActivity extends AppCompatActivity implements View.OnClickListener, View.OnLongClickListener {
@@ -32,6 +33,9 @@ public class GearActivity extends AppCompatActivity implements View.OnClickListe
     private ArrayList<ItemAccessory> belts;
     private ArrayList<ItemAccessory> necklaces;
     private ArrayList<ItemAlchemyStone> alchemyStones;
+    private ArrayList<ItemAlchemyStone> alchemyStonesDestruction;
+    private ArrayList<ItemAlchemyStone> alchemyStonesProtection;
+    private ArrayList<ItemAlchemyStone> alchemyStonesLife;
     private ArrayList<StatsAlchemyDestruction> adStatsDestruction;
     private ArrayList<StatsAlchemyProtection> adStatsProtection;
     private ArrayList<StatsAlchemyLife> adStatsLife;
@@ -287,7 +291,7 @@ public class GearActivity extends AppCompatActivity implements View.OnClickListe
 
                         } else if (alchemyStoneType.equals("life")) {
 
-                            viewCookingTime.setText(Float.toString(statsLife.cookingTime));
+                            viewCookingTime.setText(Double.toString(statsLife.cookingTime));
                             viewProcessingSuccessRate.setText(Integer.toString(statsLife.processingSuccessRate));
                             viewWeightLimit.setText(Integer.toString(statsLife.weightLimit));
                             viewGatheringFishingLvl.setText(Integer.toString(statsLife.gatheringFishingLvl));
@@ -352,7 +356,15 @@ public class GearActivity extends AppCompatActivity implements View.OnClickListe
         Gson gson = new Gson();
         Type type = new TypeToken<ArrayList<ItemAlchemyStone>>() {
         }.getType();
-        alchemyStones = gson.fromJson(new InputStreamReader(getResources().openRawResource(R.raw.test)), type);
+        alchemyStonesDestruction = gson.fromJson(new InputStreamReader(getResources().openRawResource(R.raw.alchemy_destruction)), type);
+        alchemyStonesProtection = gson.fromJson(new InputStreamReader(getResources().openRawResource(R.raw.alchemy_protection)), type);
+        alchemyStonesLife = gson.fromJson(new InputStreamReader(getResources().openRawResource(R.raw.alchemy_life)), type);
+
+        alchemyStones = new ArrayList<>();
+        alchemyStones.addAll(alchemyStonesDestruction);
+        alchemyStones.addAll(alchemyStonesProtection);
+        alchemyStones.addAll(alchemyStonesLife);
+        getClass();
 
 //        try {
 //            JSONObject object = new JSONObject("test.json");
@@ -553,19 +565,44 @@ public class GearActivity extends AppCompatActivity implements View.OnClickListe
                 case REQUEST_CODE_ALCHEMY_STONE:
                     alchemyInit(data);
                     rarityResource = rarityCheck(rarity);
-                    viewAlchemyStone.setBackgroundResource(rarityResource);
-                    viewAlchemyStone.setImageResource(icon);
-
                     alchemyStoneType = alchemyStone.type;
+
+                    HashMap hashMap;
+                    ArrayList list;
+
                     switch (alchemyStoneType) {
                         case "destruction":
-                            statsDestr = (StatsAlchemyDestruction) alchemyStone.item_effects;
+
+                            hashMap = (HashMap) alchemyStone.item_effects;
+                            list = new ArrayList<>(hashMap.values());
+
+                            viewAlchemyStone.setBackgroundResource(rarityResource);
+                            viewAlchemyStone.setImageResource(this.getResources().getIdentifier("drawable/" + alchemyStone.icon, null, this.getPackageName()));
+                            statsDestr = new StatsAlchemyDestruction(((Double) list.get(0)).intValue(), ((Double) list.get(1)).intValue(), ((Double) list.get(2)).intValue(), ((Double) list.get(3)).intValue(), ((Double) list.get(4)).intValue());
+
                             break;
                         case "protection":
-                            statsProt = (StatsAlchemyProtection) alchemyStone.item_effects;
+
+                            hashMap = (HashMap) alchemyStone.item_effects;
+                            list = new ArrayList<>(hashMap.values());
+
+                            viewAlchemyStone.setBackgroundResource(rarityResource);
+                            viewAlchemyStone.setImageResource(this.getResources().getIdentifier("drawable/" + alchemyStone.icon, null, this.getPackageName()));
+
+                            statsProt = new StatsAlchemyProtection(((Double) list.get(0)).intValue(), ((Double) list.get(1)).intValue(), ((Double) list.get(2)).intValue(), ((Double) list.get(3)).intValue());
+
                             break;
                         case "life":
-                            statsLife = (StatsAlchemyLife) alchemyStone.item_effects;
+
+                            hashMap = (HashMap) alchemyStone.item_effects;
+                            list = new ArrayList<>(hashMap.values());
+
+                            viewAlchemyStone.setBackgroundResource(rarityResource);
+                            viewAlchemyStone.setImageResource(this.getResources().getIdentifier("drawable/" + alchemyStone.icon, null, this.getPackageName()));
+                            statsLife = new StatsAlchemyLife(((Double) list.get(0)).intValue(), ((Double) list.get(1)).intValue(), ((Double) list.get(2)).intValue(), ((Double) list.get(3)).intValue(), ((Double) list.get(4)).intValue());
+
+                            getClass();
+
                             break;
                     }
                     gear.set(0, alchemyStone);
