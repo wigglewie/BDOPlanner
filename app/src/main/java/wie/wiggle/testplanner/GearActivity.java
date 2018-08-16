@@ -194,6 +194,8 @@ public class GearActivity extends AppCompatActivity implements View.OnClickListe
     TextView adValueAttackSpeed;
     TextView adValueCastingSpeed;
 
+    //test
+
     private Character character;
 
     @Override
